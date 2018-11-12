@@ -22,8 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //设置窗体颜色
         window?.backgroundColor = UIColor.white
         //创建根视图器为首页
-        let rootVC = YJTabbarViewController()
-        window?.rootViewController = rootVC
+         UINavigationBar.appearance().barTintColor = ColorNav
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        if true{
+            let AppleicationNav = UINavigationController(rootViewController:YJLoginViewController())
+            window?.rootViewController = AppleicationNav
+        }else{
+            let rootVC = YJTabbarViewController()
+            window?.rootViewController = rootVC
+        }
         window?.makeKeyAndVisible()
         return true
     }
@@ -53,7 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 extension AppDelegate{
-    
     
     
     

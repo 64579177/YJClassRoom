@@ -1,4 +1,4 @@
-module Pods_YiJiuClassRoom {
+framework module Pods_YiJiuClassRoom {
   umbrella header "Pods-YiJiuClassRoom-umbrella.h"
 
   export *

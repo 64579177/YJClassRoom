@@ -17,24 +17,28 @@ PODS:
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
+  - SnapKit (4.0.1)
   - UIColor-Hex (1.3.4)
 
 DEPENDENCIES:
   - AFNetworking
   - SDWebImage (= 3.7.3)
+  - SnapKit (~> 4.0.0)
   - UIColor-Hex (~> 1.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - SDWebImage
+    - SnapKit
     - UIColor-Hex
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   UIColor-Hex: fa81910f914482931c150fd73a09e77ff9226ec8
 
-PODFILE CHECKSUM: d71d8d86d324e7355fdc8cb0c0fc983952a655a4
+PODFILE CHECKSUM: c059c829275ac5f9989f7f211b7578bee1184da7
 
 COCOAPODS: 1.5.3
