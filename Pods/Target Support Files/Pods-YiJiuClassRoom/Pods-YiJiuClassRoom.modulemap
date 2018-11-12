@@ -1,0 +1,6 @@
+module Pods_YiJiuClassRoom {
+  umbrella header "Pods-YiJiuClassRoom-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E5B1B0E5CE3DB4F59B19096 /* libPods-YiJiuClassRoom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E1F3A3FE9CC206D1111396 /* libPods-YiJiuClassRoom.a */; };
 		717DE3A62199212900C99322 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE3A52199212900C99322 /* AppDelegate.swift */; };
 		717DE3A82199212900C99322 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE3A72199212900C99322 /* ViewController.swift */; };
 		717DE3AB2199212A00C99322 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717DE3A92199212A00C99322 /* Main.storyboard */; };
 		717DE3AD2199213000C99322 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 717DE3AC2199213000C99322 /* Assets.xcassets */; };
 		717DE3B02199213000C99322 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717DE3AE2199213000C99322 /* LaunchScreen.storyboard */; };
+		717DE3C0219948A800C99322 /* YJTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE3BF219948A800C99322 /* YJTabbarViewController.swift */; };
+		717DE3CE21994A3B00C99322 /* ApplicationMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE3CD21994A3B00C99322 /* ApplicationMainController.swift */; };
+		717DE3D021994A8D00C99322 /* MyApplicationMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE3CF21994A8D00C99322 /* MyApplicationMainController.swift */; };
+		717DE3D221994AE600C99322 /* YJBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE3D121994AE600C99322 /* YJBaseViewController.swift */; };
+		717DE3D621994BDA00C99322 /* MyMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE3D521994BDA00C99322 /* MyMainViewController.swift */; };
+		71B521C321994DC2000E7792 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B521C221994DC2000E7792 /* constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33E1F3A3FE9CC206D1111396 /* libPods-YiJiuClassRoom.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YiJiuClassRoom.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		717DE3A22199212900C99322 /* YiJiuClassRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YiJiuClassRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		717DE3A52199212900C99322 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		717DE3A72199212900C99322 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +30,14 @@
 		717DE3AC2199213000C99322 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		717DE3AF2199213000C99322 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		717DE3B12199213000C99322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		717DE3BF219948A800C99322 /* YJTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJTabbarViewController.swift; sourceTree = "<group>"; };
+		717DE3CD21994A3B00C99322 /* ApplicationMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationMainController.swift; sourceTree = "<group>"; };
+		717DE3CF21994A8D00C99322 /* MyApplicationMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplicationMainController.swift; sourceTree = "<group>"; };
+		717DE3D121994AE600C99322 /* YJBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJBaseViewController.swift; sourceTree = "<group>"; };
+		717DE3D521994BDA00C99322 /* MyMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMainViewController.swift; sourceTree = "<group>"; };
+		71B521C221994DC2000E7792 /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
+		9920BBBC1EF83ED0F20D3EC5 /* Pods-YiJiuClassRoom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YiJiuClassRoom.release.xcconfig"; path = "Pods/Target Support Files/Pods-YiJiuClassRoom/Pods-YiJiuClassRoom.release.xcconfig"; sourceTree = "<group>"; };
+		C33003BC982B47E8D0F183E9 /* Pods-YiJiuClassRoom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YiJiuClassRoom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YiJiuClassRoom/Pods-YiJiuClassRoom.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +45,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E5B1B0E5CE3DB4F59B19096 /* libPods-YiJiuClassRoom.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2951C2EB3AAECDFE31A8FAB1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C33003BC982B47E8D0F183E9 /* Pods-YiJiuClassRoom.debug.xcconfig */,
+				9920BBBC1EF83ED0F20D3EC5 /* Pods-YiJiuClassRoom.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6E3ACD8C3F8D2D115776F514 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				33E1F3A3FE9CC206D1111396 /* libPods-YiJiuClassRoom.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		717DE3992199212900C99322 = {
 			isa = PBXGroup;
 			children = (
 				717DE3A42199212900C99322 /* YiJiuClassRoom */,
 				717DE3A32199212900C99322 /* Products */,
+				2951C2EB3AAECDFE31A8FAB1 /* Pods */,
+				6E3ACD8C3F8D2D115776F514 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +90,10 @@
 		717DE3A42199212900C99322 /* YiJiuClassRoom */ = {
 			isa = PBXGroup;
 			children = (
+				717DE3BC2199484600C99322 /* BaseGroup */,
+				717DE3B7219931A400C99322 /* Classes */,
+				717DE3B8219931B500C99322 /* Common */,
+				717DE3B9219931FD00C99322 /* Libs */,
 				717DE3A52199212900C99322 /* AppDelegate.swift */,
 				717DE3A72199212900C99322 /* ViewController.swift */,
 				717DE3A92199212A00C99322 /* Main.storyboard */,
@@ -64,6 +104,152 @@
 			path = YiJiuClassRoom;
 			sourceTree = "<group>";
 		};
+		717DE3B7219931A400C99322 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				717DE3C5219949AB00C99322 /* My(我的) */,
+				717DE3C42199496400C99322 /* MyApplication(我的报名) */,
+				717DE3BB2199327000C99322 /* Application(课程报名) */,
+				717DE3BA2199322600C99322 /* Login(登录) */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		717DE3B8219931B500C99322 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		717DE3B9219931FD00C99322 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		717DE3BA2199322600C99322 /* Login(登录) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Login(登录)";
+			sourceTree = "<group>";
+		};
+		717DE3BB2199327000C99322 /* Application(课程报名) */ = {
+			isa = PBXGroup;
+			children = (
+				717DE3C32199495B00C99322 /* View */,
+				717DE3C22199495400C99322 /* Model */,
+				717DE3C12199494400C99322 /* Controller */,
+			);
+			path = "Application(课程报名)";
+			sourceTree = "<group>";
+		};
+		717DE3BC2199484600C99322 /* BaseGroup */ = {
+			isa = PBXGroup;
+			children = (
+				717DE3D721994C4200C99322 /* BaseClasses */,
+			);
+			path = BaseGroup;
+			sourceTree = "<group>";
+		};
+		717DE3C12199494400C99322 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				717DE3CD21994A3B00C99322 /* ApplicationMainController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		717DE3C22199495400C99322 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		717DE3C32199495B00C99322 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		717DE3C42199496400C99322 /* MyApplication(我的报名) */ = {
+			isa = PBXGroup;
+			children = (
+				717DE3C8219949D800C99322 /* View */,
+				717DE3C7219949D100C99322 /* Model */,
+				717DE3C6219949C800C99322 /* Controller */,
+			);
+			path = "MyApplication(我的报名)";
+			sourceTree = "<group>";
+		};
+		717DE3C5219949AB00C99322 /* My(我的) */ = {
+			isa = PBXGroup;
+			children = (
+				717DE3CB219949FA00C99322 /* View */,
+				717DE3CA219949F400C99322 /* Model */,
+				717DE3C9219949E100C99322 /* Controller */,
+			);
+			path = "My(我的)";
+			sourceTree = "<group>";
+		};
+		717DE3C6219949C800C99322 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				717DE3CF21994A8D00C99322 /* MyApplicationMainController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		717DE3C7219949D100C99322 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		717DE3C8219949D800C99322 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		717DE3C9219949E100C99322 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				717DE3D521994BDA00C99322 /* MyMainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		717DE3CA219949F400C99322 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		717DE3CB219949FA00C99322 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		717DE3D721994C4200C99322 /* BaseClasses */ = {
+			isa = PBXGroup;
+			children = (
+				717DE3BF219948A800C99322 /* YJTabbarViewController.swift */,
+				717DE3D121994AE600C99322 /* YJBaseViewController.swift */,
+				71B521C221994DC2000E7792 /* constant.swift */,
+			);
+			path = BaseClasses;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,6 +257,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 717DE3B42199213000C99322 /* Build configuration list for PBXNativeTarget "YiJiuClassRoom" */;
 			buildPhases = (
+				B50E89AC63E38A19B000CCB9 /* [CP] Check Pods Manifest.lock */,
 				717DE39E2199212900C99322 /* Sources */,
 				717DE39F2199212900C99322 /* Frameworks */,
 				717DE3A02199212900C99322 /* Resources */,
@@ -130,13 +317,40 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B50E89AC63E38A19B000CCB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YiJiuClassRoom-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		717DE39E2199212900C99322 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				717DE3D021994A8D00C99322 /* MyApplicationMainController.swift in Sources */,
 				717DE3A82199212900C99322 /* ViewController.swift in Sources */,
+				717DE3D621994BDA00C99322 /* MyMainViewController.swift in Sources */,
+				71B521C321994DC2000E7792 /* constant.swift in Sources */,
+				717DE3C0219948A800C99322 /* YJTabbarViewController.swift in Sources */,
 				717DE3A62199212900C99322 /* AppDelegate.swift in Sources */,
+				717DE3D221994AE600C99322 /* YJBaseViewController.swift in Sources */,
+				717DE3CE21994A3B00C99322 /* ApplicationMainController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,34 +492,38 @@
 		};
 		717DE3B52199213000C99322 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C33003BC982B47E8D0F183E9 /* Pods-YiJiuClassRoom.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = YiJiuClassRoom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = navigition.YiJiuClassRoom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		717DE3B62199213000C99322 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9920BBBC1EF83ED0F20D3EC5 /* Pods-YiJiuClassRoom.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = YiJiuClassRoom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = navigition.YiJiuClassRoom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
