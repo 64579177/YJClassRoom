@@ -13,5 +13,5 @@ target 'YiJiuClassRoom' do
     pod 'SnapKit','~>4.0.0'
     pod 'SwiftyJSON', '~> 3.1.4'
     pod 'MBProgressHUD'
-    
+    pod 'IQKeyboardManagerSwift', '5.0.0'
 end

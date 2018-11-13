@@ -14,10 +14,6 @@ class YJBaseViewController: UIViewController {
     override func viewDidLoad() {
         self.view.backgroundColor = ColorBackView
         
-        
-        (self as AnyObject).navigationBar.barTintColor = ColorNav
-        //设置导航栏的字体颜色
-        (self as AnyObject).navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
     }
     
 }

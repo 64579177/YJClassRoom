@@ -36,6 +36,9 @@
 		719EAB5E219A696B002C7FBE /* PrintOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB53219A696A002C7FBE /* PrintOptions.swift */; };
 		719EAB6A219A6D29002C7FBE /* YJLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB69219A6D29002C7FBE /* YJLoginModel.swift */; };
 		719EAB6C219A6DC6002C7FBE /* YJLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB6B219A6DC6002C7FBE /* YJLoginService.swift */; };
+		719EAB6E219A709B002C7FBE /* YJNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB6D219A709B002C7FBE /* YJNavigationController.swift */; };
+		719EAB71219A73B5002C7FBE /* YJButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB70219A73B5002C7FBE /* YJButton.swift */; };
+		719EAB73219A7487002C7FBE /* YJView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB72219A7487002C7FBE /* YJView.swift */; };
 		71B521C321994DC2000E7792 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B521C221994DC2000E7792 /* constant.swift */; };
 		71B521C621997CD5000E7792 /* YJLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B521C521997CD5000E7792 /* YJLoginViewController.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +74,9 @@
 		719EAB53219A696A002C7FBE /* PrintOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintOptions.swift; sourceTree = "<group>"; };
 		719EAB69219A6D29002C7FBE /* YJLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJLoginModel.swift; sourceTree = "<group>"; };
 		719EAB6B219A6DC6002C7FBE /* YJLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJLoginService.swift; sourceTree = "<group>"; };
+		719EAB6D219A709B002C7FBE /* YJNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJNavigationController.swift; sourceTree = "<group>"; };
+		719EAB70219A73B5002C7FBE /* YJButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJButton.swift; sourceTree = "<group>"; };
+		719EAB72219A7487002C7FBE /* YJView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJView.swift; sourceTree = "<group>"; };
 		71B521C221994DC2000E7792 /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 		71B521C521997CD5000E7792 /* YJLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJLoginViewController.swift; sourceTree = "<group>"; };
 		9920BBBC1EF83ED0F20D3EC5 /* Pods-YiJiuClassRoom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YiJiuClassRoom.release.xcconfig"; path = "Pods/Target Support Files/Pods-YiJiuClassRoom/Pods-YiJiuClassRoom.release.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +196,7 @@
 		717DE3BC2199484600C99322 /* BaseGroup */ = {
 			isa = PBXGroup;
 			children = (
+				719EAB6F219A7387002C7FBE /* Category */,
 				719EAB2E219A5F65002C7FBE /* YJUtils */,
 				717DE3D721994C4200C99322 /* BaseClasses */,
 			);
@@ -288,6 +295,7 @@
 				717DE3BF219948A800C99322 /* YJTabbarViewController.swift */,
 				717DE3D121994AE600C99322 /* YJBaseViewController.swift */,
 				71B521C221994DC2000E7792 /* constant.swift */,
+				719EAB6D219A709B002C7FBE /* YJNavigationController.swift */,
 			);
 			path = BaseClasses;
 			sourceTree = "<group>";
@@ -346,6 +354,15 @@
 				719EAB69219A6D29002C7FBE /* YJLoginModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		719EAB6F219A7387002C7FBE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				719EAB70219A73B5002C7FBE /* YJButton.swift */,
+				719EAB72219A7487002C7FBE /* YJView.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -446,6 +463,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-YiJiuClassRoom/Pods-YiJiuClassRoom-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -457,6 +475,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -489,6 +508,7 @@
 				71B521C321994DC2000E7792 /* constant.swift in Sources */,
 				719EAB56219A696B002C7FBE /* ConversionOptions.swift in Sources */,
 				719EAB33219A603B002C7FBE /* YJNetWorkResponse.swift in Sources */,
+				719EAB71219A73B5002C7FBE /* YJButton.swift in Sources */,
 				717DE3C0219948A800C99322 /* YJTabbarViewController.swift in Sources */,
 				717DE3A62199212900C99322 /* AppDelegate.swift in Sources */,
 				719EAB31219A5FD3002C7FBE /* YJConstantUrl.swift in Sources */,
@@ -496,10 +516,12 @@
 				719EAB59219A696B002C7FBE /* EVDictionaryExtension.swift in Sources */,
 				71B521C621997CD5000E7792 /* YJLoginViewController.swift in Sources */,
 				719EAB6A219A6D29002C7FBE /* YJLoginModel.swift in Sources */,
+				719EAB73219A7487002C7FBE /* YJView.swift in Sources */,
 				717DE3D221994AE600C99322 /* YJBaseViewController.swift in Sources */,
 				717DE3CE21994A3B00C99322 /* ApplicationMainController.swift in Sources */,
 				719EAB46219A67F8002C7FBE /* Account.swift in Sources */,
 				719EAB5B219A696B002C7FBE /* EVReflectable.swift in Sources */,
+				719EAB6E219A709B002C7FBE /* YJNavigationController.swift in Sources */,
 				719EAB58219A696B002C7FBE /* EVArrayExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

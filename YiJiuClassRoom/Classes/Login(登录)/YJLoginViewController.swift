@@ -160,9 +160,8 @@ class YJLoginViewController: YJBaseViewController {
     
     dynamic func loginClick(){
         
-        
         let rootVC = YJTabbarViewController();
-        UIApplication().keyWindow?.rootViewController = rootVC
+        UIApplication.shared.keyWindow?.rootViewController = rootVC
     }
 }
 
