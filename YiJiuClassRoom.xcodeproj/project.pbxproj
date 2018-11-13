@@ -39,6 +39,12 @@
 		719EAB6E219A709B002C7FBE /* YJNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB6D219A709B002C7FBE /* YJNavigationController.swift */; };
 		719EAB71219A73B5002C7FBE /* YJButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB70219A73B5002C7FBE /* YJButton.swift */; };
 		719EAB73219A7487002C7FBE /* YJView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB72219A7487002C7FBE /* YJView.swift */; };
+		719EAB75219A7E39002C7FBE /* SlideshowDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB74219A7E39002C7FBE /* SlideshowDisplayer.swift */; };
+		719EAB77219A7F24002C7FBE /* YJADInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB76219A7F24002C7FBE /* YJADInfoModel.swift */; };
+		719EAB79219A956D002C7FBE /* YJApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB78219A956D002C7FBE /* YJApplicationService.swift */; };
+		719EAB7B219A9AA4002C7FBE /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB7A219A9AA4002C7FBE /* Tool.swift */; };
+		719EAB7D219A9E75002C7FBE /* YJApplicationClassListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB7C219A9E75002C7FBE /* YJApplicationClassListModel.swift */; };
+		719EAB95219AD0DD002C7FBE /* YJApplicationDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB94219AD0DD002C7FBE /* YJApplicationDisplayCell.swift */; };
 		71B521C321994DC2000E7792 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B521C221994DC2000E7792 /* constant.swift */; };
 		71B521C621997CD5000E7792 /* YJLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B521C521997CD5000E7792 /* YJLoginViewController.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +83,12 @@
 		719EAB6D219A709B002C7FBE /* YJNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJNavigationController.swift; sourceTree = "<group>"; };
 		719EAB70219A73B5002C7FBE /* YJButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJButton.swift; sourceTree = "<group>"; };
 		719EAB72219A7487002C7FBE /* YJView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJView.swift; sourceTree = "<group>"; };
+		719EAB74219A7E39002C7FBE /* SlideshowDisplayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideshowDisplayer.swift; path = "../../../../automini-ios/AutoMini-ios/JYUtils/JYCommon/SlideshowDisplayer.swift"; sourceTree = "<group>"; };
+		719EAB76219A7F24002C7FBE /* YJADInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJADInfoModel.swift; sourceTree = "<group>"; };
+		719EAB78219A956D002C7FBE /* YJApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplicationService.swift; sourceTree = "<group>"; };
+		719EAB7A219A9AA4002C7FBE /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tool.swift; path = "../../../../automini-ios/AutoMini-ios/JYModule/JYMain/JYOrder_Module/Module_Utils/Tool.swift"; sourceTree = "<group>"; };
+		719EAB7C219A9E75002C7FBE /* YJApplicationClassListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplicationClassListModel.swift; sourceTree = "<group>"; };
+		719EAB94219AD0DD002C7FBE /* YJApplicationDisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplicationDisplayCell.swift; sourceTree = "<group>"; };
 		71B521C221994DC2000E7792 /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 		71B521C521997CD5000E7792 /* YJLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJLoginViewController.swift; sourceTree = "<group>"; };
 		9920BBBC1EF83ED0F20D3EC5 /* Pods-YiJiuClassRoom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YiJiuClassRoom.release.xcconfig"; path = "Pods/Target Support Files/Pods-YiJiuClassRoom/Pods-YiJiuClassRoom.release.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +174,8 @@
 		717DE3B8219931B500C99322 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				719EAB7A219A9AA4002C7FBE /* Tool.swift */,
+				719EAB74219A7E39002C7FBE /* SlideshowDisplayer.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -189,6 +203,7 @@
 				717DE3C32199495B00C99322 /* View */,
 				717DE3C22199495400C99322 /* Model */,
 				717DE3C12199494400C99322 /* Controller */,
+				719EAB78219A956D002C7FBE /* YJApplicationService.swift */,
 			);
 			path = "Application(课程报名)";
 			sourceTree = "<group>";
@@ -214,6 +229,8 @@
 		717DE3C22199495400C99322 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				719EAB76219A7F24002C7FBE /* YJADInfoModel.swift */,
+				719EAB7C219A9E75002C7FBE /* YJApplicationClassListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +238,7 @@
 		717DE3C32199495B00C99322 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				719EAB94219AD0DD002C7FBE /* YJApplicationDisplayCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -464,6 +482,7 @@
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -476,6 +495,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -497,7 +517,9 @@
 			files = (
 				719EAB5C219A696B002C7FBE /* EVReflection.swift in Sources */,
 				717DE3D021994A8D00C99322 /* MyApplicationMainController.swift in Sources */,
+				719EAB95219AD0DD002C7FBE /* YJApplicationDisplayCell.swift in Sources */,
 				719EAB57219A696B002C7FBE /* DeserializationStatus.swift in Sources */,
+				719EAB7B219A9AA4002C7FBE /* Tool.swift in Sources */,
 				719EAB42219A648A002C7FBE /* YJNetWorkTool.swift in Sources */,
 				719EAB5A219A696B002C7FBE /* EVObject.swift in Sources */,
 				717DE3A82199212900C99322 /* ViewController.swift in Sources */,
@@ -510,7 +532,10 @@
 				719EAB33219A603B002C7FBE /* YJNetWorkResponse.swift in Sources */,
 				719EAB71219A73B5002C7FBE /* YJButton.swift in Sources */,
 				717DE3C0219948A800C99322 /* YJTabbarViewController.swift in Sources */,
+				719EAB7D219A9E75002C7FBE /* YJApplicationClassListModel.swift in Sources */,
+				719EAB77219A7F24002C7FBE /* YJADInfoModel.swift in Sources */,
 				717DE3A62199212900C99322 /* AppDelegate.swift in Sources */,
+				719EAB79219A956D002C7FBE /* YJApplicationService.swift in Sources */,
 				719EAB31219A5FD3002C7FBE /* YJConstantUrl.swift in Sources */,
 				719EAB44219A65CE002C7FBE /* YJNetWorkError.swift in Sources */,
 				719EAB59219A696B002C7FBE /* EVDictionaryExtension.swift in Sources */,
@@ -518,6 +543,7 @@
 				719EAB6A219A6D29002C7FBE /* YJLoginModel.swift in Sources */,
 				719EAB73219A7487002C7FBE /* YJView.swift in Sources */,
 				717DE3D221994AE600C99322 /* YJBaseViewController.swift in Sources */,
+				719EAB75219A7E39002C7FBE /* SlideshowDisplayer.swift in Sources */,
 				717DE3CE21994A3B00C99322 /* ApplicationMainController.swift in Sources */,
 				719EAB46219A67F8002C7FBE /* Account.swift in Sources */,
 				719EAB5B219A696B002C7FBE /* EVReflectable.swift in Sources */,

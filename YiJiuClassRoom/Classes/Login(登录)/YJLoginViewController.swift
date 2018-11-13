@@ -159,6 +159,23 @@ class YJLoginViewController: YJBaseViewController {
     }
     
     dynamic func loginClick(){
+//        
+//        YJLoginService.requestLogin(userId: self.userNameTxt.text ,passWord: self.pwdTxt.text) { (jyloginmodel, message,code) in
+//            Tool.hideLodingOnWindow()
+//            
+//            guard jyloginmodel?.id == nil || jyloginmodel?.id == "" else{
+//                //登录成功
+//                self.view.setLoginInfo(greeting: jyloginmodel,isSuccess: true,code: 200)
+//                return
+//            }
+//            //登录失败
+//            if let code = code {
+//                Tool.showHUDWithText(text: message)
+//                self.view.setLoginInfo(greeting: nil,isSuccess: false,code: code)
+//            }else{
+//                Tool.showHUDWithText(text: message)
+//            }
+//        }
         
         let rootVC = YJTabbarViewController();
         UIApplication.shared.keyWindow?.rootViewController = rootVC

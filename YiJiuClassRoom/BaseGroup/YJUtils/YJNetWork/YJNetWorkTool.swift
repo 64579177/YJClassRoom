@@ -10,6 +10,9 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+
+
+
 class YJNetWorkTool: NSObject {
     
     
@@ -133,49 +136,26 @@ extension YJNetWorkTool {
     }
     
     static func getHTTPHeaders() -> [String : String] {
-        //    app 端和小程序每次请求必须带的header值，这四个header 会根据feign自动传递到S层的服务
-        //    merchantCode   商户code(登录后的操作必传)
-        //    version        小程序或者app的版本号
-        //    appid          小程序是微信的appid,app是大数据定义的appid
-        //    tokenId        登陆后的tokenID  (登录后的操作必传)
-        // api版本
-        //        var headers = [
-        //            "version": "1.0.0",
-        //            "appid": "AutoMini-ios",
-        //
-        //            ]
-        var dic = ["version": "1.0.0","appid": "XhMnE2cDN2491rSJVamAfRLrxcM5I4EU",]
-        dic["lat"] = "0"
-        dic["lon"] = "0"
-        dic["cityId"] = "0"
-        dic["deviceid"] = UIDevice.current.identifierForVendor?.uuidString;
-        dic["devicebrand"] = YJNetWorkTool.deviceName()
-        dic["deviceresolution"] = String.init(format: "%.0fx%.0f",StyleScreen.resolutionWidth,StyleScreen.resolutionHeight)
-        dic["timestamp"] = String.init(format: "%.f", Date().timeIntervalSince1970 * 1000)
-        dic["systembrand"] = String.init(format: "iOS %@",UIDevice.current.systemVersion)
-        let infoDic = Bundle.main.infoDictionary;
-        dic["version"] = infoDic?["CFBundleShortVersionString"] as? String
-        dic["APPkey"] = "XhMnE2cDN2491rSJVamAfRLrxcM5I4EU"
+       
+//        var dic = ["version": "1.0.0"]
+//        dic["deviceid"] = UIDevice.current.identifierForVendor?.uuidString;
+//        dic["devicebrand"] = YJNetWorkTool.deviceName()
+//        dic["deviceresolution"] = String.init(format: "%.0fx%.0f",StyleScreen.resolutionWidth,StyleScreen.resolutionHeight)
+//        dic["timestamp"] = String.init(format: "%.f", Date().timeIntervalSince1970 * 1000)
+//        dic["systembrand"] = String.init(format: "iOS %@",UIDevice.current.systemVersion)
+//        let infoDic = Bundle.main.infoDictionary;
+//        dic["version"] = infoDic?["CFBundleShortVersionString"] as? String
+//        dic["openkey"] = "5be8235eb67a7_2353"
+//
+//        dic["cookie"] = UserDefaults.standard.string(forKey: "cookie")
         
-        let sign: String = "APPkey=XhMnE2cDN2491rSJVamAfRLrxcM5I4EU&" + "cityId=\(dic["cityId"]!)&" + "devicebrand=\(dic["devicebrand"]!)&" + "deviceid=\(dic["deviceid"]!)&" + "deviceresolution=\(dic["deviceresolution"]!)&" + "lat=\(dic["lat"]!)&" + "lon=\(dic["lon"]!)&" + "systembrand=\(dic["systembrand"]!)&" + "timestamp=\(dic["timestamp"]!)&" + "version=\(dic["version"]!)&" + "key=CE103EF654AF24D55D286D574C234749"
-//        let md5Str = sign.md5
-        let md5Str = sign
-        
-        dic["sign"] = md5Str.uppercased()
-        
-        dic["cookie"] = UserDefaults.standard.string(forKey: "cookie")
-        
-        if Account.readUserInfo() != nil{
-            dic["merchantcode"] = Account.readUserInfo()?.merchantCode
-            dic["tokenid"] = Account.readUserInfo()?.tokenId
-        }
-        //        dic["merchantcode"] = "MT10107"
-        //        dic["merchantcode"] = "MCT1171"
-        //        dic["merchantcode"] = "M10386"
-        //        dic["merchantcode"] = "M10377"
-        //        dic["merchantcode"] = "MCT1172"
-        print("tokenid = \(Account.readUserInfo()?.tokenId) merchantcode = \(Account.readUserInfo()?.merchantCode) ")
-        
+//        if Account.readUserInfo() != nil{
+//            dic["merchantcode"] = Account.readUserInfo()?.merchantCode
+//            dic["tokenid"] = Account.readUserInfo()?.tokenId
+//        }
+
+//        print("openkey = \(Account.readUserInfo()?.tokenId) merchantcode = \(Account.readUserInfo()?.merchantCode) ")
+        let dic = ["openkey": "5be8235eb67a7_2353"]
         return dic
     }
     //剩下的请求自己加

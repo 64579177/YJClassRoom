@@ -14,4 +14,5 @@ target 'YiJiuClassRoom' do
     pod 'SwiftyJSON', '~> 3.1.4'
     pod 'MBProgressHUD'
     pod 'IQKeyboardManagerSwift', '5.0.0'
+    pod 'Kingfisher', '~> 4.1.1'
 end

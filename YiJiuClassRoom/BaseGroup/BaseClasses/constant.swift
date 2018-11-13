@@ -48,36 +48,10 @@ struct StyleScreen {
     
 }
 
-struct YJNetStatus {
-    
-    static var isValaiable:Bool {
-        let appdelegate = UIApplication.shared.delegate as! AppDelegate
-        if let reach = appdelegate.reach {
-            reach.reachableOnWWAN = true
-            return reach.isReachable()
-        }
-        return false
-    }
-    
+struct StyleToast {
+    static let kToastBackGroundColor: UIColor = UIColor.colorWithHex(hex: 0x000000, alpha: 0.5)
+    static let kToastTextColor: UIColor = UIColor.colorWithHex(hex: 0xffffff)
+    static let kToastTextSize: UIFont = UIFont.systemFont(ofSize: 17)
 }
 
-struct LoginUrl {
-    static let login :String = String(HostUrl.host + "merchantUser/login/")
-    //获取图片验证码
-    static let getValidatePic : String = String(HostUrl.host + "merchantVcode/randomImage/")
-    //校验图片验证码
-    static let checkValidatePic : String = String(HostUrl.host + "merchantVcode/checkRandomImage/")
-    //获取短信验证码
-    static let getSMSCode : String = String(HostUrl.host + "merchantVcode/smsVcode/")
-    //校验短信验证码
-    static let checkSMSCode : String = String(HostUrl.host + "merchantVcode/checkSmsVcode/")
-    //注册
-    static let register : String = String(HostUrl.host + "merchantUser/register/")
-    //根据手机号重置密码
-    static let resetPwd : String = String(HostUrl.host + "merchantUser/resetPwd/")
-    //获取ticket
-    static let getTicket : String = String(HostUrl.host + "ticket/getTicket/")
-    //获取行业信息
-    static let getIndustry : String = String(HostUrl.host + "merchantAdd/industry")
-    
-}
+
