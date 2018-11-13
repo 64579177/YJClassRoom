@@ -18,6 +18,24 @@
 		717DE3D021994A8D00C99322 /* MyApplicationMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE3CF21994A8D00C99322 /* MyApplicationMainController.swift */; };
 		717DE3D221994AE600C99322 /* YJBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE3D121994AE600C99322 /* YJBaseViewController.swift */; };
 		717DE3D621994BDA00C99322 /* MyMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE3D521994BDA00C99322 /* MyMainViewController.swift */; };
+		719EAB31219A5FD3002C7FBE /* YJConstantUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB30219A5FD3002C7FBE /* YJConstantUrl.swift */; };
+		719EAB33219A603B002C7FBE /* YJNetWorkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB32219A603B002C7FBE /* YJNetWorkResponse.swift */; };
+		719EAB42219A648A002C7FBE /* YJNetWorkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB41219A648A002C7FBE /* YJNetWorkTool.swift */; };
+		719EAB44219A65CE002C7FBE /* YJNetWorkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB43219A65CE002C7FBE /* YJNetWorkError.swift */; };
+		719EAB46219A67F8002C7FBE /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB45219A67F8002C7FBE /* Account.swift */; };
+		719EAB54219A696B002C7FBE /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 719EAB48219A696A002C7FBE /* LICENSE */; };
+		719EAB55219A696B002C7FBE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 719EAB49219A696A002C7FBE /* README.md */; };
+		719EAB56219A696B002C7FBE /* ConversionOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB4B219A696A002C7FBE /* ConversionOptions.swift */; };
+		719EAB57219A696B002C7FBE /* DeserializationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB4C219A696A002C7FBE /* DeserializationStatus.swift */; };
+		719EAB58219A696B002C7FBE /* EVArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB4D219A696A002C7FBE /* EVArrayExtension.swift */; };
+		719EAB59219A696B002C7FBE /* EVDictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB4E219A696A002C7FBE /* EVDictionaryExtension.swift */; };
+		719EAB5A219A696B002C7FBE /* EVObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB4F219A696A002C7FBE /* EVObject.swift */; };
+		719EAB5B219A696B002C7FBE /* EVReflectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB50219A696A002C7FBE /* EVReflectable.swift */; };
+		719EAB5C219A696B002C7FBE /* EVReflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB51219A696A002C7FBE /* EVReflection.swift */; };
+		719EAB5D219A696B002C7FBE /* EVWorkaroundHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB52219A696A002C7FBE /* EVWorkaroundHelpers.swift */; };
+		719EAB5E219A696B002C7FBE /* PrintOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB53219A696A002C7FBE /* PrintOptions.swift */; };
+		719EAB6A219A6D29002C7FBE /* YJLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB69219A6D29002C7FBE /* YJLoginModel.swift */; };
+		719EAB6C219A6DC6002C7FBE /* YJLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB6B219A6DC6002C7FBE /* YJLoginService.swift */; };
 		71B521C321994DC2000E7792 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B521C221994DC2000E7792 /* constant.swift */; };
 		71B521C621997CD5000E7792 /* YJLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B521C521997CD5000E7792 /* YJLoginViewController.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +53,24 @@
 		717DE3CF21994A8D00C99322 /* MyApplicationMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplicationMainController.swift; sourceTree = "<group>"; };
 		717DE3D121994AE600C99322 /* YJBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJBaseViewController.swift; sourceTree = "<group>"; };
 		717DE3D521994BDA00C99322 /* MyMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMainViewController.swift; sourceTree = "<group>"; };
+		719EAB30219A5FD3002C7FBE /* YJConstantUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJConstantUrl.swift; sourceTree = "<group>"; };
+		719EAB32219A603B002C7FBE /* YJNetWorkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJNetWorkResponse.swift; sourceTree = "<group>"; };
+		719EAB41219A648A002C7FBE /* YJNetWorkTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJNetWorkTool.swift; sourceTree = "<group>"; };
+		719EAB43219A65CE002C7FBE /* YJNetWorkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJNetWorkError.swift; sourceTree = "<group>"; };
+		719EAB45219A67F8002C7FBE /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		719EAB48219A696A002C7FBE /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		719EAB49219A696A002C7FBE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		719EAB4B219A696A002C7FBE /* ConversionOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionOptions.swift; sourceTree = "<group>"; };
+		719EAB4C219A696A002C7FBE /* DeserializationStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeserializationStatus.swift; sourceTree = "<group>"; };
+		719EAB4D219A696A002C7FBE /* EVArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVArrayExtension.swift; sourceTree = "<group>"; };
+		719EAB4E219A696A002C7FBE /* EVDictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVDictionaryExtension.swift; sourceTree = "<group>"; };
+		719EAB4F219A696A002C7FBE /* EVObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVObject.swift; sourceTree = "<group>"; };
+		719EAB50219A696A002C7FBE /* EVReflectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVReflectable.swift; sourceTree = "<group>"; };
+		719EAB51219A696A002C7FBE /* EVReflection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVReflection.swift; sourceTree = "<group>"; };
+		719EAB52219A696A002C7FBE /* EVWorkaroundHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVWorkaroundHelpers.swift; sourceTree = "<group>"; };
+		719EAB53219A696A002C7FBE /* PrintOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintOptions.swift; sourceTree = "<group>"; };
+		719EAB69219A6D29002C7FBE /* YJLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJLoginModel.swift; sourceTree = "<group>"; };
+		719EAB6B219A6DC6002C7FBE /* YJLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJLoginService.swift; sourceTree = "<group>"; };
 		71B521C221994DC2000E7792 /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 		71B521C521997CD5000E7792 /* YJLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJLoginViewController.swift; sourceTree = "<group>"; };
 		9920BBBC1EF83ED0F20D3EC5 /* Pods-YiJiuClassRoom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YiJiuClassRoom.release.xcconfig"; path = "Pods/Target Support Files/Pods-YiJiuClassRoom/Pods-YiJiuClassRoom.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,7 +170,9 @@
 		717DE3BA2199322600C99322 /* Login(登录) */ = {
 			isa = PBXGroup;
 			children = (
+				719EAB68219A6D14002C7FBE /* Model */,
 				71B521C521997CD5000E7792 /* YJLoginViewController.swift */,
+				719EAB6B219A6DC6002C7FBE /* YJLoginService.swift */,
 			);
 			path = "Login(登录)";
 			sourceTree = "<group>";
@@ -152,6 +190,7 @@
 		717DE3BC2199484600C99322 /* BaseGroup */ = {
 			isa = PBXGroup;
 			children = (
+				719EAB2E219A5F65002C7FBE /* YJUtils */,
 				717DE3D721994C4200C99322 /* BaseClasses */,
 			);
 			path = BaseGroup;
@@ -253,6 +292,62 @@
 			path = BaseClasses;
 			sourceTree = "<group>";
 		};
+		719EAB2E219A5F65002C7FBE /* YJUtils */ = {
+			isa = PBXGroup;
+			children = (
+				719EAB47219A696A002C7FBE /* EVReflection */,
+				719EAB2F219A5FA0002C7FBE /* YJNetWork */,
+				719EAB45219A67F8002C7FBE /* Account.swift */,
+			);
+			path = YJUtils;
+			sourceTree = "<group>";
+		};
+		719EAB2F219A5FA0002C7FBE /* YJNetWork */ = {
+			isa = PBXGroup;
+			children = (
+				719EAB30219A5FD3002C7FBE /* YJConstantUrl.swift */,
+				719EAB32219A603B002C7FBE /* YJNetWorkResponse.swift */,
+				719EAB41219A648A002C7FBE /* YJNetWorkTool.swift */,
+				719EAB43219A65CE002C7FBE /* YJNetWorkError.swift */,
+			);
+			path = YJNetWork;
+			sourceTree = "<group>";
+		};
+		719EAB47219A696A002C7FBE /* EVReflection */ = {
+			isa = PBXGroup;
+			children = (
+				719EAB48219A696A002C7FBE /* LICENSE */,
+				719EAB49219A696A002C7FBE /* README.md */,
+				719EAB4A219A696A002C7FBE /* Source */,
+			);
+			name = EVReflection;
+			path = "../../../../../automini-ios/AutoMini-ios/JYUtils/EVReflection";
+			sourceTree = "<group>";
+		};
+		719EAB4A219A696A002C7FBE /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				719EAB4B219A696A002C7FBE /* ConversionOptions.swift */,
+				719EAB4C219A696A002C7FBE /* DeserializationStatus.swift */,
+				719EAB4D219A696A002C7FBE /* EVArrayExtension.swift */,
+				719EAB4E219A696A002C7FBE /* EVDictionaryExtension.swift */,
+				719EAB4F219A696A002C7FBE /* EVObject.swift */,
+				719EAB50219A696A002C7FBE /* EVReflectable.swift */,
+				719EAB51219A696A002C7FBE /* EVReflection.swift */,
+				719EAB52219A696A002C7FBE /* EVWorkaroundHelpers.swift */,
+				719EAB53219A696A002C7FBE /* PrintOptions.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		719EAB68219A6D14002C7FBE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				719EAB69219A6D29002C7FBE /* YJLoginModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -315,6 +410,8 @@
 			files = (
 				717DE3B02199213000C99322 /* LaunchScreen.storyboard in Resources */,
 				717DE3AD2199213000C99322 /* Assets.xcassets in Resources */,
+				719EAB55219A696B002C7FBE /* README.md in Resources */,
+				719EAB54219A696B002C7FBE /* LICENSE in Resources */,
 				717DE3AB2199212A00C99322 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,15 +445,23 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-YiJiuClassRoom/Pods-YiJiuClassRoom-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/UIColor-Hex/UIColor_Hex.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIColor_Hex.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,15 +476,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				719EAB5C219A696B002C7FBE /* EVReflection.swift in Sources */,
 				717DE3D021994A8D00C99322 /* MyApplicationMainController.swift in Sources */,
+				719EAB57219A696B002C7FBE /* DeserializationStatus.swift in Sources */,
+				719EAB42219A648A002C7FBE /* YJNetWorkTool.swift in Sources */,
+				719EAB5A219A696B002C7FBE /* EVObject.swift in Sources */,
 				717DE3A82199212900C99322 /* ViewController.swift in Sources */,
+				719EAB5D219A696B002C7FBE /* EVWorkaroundHelpers.swift in Sources */,
+				719EAB5E219A696B002C7FBE /* PrintOptions.swift in Sources */,
+				719EAB6C219A6DC6002C7FBE /* YJLoginService.swift in Sources */,
 				717DE3D621994BDA00C99322 /* MyMainViewController.swift in Sources */,
 				71B521C321994DC2000E7792 /* constant.swift in Sources */,
+				719EAB56219A696B002C7FBE /* ConversionOptions.swift in Sources */,
+				719EAB33219A603B002C7FBE /* YJNetWorkResponse.swift in Sources */,
 				717DE3C0219948A800C99322 /* YJTabbarViewController.swift in Sources */,
 				717DE3A62199212900C99322 /* AppDelegate.swift in Sources */,
+				719EAB31219A5FD3002C7FBE /* YJConstantUrl.swift in Sources */,
+				719EAB44219A65CE002C7FBE /* YJNetWorkError.swift in Sources */,
+				719EAB59219A696B002C7FBE /* EVDictionaryExtension.swift in Sources */,
 				71B521C621997CD5000E7792 /* YJLoginViewController.swift in Sources */,
+				719EAB6A219A6D29002C7FBE /* YJLoginModel.swift in Sources */,
 				717DE3D221994AE600C99322 /* YJBaseViewController.swift in Sources */,
 				717DE3CE21994A3B00C99322 /* ApplicationMainController.swift in Sources */,
+				719EAB46219A67F8002C7FBE /* Account.swift in Sources */,
+				719EAB5B219A696B002C7FBE /* EVReflectable.swift in Sources */,
+				719EAB58219A696B002C7FBE /* EVArrayExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
