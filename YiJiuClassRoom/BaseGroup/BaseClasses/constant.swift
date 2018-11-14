@@ -16,6 +16,7 @@ let Colorf = UIColor.colorWithHex(hex: 0xffffff)
 let Color3 = UIColor.colorWithHex(hex: 0x333333)
 let Color6 = UIColor.colorWithHex(hex: 0x666666)
 let Color9 = UIColor.colorWithHex(hex: 0x999999)
+let Colorf6 = UIColor.colorWithHex(hex: 0xf6f6f6)
 
 let ColorLine = UIColor.colorWithHex(hex: 0xDEDEDE)
 let ColorBackView = UIColor.colorWithHex(hex: 0x999999)

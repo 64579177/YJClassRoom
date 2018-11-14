@@ -14,18 +14,20 @@ class ApplicationMainController: YJBaseViewController {
     
     lazy var myTableView: UITableView = {
         
-        let myTableView = UITableView(frame: CGRect(x: 0, y: 0, width: KSW, height: KSH), style: UITableViewStyle.plain)
+        let myTableView = UITableView(frame: CGRect(x: 0, y: 0, width: KSW, height: KSH - 44), style: UITableViewStyle.grouped)
         myTableView.delegate = self
         myTableView.dataSource = self
         myTableView.estimatedRowHeight = 50
         myTableView.rowHeight = UITableViewAutomaticDimension
         myTableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        myTableView.backgroundColor = Colorf6
         return myTableView
     }()
     
     
     //广告返回数据
     var adArray:[YJADDataModel] = []
+    var courseArray:[YJApplicationClassCourseListModel] = []
     let disGroup = DispatchGroup()
     var myModelAd :YJADDataModel?
     
@@ -41,7 +43,7 @@ class ApplicationMainController: YJBaseViewController {
 //        self.myTableView.snp.makeConstraints { (make) in
 //            make.top.equalTo(self.view)
 //            make.left.equalTo(self.view)
-//            make.bottom.equalTo(bottomView.snp.top)
+//            make.bottom.equalTo(self.view)
 //            make.right.equalTo(self.view)
 //        }
 //        self.myTableView.snp.makeConstraints { (make) in
@@ -118,10 +120,7 @@ class ApplicationMainController: YJBaseViewController {
                 self.disGroup.leave()
                 return
             }
-            
-            //                self.myModelAd = JYStoreManageModel()
-            //                self.myModelAd?.sectionTyle = .storeAd
-            //                self.myModelAd?.itemArr = [model]
+            self.courseArray = lists
             self.disGroup.leave()
         }
         
@@ -132,12 +131,18 @@ class ApplicationMainController: YJBaseViewController {
 extension ApplicationMainController:UITableViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3 + self.courseArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 1
+        if section == 0 || section == 1 || section == 2 + self.courseArray.count {
+            return 1
+        }else{
+            guard let cout = self.courseArray[section - 2].list?.count else {
+                return 0
+            }
+            return cout
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -152,7 +157,7 @@ extension ApplicationMainController:UITableViewDelegate,UITableViewDataSource{
             }
             cell?.modelArr = self.adArray
             return cell!
-        }else{
+        }else if indexPath.section == 1{
             
             let cellIdentifierString = "YJApplicationSecondCell"
             var cell: YJApplicationSecondCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifierString) as? YJApplicationSecondCell
@@ -162,13 +167,90 @@ extension ApplicationMainController:UITableViewDelegate,UITableViewDataSource{
             }
             
             return cell!
+        }else{// if indexPath.section == self.courseArray.count + 2
+            
+            if self.courseArray.count == 0 || indexPath.section == 2 + self.courseArray.count {
+                let cellIdentifierString = "YJApplicationApplyFlow"
+                var cell: YJApplicationApplyFlow? = tableView.dequeueReusableCell(withIdentifier: cellIdentifierString) as? YJApplicationApplyFlow
+                if cell == nil {
+                    cell = YJApplicationApplyFlow(style: .default, reuseIdentifier: cellIdentifierString)
+                    cell?.selectionStyle = .none
+                }
+                return cell!
+            }else{
+                let cellIdentifierString = "YJApplicationCourseCell"
+                var cell: YJApplicationCourseCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifierString) as? YJApplicationCourseCell
+                if cell == nil {
+                    cell = YJApplicationCourseCell(style: .default, reuseIdentifier: cellIdentifierString)
+                    cell?.selectionStyle = .none
+                }
+                if let listSc = self.courseArray[indexPath.section - 2].list{
+                    cell?.dataModel = listSc[indexPath.row]
+                }
+                return cell!
+            }
         }
 
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 140
-//    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 1 {
+            return 30
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 1 {
+            let label = YJLable.getSimpleLabel(toframe: CGRect(x:0,y:0,width:KSW,height:30), textColor: .white, text: "2018年壹玖课堂课堂表", textAli: .center, textFont: 14)
+            label.backgroundColor = .black
+            return label
+        }
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 || section == 1 {
+            return 0
+        }else{
+            if self.courseArray.count == 0 || section == 2 + self.courseArray.count {
+                return 30
+            }else{
+                return 30
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 || section == 1 {
+            return nil
+        }else{
+            if self.courseArray.count == 0 || section == 2 + self.courseArray.count {
+                let label = YJLable.getSimpleLabel(toframe: CGRect(x:0,y:0,width:KSW,height:30), textColor: .white, text: "各城市线下帮扶义工团", textAli: .center, textFont: 14)
+                label.backgroundColor = .black
+                return label
+            }else{
+                let view = UIView(frame: CGRect(x:0,y:0,width:KSW,height:30))
+                view.backgroundColor = .clear
+                
+                let line = UIView(frame: CGRect(x:15,y:0,width:1,height:30))
+                line.backgroundColor = ColorNav
+                
+
+                let  label = YJLable.getSimpleLabelActive(textColor: .white, text: self.courseArray[section - 2].year, textAli: .center, textFont: 12)
+                label.backgroundColor = ColorNav
+                view.addSubview(line)
+                view.addSubview(label)
+                
+                label.snp.makeConstraints { (make) in
+                    make.left.equalTo(line.snp.right).offset(0)
+                    make.top.equalTo(view).offset(10)
+                    make.bottom.equalTo(view)
+                }
+                return view
+            }
+        }
+    }
     
 }
 

@@ -19,7 +19,7 @@ class YJApplicationClassMainModel: EVObject {
     var course: [YJApplicationClassCourseListModel]?
 }
 class YJApplicationClassCourseListModel: EVObject {
-    var year: String?
+    var year: String = ""
     var list: [YJApplicationClassCourseDetailModel]?
 }
 
