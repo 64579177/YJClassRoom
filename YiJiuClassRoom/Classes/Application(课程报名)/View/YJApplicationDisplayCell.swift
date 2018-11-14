@@ -31,7 +31,7 @@ class YJApplicationDisplayCell: UITableViewCell,SlideshowDisplayerDelegate,Slide
     
     
     lazy var displayerView: SlideshowDisplayer = {
-        let dispalyerView = SlideshowDisplayer(frame: CGRect(x: 0, y: 0, width: StyleScreen.kWidth, height: 140))
+        let dispalyerView = SlideshowDisplayer(frame: CGRect.zero)
         dispalyerView.delegate = self
         dispalyerView.dataSource = self
         dispalyerView.backgroundColor = UIColor.red
@@ -42,6 +42,11 @@ class YJApplicationDisplayCell: UITableViewCell,SlideshowDisplayerDelegate,Slide
         
         
         self.addSubview(self.displayerView)
+        self.displayerView.snp.makeConstraints { (make) in
+            
+            make.top.bottom.left.right.equalTo(0)
+            make.height.equalTo(160)
+        }
     }
     
     func numberOfImagesInDisplayer(displayer: SlideshowDisplayer) -> Int {
@@ -76,4 +81,76 @@ class YJApplicationDisplayCell: UITableViewCell,SlideshowDisplayerDelegate,Slide
 //
 //        }
 //    }
+}
+
+class YJApplicationSecondCell:UITableViewCell{
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configUI(){
+        
+        let view1 = UIView(frame: CGRect.zero)//(x:0,y:0,width:KSW/3,height:70)
+        let btn1 = UIButton()
+        btn1.set(normalImage: UIImage(named:"free_1"), selectedImage: UIImage(named:"free_1"), title: "免费策略课", titlePosition: .bottom, additionalSpacing: 10)
+        btn1.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        btn1.setTitleColor(Color3, for: .normal)
+        view1.addSubview(btn1)
+        btn1.snp.makeConstraints { (make) in
+            make.center.equalTo(view1)
+            make.width.height.equalTo(70)
+        }
+        
+        let view2 = UIView(frame: CGRect.zero)//(x:KSW/3,y:0,width:KSW/3,height:70)
+        let btn2 = UIButton()
+        btn2.set(normalImage: UIImage(named:"free_2"), selectedImage: UIImage(named:"free_2"), title: "免费模式课", titlePosition: .bottom, additionalSpacing: 10)
+        btn2.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        btn2.setTitleColor(Color3, for: .normal)
+        view2.addSubview(btn2)
+        btn2.snp.makeConstraints { (make) in
+            make.center.equalTo(view2)
+            make.width.height.equalTo(70)
+        }
+        
+        let view3 = UIView(frame: CGRect.zero)//(x:KSW*2/3,y:0,width:KSW/3,height:70)
+        let btn3 = UIButton()
+        btn3.set(normalImage: UIImage(named:"free_3"), selectedImage: UIImage(named:"free_3"), title: "免费系统课", titlePosition: .bottom, additionalSpacing: 10)
+        btn3.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        btn3.setTitleColor(Color3, for: .normal)
+        view3.addSubview(btn3)
+        btn3.snp.makeConstraints { (make) in
+            make.center.equalTo(view3)
+            make.width.height.equalTo(70)
+        }
+        
+        self.addSubview(view1)
+        self.addSubview(view2)
+        self.addSubview(view3)
+        
+        view1.snp.makeConstraints { (make) in
+            make.left.top.bottom.equalTo(0)
+            make.width.equalTo(KSW/3)
+            make.height.equalTo(70)
+        }
+        view2.snp.makeConstraints { (make) in
+            make.top.bottom.equalTo(self)
+            make.left.equalTo(KSW/3)
+            make.width.equalTo(KSW/3)
+            make.height.equalTo(70)
+            
+           
+        }
+        view3.snp.makeConstraints { (make) in
+            make.top.bottom.equalTo(self)
+            make.width.equalTo(KSW/3)
+            make.height.equalTo(70)
+            make.left.equalTo(KSW*2/3)
+        }
+    }
 }

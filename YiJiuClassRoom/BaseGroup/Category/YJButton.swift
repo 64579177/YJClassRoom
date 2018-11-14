@@ -38,52 +38,60 @@ class YJButton: UIButton {
 
 extension UIButton {
     
-//    func set(normalImage
-//        anImage: UIImage?,
-//             selectedImage: UIImage?,
-//             title: String,
-//             titlePosition: UIViewContentMode,
-//             additionalSpacing: CGFloat) {
-//        self.imageView?.contentMode
-//            = .center
-//        
-//        self.setImage(anImage, for: .normal)
-//        self.setImage(selectedImage, for: .selected)
-//        
-//        self.showsTouchWhenHighlighted = false;
-//        self.adjustsImageWhenHighlighted = false;
-//        positionLabelRespectToImage(title: title, position: titlePosition, spacing: additionalSpacing)
-//        self.titleLabel?.contentMode
-//            = .center
-//        
-//        self.setTitle(title, for: state)
-//    }
+    func set(normalImage
+        anImage: UIImage?,
+             selectedImage: UIImage?,
+             title: String,
+             titlePosition: UIViewContentMode,
+             additionalSpacing: CGFloat) {
+        self.imageView?.contentMode
+            = .center
+        
+        self.setImage(anImage, for: .normal)
+        self.setImage(selectedImage, for: .selected)
+        
+        self.showsTouchWhenHighlighted = false;
+        self.adjustsImageWhenHighlighted = false;
+        positionLabelRespectToImage(title: title, position: titlePosition, spacing: additionalSpacing)
+        self.titleLabel?.contentMode
+            = .center
+        
+        self.setTitle(title, for: state)
+    }
     
-//    private func positionLabelRespectToImage(title: String,
-//                                             position: UIViewContentMode,
-//                                             spacing: CGFloat) {
-//
-//        let imageSize = self.imageRect(forContentRect: self.frame)
-//        let titleFont = self.titleLabel?.font!
+    private func positionLabelRespectToImage(title: String,
+                                             position: UIViewContentMode,
+                                             spacing: CGFloat) {
+
+        let imageSize = self.imageRect(forContentRect: self.frame)
+        let titleFont = self.titleLabel?.font!
 //        let titleSize = title.size(withAttributes: [NSAttributedStringKey.font:
 //            titleFont!])
+        let titleSize = title.size(attributes:[NSFontAttributeName:titleFont!])
+
+        var titleInsets: UIEdgeInsets
+        var imageInsets: UIEdgeInsets
+
+        switch (position) {
+
+        case .top:
+            titleInsets
+                = UIEdgeInsets(top:
+                    -(imageSize.height + titleSize.height + spacing),
+                               left:
+                    -(imageSize.width), bottom: 0, right: 0)
+            imageInsets
+                = UIEdgeInsets(top:
+                    0, left: 0, bottom: 0, right: -titleSize.width)
+
+        case .bottom:
+            imageInsets = UIEdgeInsetsMake(0, titleSize.width/2 , titleSize.height , titleSize.width/2)
+            titleInsets = UIEdgeInsetsMake(0, -self.imageView!.intrinsicContentSize.width, -(self.imageView!.intrinsicContentSize.height+spacing), 0)
 //
-//        var titleInsets: UIEdgeInsets
-//        var imageInsets: UIEdgeInsets
-//
-//        switch (position) {
-//
-//        case .top:
-//            titleInsets
-//                = UIEdgeInsets(top:
-//                    -(imageSize.height + titleSize.height + spacing),
-//                               left:
-//                    -(imageSize.width), bottom: 0, right: 0)
-//            imageInsets
-//                = UIEdgeInsets(top:
-//                    0, left: 0, bottom: 0, right: -titleSize.width)
-//
-//        case .bottom:
+//            titleInsets = UIEdgeInsetsMake(0, -self.imageView!.intrinsicContentSize.width, -(self.imageView!.intrinsicContentSize.height+10.0/2.0), 0)
+//            imageInsets = UIEdgeInsetsMake(-(self.titleLabel!.intrinsicContentSize.height+10.0/2.0), 0, 0, -self.titleLabel!.intrinsicContentSize.width)
+            
+            
 //            titleInsets
 //                = UIEdgeInsets(top:
 //                    (imageSize.height + titleSize.height + spacing),
@@ -92,39 +100,39 @@ extension UIButton {
 //            imageInsets
 //                = UIEdgeInsets(top:
 //                    -5, left: 0, bottom: 0, right: -titleSize.width)
-//
-//        case .left:
-//            titleInsets
-//                = UIEdgeInsets(top:
-//                    0, left: -(imageSize.width + spacing/2), bottom: 0, right: (imageSize.width + spacing/2))
-//            imageInsets
-//                = UIEdgeInsets(top:
-//                    0, left: (titleSize.width  + spacing/2), bottom: 0,
-//                       right:
-//                    -(titleSize.width + spacing/2))
-//
-//        case .right:
-//            titleInsets
-//                = UIEdgeInsets(top:
-//                    0, left: spacing/2, bottom: 0, right: -spacing/2)
-//            imageInsets
-//                = UIEdgeInsets(top:
-//                    0, left: -spacing/2, bottom: 0, right: spacing/2)
-//
-//        default:
-//            titleInsets
-//                = UIEdgeInsets(top:
-//                    0, left: 0, bottom: 0, right: 0)
-//            imageInsets
-//                = UIEdgeInsets(top:
-//                    0, left: 0, bottom: 0, right: 0)
-//        }
-//
-//        self.titleEdgeInsets
-//            = titleInsets
-//        self.imageEdgeInsets
-//            = imageInsets
-//    }
+
+        case .left:
+            titleInsets
+                = UIEdgeInsets(top:
+                    0, left: -(imageSize.width + spacing/2), bottom: 0, right: (imageSize.width + spacing/2))
+            imageInsets
+                = UIEdgeInsets(top:
+                    0, left: (titleSize.width  + spacing/2), bottom: 0,
+                       right:
+                    -(titleSize.width + spacing/2))
+
+        case .right:
+            titleInsets
+                = UIEdgeInsets(top:
+                    0, left: spacing/2, bottom: 0, right: -spacing/2)
+            imageInsets
+                = UIEdgeInsets(top:
+                    0, left: -spacing/2, bottom: 0, right: spacing/2)
+
+        default:
+            titleInsets
+                = UIEdgeInsets(top:
+                    0, left: 0, bottom: 0, right: 0)
+            imageInsets
+                = UIEdgeInsets(top:
+                    0, left: 0, bottom: 0, right: 0)
+        }
+
+        self.titleEdgeInsets
+            = titleInsets
+        self.imageEdgeInsets
+            = imageInsets
+    }
 }
 
 

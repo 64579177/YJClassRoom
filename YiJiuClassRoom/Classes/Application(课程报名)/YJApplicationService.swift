@@ -18,7 +18,7 @@ extension YJApplicationService{
 
         //MARK: - 首页课程列表接口
     class func getAppClassListInfo (finish: @escaping (_ success: Bool,_ model: YJApplicationClassListModel?,_ errorMsg: String?) -> Void){
-        let dict = ["openkey" : "5be8235eb67a7_2353"]
+        let dict = ["openkey" : "5be64c88696e2_1491"]
 
         let requestUrl : String = ApplicationCommonUrl.appClassList
         
@@ -29,7 +29,7 @@ extension YJApplicationService{
     //MARK: - 首页广告接口
     class func getADInfo (finish: @escaping (_ success: Bool,_ model: YJADResponseModel?,_ errorMsg: String?) -> Void){
         
-        let dict = ["openkey" : "5be8235eb67a7_2353"]
+        let dict = ["openkey" : "5be64c88696e2_1491"]
         let requestUrl : String = ApplicationCommonUrl.appADUrl
         
         YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: dict as [String : AnyObject]) { (_ model: YJADResponseModel?, response: YJNetWorkResponse) in

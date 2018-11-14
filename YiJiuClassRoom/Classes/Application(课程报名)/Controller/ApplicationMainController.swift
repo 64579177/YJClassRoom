@@ -12,19 +12,12 @@ import Kingfisher
 
 class ApplicationMainController: YJBaseViewController {
     
-//    //轮播图
-//    lazy var displayerView: SlideshowDisplayer = {
-//        let dispalyerView = SlideshowDisplayer(frame: CGRect(x: 0, y: 0, width: StyleScreen.kWidth-30, height: 100))
-//        dispalyerView.delegate = self
-//        dispalyerView.dataSource = self
-//        return dispalyerView
-//    }()
-    
     lazy var myTableView: UITableView = {
         
         let myTableView = UITableView(frame: CGRect(x: 0, y: 0, width: KSW, height: KSH), style: UITableViewStyle.plain)
         myTableView.delegate = self
         myTableView.dataSource = self
+        myTableView.estimatedRowHeight = 50
         myTableView.rowHeight = UITableViewAutomaticDimension
         myTableView.separatorStyle = UITableViewCellSeparatorStyle.none
         return myTableView
@@ -62,7 +55,7 @@ class ApplicationMainController: YJBaseViewController {
         Tool.showLoadingOnView(view: self.view)
         
         getADInfo()
-//        getListInfo()
+        getListInfo()
         
         disGroup.notify(queue: DispatchQueue.main) {
 //            self.dataArr.removeAll()
@@ -84,11 +77,11 @@ class ApplicationMainController: YJBaseViewController {
         guard YJNetStatus.isValaiable else {
             return
         }
-//        self.disGroup.enter()
+        self.disGroup.enter()
         
         YJApplicationService.getADInfo { (isSuccess, model, errorStr) in
             guard isSuccess  else{
-//                self.disGroup.leave()
+                self.disGroup.leave()
                 return
             }
             
@@ -102,7 +95,7 @@ class ApplicationMainController: YJBaseViewController {
             //                self.myModelAd = JYStoreManageModel()
             //                self.myModelAd?.sectionTyle = .storeAd
             //                self.myModelAd?.itemArr = [model]
-//            self.disGroup.leave()
+            self.disGroup.leave()
         }
         
     }
@@ -120,7 +113,7 @@ class ApplicationMainController: YJBaseViewController {
                 return
             }
             
-            guard let lists = model?.data, lists.count > 0 else{
+            guard let lists = model?.data?.course,lists.count > 0 else{
                 self.myModelAd = nil
                 self.disGroup.leave()
                 return
@@ -161,16 +154,11 @@ extension ApplicationMainController:UITableViewDelegate,UITableViewDataSource{
             return cell!
         }else{
             
-            var cell = tableView.dequeueReusableCell(withIdentifier: "defult")
-            
+            let cellIdentifierString = "YJApplicationSecondCell"
+            var cell: YJApplicationSecondCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifierString) as? YJApplicationSecondCell
             if cell == nil {
-                cell = UITableViewCell.init(style: .value1, reuseIdentifier: "defult")
-            }
-            cell?.backgroundColor = UIColor.blue
-            if self.adArray.count > 0 {
-                let imgview = UIImageView(frame: CGRect(x:0,y:0,width:KSW,height:100))
-                imgview.kf.setImage(with: URL(string: "http://img03.tooopen.com/uploadfile/downs/images/20110714/sy_20110714135215645030.jpg"))
-                cell?.addSubview(imgview)
+                cell = YJApplicationSecondCell(style: .default, reuseIdentifier: cellIdentifierString)
+                cell?.selectionStyle = .none
             }
             
             return cell!
@@ -184,24 +172,3 @@ extension ApplicationMainController:UITableViewDelegate,UITableViewDataSource{
     
 }
 
-//extension ApplicationMainController: SlideshowDisplayerDelegate,SlideshowDisplayerDataSource{
-//    func numberOfImagesInDisplayer(displayer: SlideshowDisplayer) -> Int {
-//        return self.adArray.count
-//    }
-//
-//    func dispalyer(_ dispalyer: SlideshowDisplayer, loadImage imageView: UIImageView, forIndex index: Int) {
-//        let adInfo = self.adArray[index]
-//        if let picUrl = adInfo.image {
-//            let url = URL(string: picUrl)
-//            imageView.kf.setImage(with: url)
-//        }
-//    }
-//
-//    func dispalyer(_ dispalyer: SlideshowDisplayer, didDisplayImage index: Int) {
-//    }
-//
-//    func dispalyer(_ dispalyer: SlideshowDisplayer, didSelectedImage index: Int) {
-//        let adInfo = self.adArray[index]
-////        self.showADDetailInfo(model: adInfo)
-//    }
-//}
