@@ -26,7 +26,7 @@ struct YJNetStatus {
 //域名
 struct HostUrl {
     
-    static let host: String = "https://yijiu.baozhen999.com/api/home/"
+    static let host: String = "https://yijiu.baozhen999.com/api/"
 }
 
 
@@ -34,9 +34,11 @@ struct HostUrl {
 struct ApplicationCommonUrl {
  
     //广告
-    static let appADUrl: String = String(HostUrl.host + "banner")
+    static let appADUrl: String = String(HostUrl.host + "home/banner")
     //首页课程列表
-    static let appClassList:String = String(HostUrl.host + "index")
+    static let appClassList:String = String(HostUrl.host + "home/index")
+    //课堂详情
+    static let appCourseDetail:String = String(HostUrl.host + "course/detail")
 }
 
 

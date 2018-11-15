@@ -14,7 +14,7 @@ class ApplicationMainController: YJBaseViewController {
     
     lazy var myTableView: UITableView = {
         
-        let myTableView = UITableView(frame: CGRect(x: 0, y: 0, width: KSW, height: KSH - 44), style: UITableViewStyle.grouped)
+        let myTableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.grouped)
         myTableView.delegate = self
         myTableView.dataSource = self
         myTableView.estimatedRowHeight = 50
@@ -39,12 +39,9 @@ class ApplicationMainController: YJBaseViewController {
     
     func initUI(){
         self.view.addSubview(self.myTableView)
-//        self.myTableView.snp.makeConstraints { (make) in
-//            make.top.equalTo(self.view)
-//            make.left.equalTo(self.view)
-//            make.bottom.equalTo(self.view)
-//            make.right.equalTo(self.view)
-//        }
+        self.myTableView.snp.makeConstraints { (make) in
+            make.top.left.bottom.right.equalTo(self.view)
+        }
     }
     
     
@@ -252,5 +249,17 @@ extension ApplicationMainController:UITableViewDelegate,UITableViewDataSource{
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if self.courseArray.count > 0 && indexPath.section != 2 + self.courseArray.count{
+            
+            let pvc = YJCourseDetailViewController()
+            if let listSc = self.courseArray[indexPath.section - 2].list{
+                pvc.courseId = (listSc[indexPath.row].id?.intValue)!
+            }
+            self.navigationController?.pushViewController(pvc, animated: true)
+            
+        }
+    }
 }
 

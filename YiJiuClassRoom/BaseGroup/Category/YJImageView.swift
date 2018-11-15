@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class JYJImageView: UIImageView {
     
@@ -22,7 +23,13 @@ class JYJImageView: UIImageView {
         return myimgView
     }
     
-    
+    //类方法获取URl img
+    class  func getSimpleUrlImageView(toframe : CGRect,img : String) ->  UIImageView{
+        
+        let myimgView = UIImageView(frame: toframe)
+        myimgView.kf.setImage(with: URL(string: img))
+        return myimgView
+    }
     
     
     

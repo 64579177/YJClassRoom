@@ -10,6 +10,13 @@ import UIKit
 
 class JYView: UIView {
     
+    class func getlineView() -> UIView {
+        
+        let view = UIView(frame: CGRect.zero)
+        view.backgroundColor = ColorLine
+        return view
+    }
+    
 }
 
 extension UIView {

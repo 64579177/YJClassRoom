@@ -24,7 +24,7 @@ class YJApplicationClassCourseListModel: EVObject {
 }
 
 class YJApplicationClassCourseDetailModel: EVObject {
-    var id: Int?
+    var id: NSNumber?
     var type: String?
     var start_time: String?
     var end_time: String?
