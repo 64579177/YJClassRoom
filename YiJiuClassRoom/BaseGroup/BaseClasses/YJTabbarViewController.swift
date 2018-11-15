@@ -39,7 +39,7 @@ class YJTabbarViewController: UITabBarController {
         
         let  AppleicationMainVC  = ApplicationMainController()
         AppleicationMainVC.title = "课程报名"
-        let AppleicationNav = UINavigationController(rootViewController:AppleicationMainVC)
+        let AppleicationNav = YJNavigationController(rootViewController:AppleicationMainVC)
         AppleicationNav.tabBarItem.title = "课程报名"
         AppleicationNav.tabBarItem.image = UIImage(named:PicArr[0])
         AppleicationNav.tabBarItem.selectedImage = UIImage(named:PicSelectArr[0])?.withRenderingMode(.alwaysOriginal)
@@ -47,14 +47,14 @@ class YJTabbarViewController: UITabBarController {
         
         let  MyApplicationVC  = MyApplicationMainController()
         MyApplicationVC.title = "我的报名"
-        let MyApplicationNav = UINavigationController(rootViewController:MyApplicationVC)
+        let MyApplicationNav = YJNavigationController(rootViewController:MyApplicationVC)
         MyApplicationNav.tabBarItem.title = "我的报名"
         MyApplicationNav.tabBarItem.image = UIImage(named:PicArr[1])
         MyApplicationNav.tabBarItem.selectedImage = UIImage(named:PicSelectArr[1])?.withRenderingMode(.alwaysOriginal)
         
         let  MyMainVC  = MyMainViewController()
         MyMainVC.title = "我的"
-        let MyMainNav = UINavigationController(rootViewController:MyMainVC)
+        let MyMainNav = YJNavigationController(rootViewController:MyMainVC)
         MyMainNav.tabBarItem.title = "我的"
         MyMainNav.tabBarItem.image = UIImage(named:PicArr[2])
         MyMainNav.tabBarItem.selectedImage = UIImage(named:PicSelectArr[2])?.withRenderingMode(.alwaysOriginal)

@@ -45,7 +45,7 @@ class YJApplicationDisplayCell: UITableViewCell,SlideshowDisplayerDelegate,Slide
         self.displayerView.snp.makeConstraints { (make) in
             
             make.top.bottom.left.right.equalTo(0)
-            make.height.equalTo(160)
+            make.height.equalTo(180)
         }
     }
     
@@ -85,6 +85,8 @@ class YJApplicationDisplayCell: UITableViewCell,SlideshowDisplayerDelegate,Slide
 
 class YJApplicationSecondCell:UITableViewCell{
     
+    var btnClickCallBack :( (Int) -> Void)?
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configUI()
@@ -99,8 +101,10 @@ class YJApplicationSecondCell:UITableViewCell{
         let view1 = UIView(frame: CGRect.zero)//(x:0,y:0,width:KSW/3,height:70)
         let btn1 = UIButton()
         btn1.set(normalImage: UIImage(named:"free_1"), selectedImage: UIImage(named:"free_1"), title: "免费策略课", titlePosition: .bottom, additionalSpacing: 10)
+        btn1.tag = 10001
         btn1.titleLabel?.font = UIFont.systemFont(ofSize: 10)
         btn1.setTitleColor(Color3, for: .normal)
+        btn1.addTarget(self, action: #selector(btnClick(_:)), for: .touchUpInside)
         view1.addSubview(btn1)
         btn1.snp.makeConstraints { (make) in
             make.center.equalTo(view1)
@@ -110,8 +114,10 @@ class YJApplicationSecondCell:UITableViewCell{
         let view2 = UIView(frame: CGRect.zero)//(x:KSW/3,y:0,width:KSW/3,height:70)
         let btn2 = UIButton()
         btn2.set(normalImage: UIImage(named:"free_2"), selectedImage: UIImage(named:"free_2"), title: "免费模式课", titlePosition: .bottom, additionalSpacing: 10)
+        btn2.tag = 10002
         btn2.titleLabel?.font = UIFont.systemFont(ofSize: 10)
         btn2.setTitleColor(Color3, for: .normal)
+        btn2.addTarget(self, action: #selector(btnClick(_:)), for: .touchUpInside)
         view2.addSubview(btn2)
         btn2.snp.makeConstraints { (make) in
             make.center.equalTo(view2)
@@ -121,8 +127,10 @@ class YJApplicationSecondCell:UITableViewCell{
         let view3 = UIView(frame: CGRect.zero)//(x:KSW*2/3,y:0,width:KSW/3,height:70)
         let btn3 = UIButton()
         btn3.set(normalImage: UIImage(named:"free_3"), selectedImage: UIImage(named:"free_3"), title: "免费系统课", titlePosition: .bottom, additionalSpacing: 10)
+        btn3.tag = 10003
         btn3.titleLabel?.font = UIFont.systemFont(ofSize: 10)
         btn3.setTitleColor(Color3, for: .normal)
+        btn3.addTarget(self, action: #selector(btnClick(_:)), for: .touchUpInside)
         view3.addSubview(btn3)
         btn3.snp.makeConstraints { (make) in
             make.center.equalTo(view3)
@@ -151,6 +159,12 @@ class YJApplicationSecondCell:UITableViewCell{
             make.width.equalTo(KSW/3)
             make.height.equalTo(70)
             make.left.equalTo(KSW*2/3)
+        }
+    }
+    @objc func btnClick (_ sender : UIButton) -> Void {
+        
+        if self.btnClickCallBack != nil {
+            self.btnClickCallBack!(sender.tag - 10000)
         }
     }
 }

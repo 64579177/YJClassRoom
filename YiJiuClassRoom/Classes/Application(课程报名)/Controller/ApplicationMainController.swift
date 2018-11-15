@@ -29,7 +29,6 @@ class ApplicationMainController: YJBaseViewController {
     var adArray:[YJADDataModel] = []
     var courseArray:[YJApplicationClassCourseListModel] = []
     let disGroup = DispatchGroup()
-    var myModelAd :YJADDataModel?
     
     override func viewDidLoad() {
         
@@ -45,9 +44,6 @@ class ApplicationMainController: YJBaseViewController {
 //            make.left.equalTo(self.view)
 //            make.bottom.equalTo(self.view)
 //            make.right.equalTo(self.view)
-//        }
-//        self.myTableView.snp.makeConstraints { (make) in
-//            make.bottom.equalTo(0)
 //        }
     }
     
@@ -88,15 +84,12 @@ class ApplicationMainController: YJBaseViewController {
             }
             
             guard let lists = model?.data, lists.count > 0 else{
-                self.myModelAd = nil
+                self.adArray = []
                 self.disGroup.leave()
                 return
             }
             self.adArray = lists
             self.myTableView.reloadData()
-            //                self.myModelAd = JYStoreManageModel()
-            //                self.myModelAd?.sectionTyle = .storeAd
-            //                self.myModelAd?.itemArr = [model]
             self.disGroup.leave()
         }
         
@@ -109,14 +102,14 @@ class ApplicationMainController: YJBaseViewController {
         }
         self.disGroup.enter()
         
-        YJApplicationService.getAppClassListInfo { (isSuccess, model, errorStr) in
+        YJApplicationService.getAppClassListInfo (type: 0) { (isSuccess, model, errorStr) in
             guard isSuccess  else{
                 self.disGroup.leave()
                 return
             }
             
-            guard let lists = model?.data?.course,lists.count > 0 else{
-                self.myModelAd = nil
+            guard let lists = model?.data.course,lists.count > 0 else{
+                self.courseArray = []
                 self.disGroup.leave()
                 return
             }
@@ -164,6 +157,13 @@ extension ApplicationMainController:UITableViewDelegate,UITableViewDataSource{
             if cell == nil {
                 cell = YJApplicationSecondCell(style: .default, reuseIdentifier: cellIdentifierString)
                 cell?.selectionStyle = .none
+            }
+            cell?.btnClickCallBack = {
+                (value) -> Void in
+                
+                let pvc = YJFreeStrategyCourseController()
+                pvc.typeInt = value
+                self.navigationController?.pushViewController(pvc, animated: true)
             }
             
             return cell!

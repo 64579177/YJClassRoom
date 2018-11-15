@@ -12,11 +12,11 @@ class YJApplicationClassListModel: EVObject {
     var code:String?
     var msg:String?
     var time:TimeInterval?
-    var data:YJApplicationClassMainModel?
+    var data:YJApplicationClassMainModel = YJApplicationClassMainModel()
 }
 class YJApplicationClassMainModel: EVObject {
-    var year: String?
-    var course: [YJApplicationClassCourseListModel]?
+    var year: String = ""
+    var course: [YJApplicationClassCourseListModel] = []
 }
 class YJApplicationClassCourseListModel: EVObject {
     var year: String = ""

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1913385658DB7C90098FFE43 /* Pods_YiJiuClassRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B677A02858C80FB81B240F /* Pods_YiJiuClassRoom.framework */; };
+		715F78C1219D085A00F6C822 /* YJFreeStrategyCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F78C0219D085A00F6C822 /* YJFreeStrategyCourse.swift */; };
 		7173261B219BFFA400DE6732 /* YJApplicationCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173261A219BFFA400DE6732 /* YJApplicationCourseCell.swift */; };
 		7173261D219C077B00DE6732 /* YJLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173261C219C077B00DE6732 /* YJLabel.swift */; };
 		7173261F219C0D5500DE6732 /* YJApplicationApplyFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173261E219C0D5500DE6732 /* YJApplicationApplyFlow.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		715F78C0219D085A00F6C822 /* YJFreeStrategyCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJFreeStrategyCourse.swift; sourceTree = "<group>"; };
 		7173261A219BFFA400DE6732 /* YJApplicationCourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplicationCourseCell.swift; sourceTree = "<group>"; };
 		7173261C219C077B00DE6732 /* YJLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJLabel.swift; sourceTree = "<group>"; };
 		7173261E219C0D5500DE6732 /* YJApplicationApplyFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplicationApplyFlow.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				717DE3CD21994A3B00C99322 /* ApplicationMainController.swift */,
+				715F78C0219D085A00F6C822 /* YJFreeStrategyCourse.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				719EAB5C219A696B002C7FBE /* EVReflection.swift in Sources */,
+				715F78C1219D085A00F6C822 /* YJFreeStrategyCourse.swift in Sources */,
 				717DE3D021994A8D00C99322 /* MyApplicationMainController.swift in Sources */,
 				719EAB95219AD0DD002C7FBE /* YJApplicationDisplayCell.swift in Sources */,
 				719EAB57219A696B002C7FBE /* DeserializationStatus.swift in Sources */,

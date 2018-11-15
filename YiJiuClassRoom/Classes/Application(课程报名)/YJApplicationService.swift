@@ -17,8 +17,16 @@ class YJApplicationService: NSObject {
 extension YJApplicationService{
 
         //MARK: - 首页课程列表接口
-    class func getAppClassListInfo (finish: @escaping (_ success: Bool,_ model: YJApplicationClassListModel?,_ errorMsg: String?) -> Void){
-        let dict = ["openkey" : "5be64c88696e2_1491"]
+    class func getAppClassListInfo (type:NSInteger,finish: @escaping (_ success: Bool,_ model: YJApplicationClassListModel?,_ errorMsg: String?) -> Void){
+        
+        var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
+        if type == 0 {
+            dict["openkey"] = "5be64c88696e2_1491" as AnyObject?
+        }else{
+            dict["openkey"] = "5be64c88696e2_1491" as AnyObject?
+            dict["type"] = type as AnyObject?
+        }
+        
 
         let requestUrl : String = ApplicationCommonUrl.appClassList
         
