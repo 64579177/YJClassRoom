@@ -22,7 +22,7 @@ class YJCourseDetailDataModel: EVObject {
     var info:YJCourseDetailInfoModel?
     var detail_url : String  = ""
     var sponsor :YJCourseDetailSponsorModel?
-    var apply_status: Int?
+    var apply_status: NSNumber?
     var apply_id: Int?
     var is_praise: Int?
     var order_id: Int?

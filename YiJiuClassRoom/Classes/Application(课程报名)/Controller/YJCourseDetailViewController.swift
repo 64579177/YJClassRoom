@@ -38,6 +38,112 @@ class YJCourseDetailViewController: YJBaseViewController {
         self.view.addSubview(self.myTableView)
         self.myTableView.snp.makeConstraints { (make) in
             make.top.left.bottom.right.equalTo(self.view)
+            make.bottom.equalTo(-50)
+        }
+    }
+    
+    func addBottomView(){
+        
+        let view1 = UIView(frame: CGRect.zero)//(x:0,y:0,width:KSW/3,height:70)
+        let btn1 = UIButton()
+        btn1.set(normalImage: UIImage(named:"apply_home"), selectedImage: UIImage(named:"apply_home"), title: "返回首页", titlePosition: .bottom, additionalSpacing: 0)
+        btn1.tag = 10001
+        btn1.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        btn1.setTitleColor(Color3, for: .normal)
+        btn1.addTarget(self, action: #selector(btnClick(_:)), for: .touchUpInside)
+        view1.addSubview(btn1)
+        btn1.snp.makeConstraints { (make) in
+            make.center.equalTo(view1)
+            make.width.height.equalTo(50)
+        }
+        
+        let view2 = UIView(frame: CGRect.zero)//(x:KSW/3,y:0,width:KSW/3,height:70)
+        let btn2 = UIButton()
+        btn2.set(normalImage: UIImage(named:"apply_error"), selectedImage: UIImage(named:"apply_error"), title: "申请义工", titlePosition: .bottom, additionalSpacing: 0)
+        btn2.tag = 10002
+        btn2.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        btn2.setTitleColor(Color3, for: .normal)
+        btn2.addTarget(self, action: #selector(btnClick(_:)), for: .touchUpInside)
+        view2.addSubview(btn2)
+        btn2.snp.makeConstraints { (make) in
+            make.center.equalTo(view2)
+            make.width.height.equalTo(50)
+        }
+        
+        let btn3 = UIButton()
+        
+        btn3.tag = 10003
+        btn3.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        btn3.setTitleColor(.white, for: .normal)
+        btn3.addTarget(self, action: #selector(btnClick(_:)), for: .touchUpInside)
+        if self.myDetailModel?.apply_status == 0 {
+            btn3.setTitle("立即报名", for: .normal)
+            btn3.backgroundColor = .green
+            btn3.isEnabled = true
+        }else{
+            btn3.backgroundColor = .gray
+            btn3.isEnabled = false
+            if self.myDetailModel?.apply_status == 1 {
+                btn3.setTitle("报名成功", for: .normal)
+            }else if self.myDetailModel?.apply_status == 2{
+                btn3.setTitle("等待支付", for: .normal)
+            }else if self.myDetailModel?.apply_status == 3{
+                btn3.setTitle("报名结束", for: .normal)
+            }else if self.myDetailModel?.apply_status == 4{
+                btn3.setTitle("待审核", for: .normal)
+            }else if self.myDetailModel?.apply_status == 5{
+                btn3.setTitle("审核通过", for: .normal)
+            }else if self.myDetailModel?.apply_status == -1{
+                btn3.setTitle("报名禁止", for: .normal)
+            }
+        }
+
+
+        let line = JYView.getlineView()
+        self.view.addSubview(line)
+        self.view.addSubview(view1)
+        self.view.addSubview(view2)
+        self.view.addSubview(btn3)
+        
+        line.snp.makeConstraints { (make) in
+            make.left.right.equalTo(0)
+            make.height.equalTo(0.5)
+            make.bottom.equalTo(-50)
+        }
+        
+        view1.snp.makeConstraints { (make) in
+            make.left.bottom.equalTo(0)
+            make.width.equalTo(KSW/3)
+            make.height.equalTo(50)
+        }
+        view2.snp.makeConstraints { (make) in
+            make.bottom.equalTo(0)
+            make.left.equalTo(KSW/3)
+            make.width.equalTo(KSW/3)
+            make.height.equalTo(50)
+            
+            
+        }
+        btn3.snp.makeConstraints { (make) in
+            make.bottom.equalTo(0)
+            make.width.equalTo(KSW/3)
+            make.height.equalTo(50)
+            make.left.equalTo(KSW*2/3)
+        }
+    }
+    
+    @objc func btnClick (_ sender : UIButton) -> Void {
+        
+        if sender.tag == 10001 {
+            //返回首页
+            self.navigationController?.popToRootViewController(animated: true)
+        }else if sender.tag == 10002{
+            //申请义工
+        }else if sender.tag == 10003 {
+            //去报名类别页面
+            let pvc = YJApplyCategoryViewController()
+//            pvc.courseId = self.myDetailModel.co
+            self.navigationController?.pushViewController(pvc, animated: true)
         }
     }
     
@@ -60,8 +166,9 @@ class YJCourseDetailViewController: YJBaseViewController {
             }
             self.myDetailModel = data
             self.myTableView.reloadData()
+            //添加底部栏
+            self.addBottomView()
         }
-        
     }
 }
 

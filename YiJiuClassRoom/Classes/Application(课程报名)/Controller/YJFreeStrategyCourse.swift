@@ -41,12 +41,9 @@ class YJFreeStrategyCourseController: YJBaseViewController {
     
     func initUI(){
         self.view.addSubview(self.myTableView)
-        //        self.myTableView.snp.makeConstraints { (make) in
-        //            make.top.equalTo(self.view)
-        //            make.left.equalTo(self.view)
-        //            make.bottom.equalTo(self.view)
-        //            make.right.equalTo(self.view)
-        //        }
+        self.myTableView.snp.makeConstraints { (make) in
+            make.top.left.bottom.right.equalTo(self.view)
+        }
     }
     
     

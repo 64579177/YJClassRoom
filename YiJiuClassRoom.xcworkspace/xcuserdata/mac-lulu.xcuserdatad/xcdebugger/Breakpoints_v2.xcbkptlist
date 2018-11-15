@@ -10,12 +10,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YiJiuClassRoom/Classes/Application(&#x8bfe;&#x7a0b;&#x62a5;&#x540d;)/View/YJApplicationDisplayCell.swift"
-            timestampString = "563964550.454236"
+            timestampString = "563970838.883893"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
             endingLineNumber = "69"
             landmarkName = "dispalyer(_:didSelectedImage:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "YiJiuClassRoom/Classes/Application(&#x8bfe;&#x7a0b;&#x62a5;&#x540d;)/Controller/YJCourseDetailViewController.swift"
+            timestampString = "563970838.883973"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "addBottomView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
