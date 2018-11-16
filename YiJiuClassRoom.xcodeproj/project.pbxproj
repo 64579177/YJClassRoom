@@ -48,16 +48,16 @@
 		719EAB6E219A709B002C7FBE /* YJNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB6D219A709B002C7FBE /* YJNavigationController.swift */; };
 		719EAB71219A73B5002C7FBE /* YJButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB70219A73B5002C7FBE /* YJButton.swift */; };
 		719EAB73219A7487002C7FBE /* YJView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB72219A7487002C7FBE /* YJView.swift */; };
-		719EAB75219A7E39002C7FBE /* SlideshowDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB74219A7E39002C7FBE /* SlideshowDisplayer.swift */; };
 		719EAB77219A7F24002C7FBE /* YJADInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB76219A7F24002C7FBE /* YJADInfoModel.swift */; };
 		719EAB79219A956D002C7FBE /* YJApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB78219A956D002C7FBE /* YJApplicationService.swift */; };
-		719EAB7B219A9AA4002C7FBE /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB7A219A9AA4002C7FBE /* Tool.swift */; };
 		719EAB7D219A9E75002C7FBE /* YJApplicationClassListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB7C219A9E75002C7FBE /* YJApplicationClassListModel.swift */; };
 		719EAB95219AD0DD002C7FBE /* YJApplicationDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB94219AD0DD002C7FBE /* YJApplicationDisplayCell.swift */; };
 		71A49D9C219E5D3700CAB42A /* YJCourseApplyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A49D9B219E5D3700CAB42A /* YJCourseApplyInfoViewController.swift */; };
 		71A49D9E219E619E00CAB42A /* YJCenterIndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A49D9D219E619E00CAB42A /* YJCenterIndexModel.swift */; };
 		71A49DA0219E724800CAB42A /* YJSelectCompayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A49D9F219E724800CAB42A /* YJSelectCompayListViewController.swift */; };
 		71A49DA2219E72D800CAB42A /* YJSelectCompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A49DA1219E72D800CAB42A /* YJSelectCompanyModel.swift */; };
+		71A49DA5219ED15600CAB42A /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A49DA4219ED15600CAB42A /* Tool.swift */; };
+		71A49DA7219ED21500CAB42A /* SlideshowDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A49DA6219ED21500CAB42A /* SlideshowDisplayer.swift */; };
 		71B521C321994DC2000E7792 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B521C221994DC2000E7792 /* constant.swift */; };
 		71B521C621997CD5000E7792 /* YJLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B521C521997CD5000E7792 /* YJLoginViewController.swift */; };
 		71EC55E0219E533300350242 /* YJCourseApplyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EC55DF219E533300350242 /* YJCourseApplyListModel.swift */; };
@@ -106,16 +106,16 @@
 		719EAB6D219A709B002C7FBE /* YJNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJNavigationController.swift; sourceTree = "<group>"; };
 		719EAB70219A73B5002C7FBE /* YJButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJButton.swift; sourceTree = "<group>"; };
 		719EAB72219A7487002C7FBE /* YJView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJView.swift; sourceTree = "<group>"; };
-		719EAB74219A7E39002C7FBE /* SlideshowDisplayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideshowDisplayer.swift; path = "../../../../automini-ios/AutoMini-ios/JYUtils/JYCommon/SlideshowDisplayer.swift"; sourceTree = "<group>"; };
 		719EAB76219A7F24002C7FBE /* YJADInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJADInfoModel.swift; sourceTree = "<group>"; };
 		719EAB78219A956D002C7FBE /* YJApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplicationService.swift; sourceTree = "<group>"; };
-		719EAB7A219A9AA4002C7FBE /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tool.swift; path = "../../../../automini-ios/AutoMini-ios/JYModule/JYMain/JYOrder_Module/Module_Utils/Tool.swift"; sourceTree = "<group>"; };
 		719EAB7C219A9E75002C7FBE /* YJApplicationClassListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplicationClassListModel.swift; sourceTree = "<group>"; };
 		719EAB94219AD0DD002C7FBE /* YJApplicationDisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplicationDisplayCell.swift; sourceTree = "<group>"; };
 		71A49D9B219E5D3700CAB42A /* YJCourseApplyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCourseApplyInfoViewController.swift; sourceTree = "<group>"; };
 		71A49D9D219E619E00CAB42A /* YJCenterIndexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCenterIndexModel.swift; sourceTree = "<group>"; };
 		71A49D9F219E724800CAB42A /* YJSelectCompayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJSelectCompayListViewController.swift; sourceTree = "<group>"; };
 		71A49DA1219E72D800CAB42A /* YJSelectCompanyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJSelectCompanyModel.swift; sourceTree = "<group>"; };
+		71A49DA4219ED15600CAB42A /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
+		71A49DA6219ED21500CAB42A /* SlideshowDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideshowDisplayer.swift; sourceTree = "<group>"; };
 		71B521C221994DC2000E7792 /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 		71B521C521997CD5000E7792 /* YJLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJLoginViewController.swift; sourceTree = "<group>"; };
 		71EC55DF219E533300350242 /* YJCourseApplyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCourseApplyListModel.swift; sourceTree = "<group>"; };
@@ -202,8 +202,8 @@
 		717DE3B8219931B500C99322 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				719EAB7A219A9AA4002C7FBE /* Tool.swift */,
-				719EAB74219A7E39002C7FBE /* SlideshowDisplayer.swift */,
+				71A49DA4219ED15600CAB42A /* Tool.swift */,
+				71A49DA6219ED21500CAB42A /* SlideshowDisplayer.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -559,10 +559,11 @@
 			files = (
 				719EAB5C219A696B002C7FBE /* EVReflection.swift in Sources */,
 				715F78C1219D085A00F6C822 /* YJFreeStrategyCourse.swift in Sources */,
+				71A49DA7219ED21500CAB42A /* SlideshowDisplayer.swift in Sources */,
 				717DE3D021994A8D00C99322 /* MyApplicationMainController.swift in Sources */,
+				71A49DA5219ED15600CAB42A /* Tool.swift in Sources */,
 				719EAB95219AD0DD002C7FBE /* YJApplicationDisplayCell.swift in Sources */,
 				719EAB57219A696B002C7FBE /* DeserializationStatus.swift in Sources */,
-				719EAB7B219A9AA4002C7FBE /* Tool.swift in Sources */,
 				719EAB42219A648A002C7FBE /* YJNetWorkTool.swift in Sources */,
 				719EAB5A219A696B002C7FBE /* EVObject.swift in Sources */,
 				717DE3A82199212900C99322 /* ViewController.swift in Sources */,
@@ -598,7 +599,6 @@
 				7173261F219C0D5500DE6732 /* YJApplicationApplyFlow.swift in Sources */,
 				719EAB73219A7487002C7FBE /* YJView.swift in Sources */,
 				717DE3D221994AE600C99322 /* YJBaseViewController.swift in Sources */,
-				719EAB75219A7E39002C7FBE /* SlideshowDisplayer.swift in Sources */,
 				717DE3CE21994A3B00C99322 /* ApplicationMainController.swift in Sources */,
 				719EAB46219A67F8002C7FBE /* Account.swift in Sources */,
 				715F78C7219D36CB00F6C822 /* YJCourseDetailSecondCell.swift in Sources */,
