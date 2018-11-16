@@ -269,7 +269,7 @@ class YJCourseDetailThirdCell: UITableViewCell {
     var dataModel:YJCourseDetailDataModel = YJCourseDetailDataModel() {
         didSet{
             
-            let headImgView = JYJImageView.getSimpleUrlImageView(toframe: CGRect.zero, img: (dataModel.teacher?.photo)!)
+            let headImgView = YJImageView.getSimpleUrlImageView(toframe: CGRect.zero, img: (dataModel.teacher?.photo)!)
             let desclbl = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: (dataModel.teacher?.desc)!, textAli: .left, textFont: 14, numLines: 0)
             let namelbl = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: (dataModel.teacher?.name)!, textAli: .left, textFont: 14, numLines: 1)
             let courseLable = YJLable.getSimpleLabelNoFrame(textColor: .white, text: "策略课", textAli: .center, textFont: 10, numLines: 1)
@@ -312,14 +312,14 @@ class YJCourseDetailFourCell: UITableViewCell {
     var dataModel:YJCourseDetailCateModel = YJCourseDetailCateModel() {
         didSet{
             
-            let wealthImgView = JYJImageView.getSimpleImageView(toframe: CGRect.zero, img: "my_wealth")
+            let wealthImgView = YJImageView.getSimpleImageView(toframe: CGRect.zero, img: "my_wealth")
             let desclbl = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: "相关报名费用", textAli: .left, textFont: 14, numLines: 0)
             let line = JYView.getlineView()
             let titlelbl = YJLable.getSimpleLabelActive(textColor: Color3, text: dataModel.title!, textAli: .left, textFont: 14)
             let pricelbl = YJLable.getSimpleLabelActive(textColor: Color3, text: "\(dataModel.price ?? 0)", textAli: .center, textFont: 14)
             let numlbl = YJLable.getSimpleLabelActive(textColor: Color9, text: "名额限制:" + "\(dataModel.quota)", textAli: .center, textFont: 14)
             let line1 = JYView.getlineView()
-            let peopleImgView = JYJImageView.getSimpleImageView(toframe: CGRect.zero, img: "my_people")
+            let peopleImgView = YJImageView.getSimpleImageView(toframe: CGRect.zero, img: "my_people")
             let signNumlbl = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: "已报名人员" + "\(dataModel.sign_in_num)", textAli: .left, textFont: 14, numLines: 0)
             
             self.addSubview(wealthImgView)

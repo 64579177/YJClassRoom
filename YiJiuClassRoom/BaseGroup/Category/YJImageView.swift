@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class JYJImageView: UIImageView {
+class YJImageView: UIImageView {
     
     
     

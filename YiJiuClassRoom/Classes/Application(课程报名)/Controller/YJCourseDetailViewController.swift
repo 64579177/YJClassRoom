@@ -204,7 +204,7 @@ extension YJCourseDetailViewController:UITableViewDelegate,UITableViewDataSource
                 cell?.selectionStyle = .none
             }
 //            cell?.addSubview(JYJImageView.getSimpleUrlImageView(toframe: CGRect(x:0,y:0,width:KSW,height:KSW), img: (self.myDetailModel.info?.cover)!))
-            let imgView = JYJImageView.getSimpleUrlImageView(toframe: CGRect.zero, img: "http://yijiucdn.baozhen999.com/uploads/26be13346d38663f81b64bd312c8f6c5.png")
+            let imgView = YJImageView.getSimpleUrlImageView(toframe: CGRect.zero, img: "http://yijiucdn.baozhen999.com/uploads/26be13346d38663f81b64bd312c8f6c5.png")
             cell?.addSubview(imgView)
             imgView.snp.makeConstraints { (make) in
                 make.top.bottom.left.right.equalTo(cell!)
