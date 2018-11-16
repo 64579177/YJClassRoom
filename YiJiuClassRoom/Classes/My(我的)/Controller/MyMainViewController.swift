@@ -19,6 +19,8 @@ class MyMainViewController: YJBaseViewController {
         myTableView.estimatedRowHeight = 50
         myTableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
         myTableView.backgroundColor = Colorf6
+        myTableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 0)
+        myTableView.isScrollEnabled = false
         return myTableView
     }()
     
@@ -121,14 +123,18 @@ extension MyMainViewController:UITableViewDelegate,UITableViewDataSource{
         }else if indexPath.section == 1 {
             if  indexPath.row == 0 {
                 cell?.imageView?.image = UIImage.init(named: "my_name")
+                cell?.textLabel?.text = "真实姓名"
             }else if  indexPath.row == 1 {
                 cell?.imageView?.image = UIImage.init(named: "my_card")
+                cell?.textLabel?.text = "身份证号"
             }
             else if  indexPath.row == 2 {
                 cell?.imageView?.image = UIImage.init(named: "my_tel")
+                cell?.textLabel?.text = "手机号码"
             }
             else if  indexPath.row == 3 {
                 cell?.imageView?.image = UIImage.init(named: "my_company")
+                cell?.textLabel?.text = "公司名称"
             }
         }
         
