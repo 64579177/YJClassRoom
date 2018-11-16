@@ -50,22 +50,22 @@ struct ApplicationCommonUrl {
 
 //登录url
 struct LoginUrl {
-    static let login :String = String(HostUrl.host + "merchantUser/login/")
+    static let login :String = String(HostUrl.host + "")
     //获取图片验证码
-    static let getValidatePic : String = String(HostUrl.host + "merchantVcode/randomImage/")
+    static let getValidatePic : String = String(HostUrl.host + "")
     //校验图片验证码
-    static let checkValidatePic : String = String(HostUrl.host + "merchantVcode/checkRandomImage/")
+    static let checkValidatePic : String = String(HostUrl.host + "")
     //获取短信验证码
-    static let getSMSCode : String = String(HostUrl.host + "merchantVcode/smsVcode/")
+    static let getSMSCode : String = String(HostUrl.host + "")
     //校验短信验证码
-    static let checkSMSCode : String = String(HostUrl.host + "merchantVcode/checkSmsVcode/")
+    static let checkSMSCode : String = String(HostUrl.host + "")
     //注册
-    static let register : String = String(HostUrl.host + "merchantUser/register/")
+    static let register : String = String(HostUrl.host + "")
     //根据手机号重置密码
-    static let resetPwd : String = String(HostUrl.host + "merchantUser/resetPwd/")
+    static let resetPwd : String = String(HostUrl.host + "")
     //获取ticket
-    static let getTicket : String = String(HostUrl.host + "ticket/getTicket/")
+    static let getTicket : String = String(HostUrl.host + "")
     //获取行业信息
-    static let getIndustry : String = String(HostUrl.host + "merchantAdd/industry")
+    static let getIndustry : String = String(HostUrl.host + "")
     
 }
