@@ -56,6 +56,8 @@
 		719EAB95219AD0DD002C7FBE /* YJApplicationDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EAB94219AD0DD002C7FBE /* YJApplicationDisplayCell.swift */; };
 		71A49D9C219E5D3700CAB42A /* YJCourseApplyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A49D9B219E5D3700CAB42A /* YJCourseApplyInfoViewController.swift */; };
 		71A49D9E219E619E00CAB42A /* YJCenterIndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A49D9D219E619E00CAB42A /* YJCenterIndexModel.swift */; };
+		71A49DA0219E724800CAB42A /* YJSelectCompayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A49D9F219E724800CAB42A /* YJSelectCompayListViewController.swift */; };
+		71A49DA2219E72D800CAB42A /* YJSelectCompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A49DA1219E72D800CAB42A /* YJSelectCompanyModel.swift */; };
 		71B521C321994DC2000E7792 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B521C221994DC2000E7792 /* constant.swift */; };
 		71B521C621997CD5000E7792 /* YJLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B521C521997CD5000E7792 /* YJLoginViewController.swift */; };
 		71EC55E0219E533300350242 /* YJCourseApplyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EC55DF219E533300350242 /* YJCourseApplyListModel.swift */; };
@@ -112,6 +114,8 @@
 		719EAB94219AD0DD002C7FBE /* YJApplicationDisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplicationDisplayCell.swift; sourceTree = "<group>"; };
 		71A49D9B219E5D3700CAB42A /* YJCourseApplyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCourseApplyInfoViewController.swift; sourceTree = "<group>"; };
 		71A49D9D219E619E00CAB42A /* YJCenterIndexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCenterIndexModel.swift; sourceTree = "<group>"; };
+		71A49D9F219E724800CAB42A /* YJSelectCompayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJSelectCompayListViewController.swift; sourceTree = "<group>"; };
+		71A49DA1219E72D800CAB42A /* YJSelectCompanyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJSelectCompanyModel.swift; sourceTree = "<group>"; };
 		71B521C221994DC2000E7792 /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 		71B521C521997CD5000E7792 /* YJLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJLoginViewController.swift; sourceTree = "<group>"; };
 		71EC55DF219E533300350242 /* YJCourseApplyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCourseApplyListModel.swift; sourceTree = "<group>"; };
@@ -250,6 +254,7 @@
 				715F78C2219D139300F6C822 /* YJCourseDetailViewController.swift */,
 				715F78CA219D7F3A00F6C822 /* YJApplyCategoryViewController.swift */,
 				71A49D9B219E5D3700CAB42A /* YJCourseApplyInfoViewController.swift */,
+				71A49D9F219E724800CAB42A /* YJSelectCompayListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 				715F78C4219D1B4200F6C822 /* YJCourseDetailModel.swift */,
 				71EC55DF219E533300350242 /* YJCourseApplyListModel.swift */,
 				71A49D9D219E619E00CAB42A /* YJCenterIndexModel.swift */,
+				71A49DA1219E72D800CAB42A /* YJSelectCompanyModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -581,7 +587,9 @@
 				719EAB31219A5FD3002C7FBE /* YJConstantUrl.swift in Sources */,
 				71A49D9E219E619E00CAB42A /* YJCenterIndexModel.swift in Sources */,
 				719EAB44219A65CE002C7FBE /* YJNetWorkError.swift in Sources */,
+				71A49DA0219E724800CAB42A /* YJSelectCompayListViewController.swift in Sources */,
 				719EAB59219A696B002C7FBE /* EVDictionaryExtension.swift in Sources */,
+				71A49DA2219E72D800CAB42A /* YJSelectCompanyModel.swift in Sources */,
 				7173261B219BFFA400DE6732 /* YJApplicationCourseCell.swift in Sources */,
 				71EC55E0219E533300350242 /* YJCourseApplyListModel.swift in Sources */,
 				71B521C621997CD5000E7792 /* YJLoginViewController.swift in Sources */,

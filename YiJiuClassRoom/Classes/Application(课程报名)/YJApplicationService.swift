@@ -79,7 +79,7 @@ extension YJApplicationService{
     }
     
     //报名信息
-    class func requestCenterIndexInfoenterIndexInfo(finish: @escaping (_ success: Bool,_ model: YJCenterIndexMainModel?,_ errorMsg: String?) -> Void){
+    class func requestCenterIndexInfo(finish: @escaping (_ success: Bool,_ model: YJCenterIndexMainModel?,_ errorMsg: String?) -> Void){
         
         var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
         dict["openkey"] = "5be64c88696e2_1491" as AnyObject?
@@ -87,6 +87,19 @@ extension YJApplicationService{
         let requestUrl : String = ApplicationCommonUrl.appCenterIndexInfo
         
         YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: dict as [String : AnyObject]) { (_ model: YJCenterIndexMainModel?, response: YJNetWorkResponse) in
+            finish(response.isSuccess,model,response.responseMessage)
+        }
+    }
+    //事业部信息
+    class func requestCenterCompanyListInfo(page:NSInteger,finish: @escaping (_ success: Bool,_ model: YJSelectCompanyMainModel?,_ errorMsg: String?) -> Void){
+        
+        var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
+        dict["openkey"] = "5be8235eb67a7_2353" as AnyObject?
+        dict["page"] = page as AnyObject?
+        
+        let requestUrl : String = ApplicationCommonUrl.appCenterselectCompanyListInfo
+        
+        YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: dict as [String : AnyObject]) { (_ model: YJSelectCompanyMainModel?, response: YJNetWorkResponse) in
             finish(response.isSuccess,model,response.responseMessage)
         }
     }

@@ -77,7 +77,7 @@ class YJCourseApplyInfoViewController: YJBaseViewController {
         
         let submitBtn = UIButton.createBtn(title: "提交", bgColor: ColorNav, font: 14.0, ali: .center, textColor: .white)
         submitBtn.frame = CGRect(x:15,y:330,width:KSW-30,height:30)
-        submitBtn.cornerAll(radii: 2)
+        submitBtn.cornerAll(radii: 5)
         submitBtn.addTarget(self, action: #selector(submitClick), for: .touchUpInside)
         
         self.view.addSubview(submitBtn)
@@ -96,7 +96,7 @@ class YJCourseApplyInfoViewController: YJBaseViewController {
         }
         Tool.showLoadingOnView(view: self.view)
         
-        YJApplicationService.requestCenterIndexInfoenterIndexInfo{(isSuccess, model, errorStr) in
+        YJApplicationService.requestCenterIndexInfo{(isSuccess, model, errorStr) in
             Tool.hideLodingOnView(view: self.view)
             
             guard isSuccess  else{
@@ -163,7 +163,7 @@ extension YJCourseApplyInfoViewController:UITableViewDelegate,UITableViewDataSou
             self.uploadHeadStatuslbl.text = self.dataModel?.profile.real_headimg == "" ? "未上传" : "已上传"
             cell?.addSubview(self.uploadHeadStatuslbl)
             self.uploadHeadStatuslbl.snp.makeConstraints { (make) in
-                make.right.equalTo(-45)
+                make.right.equalTo(-35)
                 make.height.equalTo(20)
                 make.centerY.equalTo(cell!)
             }
@@ -173,7 +173,7 @@ extension YJCourseApplyInfoViewController:UITableViewDelegate,UITableViewDataSou
             self.shiyebulbl.text = self.dataModel?.company_name
             cell?.addSubview(self.shiyebulbl)
             self.shiyebulbl.snp.makeConstraints { (make) in
-                make.right.equalTo(-45)
+                make.right.equalTo(-35)
                 make.height.equalTo(20)
                 make.centerY.equalTo(cell!)
             }
@@ -220,6 +220,10 @@ extension YJCourseApplyInfoViewController:UITableViewDelegate,UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        if indexPath.row == 3 {
+            let pvc = YJSelectCompayListViewController()
+            self.navigationController?.pushViewController(pvc, animated: true)
+        }
     }
     
 }
