@@ -27,13 +27,13 @@ class YJApplyCategoryViewController: YJBaseViewController {
     
     
     //
-    var dataArray:Array<AnyObject> = []
+    var dataArray:[YJCourseApplyListModel] = []
   
     
     override func viewDidLoad() {
         
         self.title = "报名类别"
-        self.initUI()
+
         self.getListInfo()
         
     }
@@ -52,20 +52,20 @@ class YJApplyCategoryViewController: YJBaseViewController {
         }
         Tool.showLoadingOnView(view: self.view)
         
-//        YJApplicationService.getAppClassListInfo(type: typeInt) { (isSuccess, model, errorStr) in
-//            Tool.hideLodingOnView(view: self.view)
-//           
-//            guard isSuccess  else{
-//                return
-//            }
-//            
-//            guard let lists = model?.data.course,lists.count > 0 else{
-//                self.dataArray = []
-//                return
-//            }
-//            self.dataArray = lists
-//            self.myTableView.reloadData()
-//        }
+        YJApplicationService.requestCourseApplyList(courseId: courseId) { (isSuccess, model, errorStr) in
+            Tool.hideLodingOnView(view: self.view)
+           
+            guard isSuccess  else{
+                return
+            }
+            
+            guard let lists = model?.data,lists.count > 0 else{
+                self.dataArray = []
+                return
+            }
+            self.dataArray = lists
+            self.initUI()
+        }
         
     }
 }
@@ -83,7 +83,39 @@ extension YJApplyCategoryViewController:UITableViewDelegate,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        return UITableViewCell()
+        let cellIdentifierString = "default"
+        var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifierString)
+        if cell == nil {
+            cell = UITableViewCell(style: .default, reuseIdentifier: cellIdentifierString)
+            cell?.selectionStyle = .none
+        }
+        cell?.accessoryType = UITableViewCellAccessoryType(rawValue: Int(UIAccessibilityTraitButton))!
+        
+        let model = self.dataArray[indexPath.row]
+        let titleLbl = YJLable.getSimpleLabelActive(textColor: Color3, text: model.title!, textAli: .left, textFont: 14)
+        let priceLbl = YJLable.getSimpleLabelActive(textColor: ColorNav, text: "¥" + "\(model.price ?? 0)", textAli: .right, textFont: 14)
+       let quotaLbl = YJLable.getSimpleLabelActive(textColor: Color9, text: "名额限制" + "\(model.quota ?? 0)", textAli: .left, textFont: 14)
+        
+        cell?.addSubview(titleLbl)
+        cell?.addSubview(priceLbl)
+        cell?.addSubview(quotaLbl)
+        
+        titleLbl.snp.makeConstraints { (make) in
+            make.left.top.equalTo(15)
+            make.top.equalTo(10)
+        }
+        priceLbl.snp.makeConstraints { (make) in
+            make.right.equalTo(-35)
+            make.top.equalTo(10)
+        }
+        quotaLbl.snp.makeConstraints { (make) in
+            make.left.equalTo(15)
+            make.top.equalTo(titleLbl.snp.bottom).offset(10)
+            make.bottom.equalTo(-10)
+        }
+        
+        
+        return cell!
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -101,6 +133,12 @@ extension YJApplyCategoryViewController:UITableViewDelegate,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let pvc = YJCourseApplyInfoViewController()
+        self.navigationController?.pushViewController(pvc, animated: true)
     }
     
 }

@@ -39,6 +39,10 @@ struct ApplicationCommonUrl {
     static let appClassList:String = String(HostUrl.host + "home/index")
     //课堂详情
     static let appCourseDetail:String = String(HostUrl.host + "course/detail")
+    //报名类别列表
+    static let appCourseApplyList:String = String(HostUrl.host + "course/applyList")
+    //报名信息
+    static let appCenterIndexInfo:String = String(HostUrl.host + "center/index")
 }
 
 

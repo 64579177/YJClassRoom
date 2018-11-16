@@ -30,6 +30,8 @@ class YJCourseDetailViewController: YJBaseViewController {
     
     override func viewDidLoad() {
         
+        self.title = "课程详情"
+        
         self.initUI()
         self.getDetailnfo()
     }
@@ -142,7 +144,7 @@ class YJCourseDetailViewController: YJBaseViewController {
         }else if sender.tag == 10003 {
             //去报名类别页面
             let pvc = YJApplyCategoryViewController()
-//            pvc.courseId = self.myDetailModel.co
+            pvc.courseId = self.courseId
             self.navigationController?.pushViewController(pvc, animated: true)
         }
     }

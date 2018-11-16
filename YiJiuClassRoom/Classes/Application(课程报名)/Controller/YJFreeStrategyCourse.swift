@@ -199,4 +199,15 @@ extension YJFreeStrategyCourseController:UITableViewDelegate,UITableViewDataSour
         return UIView()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section > 0{
+            
+            let pvc = YJCourseDetailViewController()
+            if let listSc = self.courseArray[indexPath.section - 1].list{
+                pvc.courseId = (listSc[indexPath.row].id?.intValue)!
+            }
+            self.navigationController?.pushViewController(pvc, animated: true)
+        }
+    }
 }

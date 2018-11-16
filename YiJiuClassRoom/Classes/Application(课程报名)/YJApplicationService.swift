@@ -50,6 +50,7 @@ extension YJApplicationService{
 //MARK: - 课程详情接口
 extension YJApplicationService{
     
+    //详情接口
     class func requestCourseDetail(courseId:NSInteger,finish: @escaping (_ success: Bool,_ model: YJCourseDetailMainModel?,_ errorMsg: String?) -> Void){
         
         var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
@@ -59,6 +60,33 @@ extension YJApplicationService{
         let requestUrl : String = ApplicationCommonUrl.appCourseDetail
         
         YJNetWorkTool.RequestWithURL(url: requestUrl, method: .post, parameter: dict as [String : AnyObject]) { (_ model: YJCourseDetailMainModel?, response: YJNetWorkResponse) in
+            finish(response.isSuccess,model,response.responseMessage)
+        }
+    }
+    
+    //报名类别列表接口
+    class func requestCourseApplyList(courseId:NSInteger,finish: @escaping (_ success: Bool,_ model: YJCourseApplyListMainModel?,_ errorMsg: String?) -> Void){
+        
+        var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
+        dict["openkey"] = "5be64c88696e2_1491" as AnyObject?
+        dict["course_id"] = courseId as AnyObject?
+        
+        let requestUrl : String = ApplicationCommonUrl.appCourseApplyList
+        
+        YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: dict as [String : AnyObject]) { (_ model: YJCourseApplyListMainModel?, response: YJNetWorkResponse) in
+            finish(response.isSuccess,model,response.responseMessage)
+        }
+    }
+    
+    //报名信息
+    class func requestCenterIndexInfoenterIndexInfo(finish: @escaping (_ success: Bool,_ model: YJCenterIndexMainModel?,_ errorMsg: String?) -> Void){
+        
+        var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
+        dict["openkey"] = "5be64c88696e2_1491" as AnyObject?
+        
+        let requestUrl : String = ApplicationCommonUrl.appCenterIndexInfo
+        
+        YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: dict as [String : AnyObject]) { (_ model: YJCenterIndexMainModel?, response: YJNetWorkResponse) in
             finish(response.isSuccess,model,response.responseMessage)
         }
     }
