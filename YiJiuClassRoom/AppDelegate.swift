@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var reach: Reachability?
     var YJRootViewController: YJTabbarViewController!
-
+    var WXAppID:String = ""
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -24,10 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //MARK: 检测网络
         startMonitoringNetwork()
+        //MARK: -注册微信
+        WXApi.registerApp(WXAppID)
+        //MARK:配置根视图
         configRootViewController()
-        
-        
         return true
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -115,5 +117,55 @@ extension AppDelegate {
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
+    }
+}
+
+
+//MARK:-微信
+extension AppDelegate:WXApiDelegate {
+    
+    //  微信跳转回调
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        WXApi.handleOpen(url, delegate: self)
+        return true
+    }
+//    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+//        let result = UMSocialManager.default().handleOpen(url)
+//        if result == false {
+//            //调用其他SDK，例如支付宝SDK等
+//            WXApi.handleOpen(url, delegate: self)
+//        }
+//        return result
+//    }
+    //  微信回调
+    func onResp(_ resp: BaseResp!){
+        
+        var strTitle = "支付结果"
+        var strMsg = "what:\(resp.errCode)"
+        print(resp.errCode)
+        //  微信支付回调
+        if resp.isKind(of: PayResp.self)
+        {
+            print("retcode = \(resp.errCode), retstr = \(resp.errStr)")
+            switch resp.errCode
+            {
+            //  支付成功
+            case 0 :
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "WXPaySuccessNotification"), object: nil)
+            //  支付失败
+            default:
+                WXPayFail()
+            }
+        }
+        //  微信登录回调
+        if resp.errCode == 0 && resp.type == 0{//授权成功
+            let response = resp as! SendAuthResp
+            //  微信登录成功通知
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "WXLoginSuccessNotification"), object: response.code)
+        }
+    }
+    
+    func WXPayFail(){
+        
     }
 }

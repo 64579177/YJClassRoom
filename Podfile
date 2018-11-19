@@ -5,6 +5,7 @@ target 'YiJiuClassRoom' do
 
     #project 'YiJiuClassRoom'
 #    inhibit_all_warnings!
+    pod 'WechatOpenSDK'
     pod 'Reachability', '~> 3.2'
     pod 'Alamofire', '~> 4.4'
     pod 'AFNetworking'
@@ -15,4 +16,5 @@ target 'YiJiuClassRoom' do
     pod 'MBProgressHUD'
     pod 'IQKeyboardManagerSwift', '5.0.0'
     pod 'Kingfisher', '~> 4.1.1'
+   
 end

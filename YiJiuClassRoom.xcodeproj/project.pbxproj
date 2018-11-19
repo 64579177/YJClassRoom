@@ -73,6 +73,7 @@
 		715F78CA219D7F3A00F6C822 /* YJApplyCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplyCategoryViewController.swift; sourceTree = "<group>"; };
 		716CA11421A2498A00525295 /* YJPersonalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJPersonalService.swift; sourceTree = "<group>"; };
 		716CA11621A24A1400525295 /* YJPersonalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJPersonalModel.swift; sourceTree = "<group>"; };
+		716CA11C21A264C000525295 /* YJClassRoom_Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJClassRoom_Bridge.h; sourceTree = "<group>"; };
 		7173261A219BFFA400DE6732 /* YJApplicationCourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplicationCourseCell.swift; sourceTree = "<group>"; };
 		7173261C219C077B00DE6732 /* YJLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJLabel.swift; sourceTree = "<group>"; };
 		7173261E219C0D5500DE6732 /* YJApplicationApplyFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplicationApplyFlow.swift; sourceTree = "<group>"; };
@@ -188,6 +189,7 @@
 				717DE3AC2199213000C99322 /* Assets.xcassets */,
 				717DE3AE2199213000C99322 /* LaunchScreen.storyboard */,
 				717DE3B12199213000C99322 /* Info.plist */,
+				716CA11C21A264C000525295 /* YJClassRoom_Bridge.h */,
 			);
 			path = YiJiuClassRoom;
 			sourceTree = "<group>";
@@ -765,6 +767,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yijiu.YiJiuClassRoom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = YiJiuClassRoom/YJClassRoom_Bridge.h;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -784,6 +787,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yijiu.YiJiuClassRoom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = YiJiuClassRoom/YJClassRoom_Bridge.h;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
