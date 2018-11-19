@@ -161,11 +161,12 @@ extension AppDelegate:WXApiDelegate {
         if resp.errCode == 0 && resp.type == 0{//授权成功
             let response = resp as! SendAuthResp
             //  微信登录成功通知
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "WXLoginSuccessNotification"), object: response.code)
+//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "WXLoginSuccessNotification"), object: response.code)
         }
     }
     
     func WXPayFail(){
         
     }
+    
 }
