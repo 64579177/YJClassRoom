@@ -268,7 +268,7 @@ extension YJCourseDetailViewController:UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 || section == 1{
-            return 0
+            return 0.0001
         }else{
             return 10
         }
@@ -276,7 +276,7 @@ extension YJCourseDetailViewController:UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 || section == 1{
-            return nil
+            return UIView()
         }else{
             let view = JYView.getlineView()
             view.frame = CGRect(x:0,y:0,width:KSW,height:10)

@@ -48,6 +48,11 @@ struct ApplicationCommonUrl {
 }
 
 //个人资料
+struct MyApplicationCommonUrl {
+    static let MyApplyListUrl:String = String(HostUrl.host + "center/myApply")
+}
+
+//个人资料
 struct PersonalCommonUrl {
     static let personalUrl:String = String(HostUrl.host + "center/index")
 }

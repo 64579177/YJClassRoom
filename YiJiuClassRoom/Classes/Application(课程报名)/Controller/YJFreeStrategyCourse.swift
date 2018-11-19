@@ -160,7 +160,7 @@ extension YJFreeStrategyCourseController:UITableViewDelegate,UITableViewDataSour
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0{
-            return 0
+            return 0.0001
         }else{
             return 30
         }
@@ -168,7 +168,7 @@ extension YJFreeStrategyCourseController:UITableViewDelegate,UITableViewDataSour
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0{
-            return nil
+            return UIView()
         }else{
             let view = UIView(frame: CGRect(x:0,y:0,width:KSW,height:30))
             view.backgroundColor = .clear
