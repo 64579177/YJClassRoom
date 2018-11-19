@@ -25,29 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "YiJiuClassRoom/Classes/My(&#x6211;&#x7684;)/Controller/MyMainViewController.swift"
-            timestampString = "564285915.192956"
+            filePath = "YiJiuClassRoom/Classes/Application(&#x8bfe;&#x7a0b;&#x62a5;&#x540d;)/Controller/YJFreeStrategyCourse.swift"
+            timestampString = "564305671.4267271"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "getUserInfo()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "YiJiuClassRoom/Classes/My(&#x6211;&#x7684;)/Controller/MyMainViewController.swift"
-            timestampString = "564285915.193351"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

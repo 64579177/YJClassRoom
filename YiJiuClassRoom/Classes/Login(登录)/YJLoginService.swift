@@ -134,17 +134,25 @@ extension YJLoginService {
         }
     }
 //
-//    //获取行业信息
-//    func requestGetIndustry(finished : @escaping FinishedArray){
-//        let requestUrl : String = String(LoginUrl.getIndustry)
-//        YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: nil) { (nil, response : YJNetWorkResponse) in
-//
-//            if response.isSuccess{
-//                finished(true,response.responseArrayObject,response.responseMessage)
-//            }else{
-//                finished(false,response.responseArrayObject,response.bussinessErrorModel?.message)
-//            }
-//        }
-//    }
+    //
+    
+    class func requestWXLoginTempInfo(code:Any,finish: @escaping (_ success: Bool,_ model: loginTempModel?,_ errorMsg: String?) -> Void){
+        
+        let requestUrl : String = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=\(WXAppID)&secret=\(WXAppSecret)&code=\(code)&grant_type=authorization_code"
+        
+        YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: nil) { (_ model: loginTempModel?, response: YJNetWorkResponse) in
+            finish(response.isSuccess,model,response.responseMessage)
+        }
+    }
+    
+    class func requestWXLoginInfo(requestModel:loginTempModel,finish: @escaping (_ success: Bool,_ model: YJLoginModel?,_ errorMsg: String?) -> Void){
+        
+
+        let requestUrl : String = "https://api.weixin.qq.com/sns/userinfo?access_token=" + requestModel.access_token! + "&openid=" + requestModel.openid!
+        
+        YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: nil) { (_ model: YJLoginModel?, response: YJNetWorkResponse) in
+            finish(response.isSuccess,model,response.responseMessage)
+        }
+    }
     
 }

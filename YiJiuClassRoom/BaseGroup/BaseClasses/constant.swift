@@ -25,6 +25,8 @@ let ColorNav = UIColor.colorWithHex(hex: 0xe81e1e)
 let ColorTabUnSelected = UIColor.colorWithHex(hex: 0x7c7d80)
 let ColorTabSelected = UIColor.colorWithHex(hex: 0xe32229)
 
+let WXAppID:String = "wx0f4e840cebc05236"
+let WXAppSecret:String  = "0a17521124eb9522a0269f6349a353a8"
 
 struct StyleScreen {
     ///屏幕宽度

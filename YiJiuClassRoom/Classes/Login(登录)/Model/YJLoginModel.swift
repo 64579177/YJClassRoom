@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 struct User {
     let firstName: String
@@ -17,39 +18,15 @@ struct User {
 
 public class YJLoginModel: EVObject {
     
-    var id: String = ""               //用户id
-    var mobile: String?                //手机号
-    var password: String?
-    var source: String?
-    var status: String?
-    var createTime: NSNumber?
-    var updateTime: String?
-    var gender: String?
-    var headPath: String?
-    var merchantCode: String = ""               //店铺id
-    var parentId: NSNumber?
-    var deviceId: String?
-    var appKey: String?
-    var loginTime: String?
-    var tokenId: String?
-    var userType: String = ""                   //用户类型1001 收吧 1002 自己的
+    var openid: String?
+    var nickname: String?
+    var sex: NSNumber?
+    var province: String?
+    var city: String?
+    var country: String?
     
-    var merchantName: String = ""              //店铺名称
-    var industryId: String = ""                //行业id
-    var industryName: String = ""              //行业名称
-    var concatNumer: String = ""               //联系电话
-    var merchantAddress: String = ""           //店铺地址
-    var latitude: String = "0.0"                 //纬度
-    var longitude: String = "0.0"                //经度
-    var provinceName: String = ""              //省
-    var cityName: String = ""                  //市
-    var countyName: String = ""                //区
-    var mobilePhone: String = ""               //手机号
-    var telephone: String = ""                 //座机
-    var loginJsonString:String = ""
-    
-    var hiddenYinDao:Bool = false  //是否隐藏店铺管理的引导页
-    
+    var headimgurl: String?
+    var unionid: String?
     
     // 归档
     override public func encode(with aCoder: NSCoder) {
@@ -91,5 +68,15 @@ public class YJLoginModel: EVObject {
         // 释放ivars
         free(ivars)
     }
+}
+
+class loginTempModel:EVObject{
+    
+    var openid: String?
+    var unionid: String?
+    var refresh_token: String?
+    var scope: String?
+    var access_token: String?
+    var expires_in: NSNumber?
 }
 

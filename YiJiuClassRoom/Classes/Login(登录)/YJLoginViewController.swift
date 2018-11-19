@@ -9,8 +9,11 @@
 import Foundation
 import UIKit
 import SnapKit
+import Alamofire
 
 class YJLoginViewController: YJBaseViewController {
+    
+    var requestTempModel:loginTempModel?
     
     var loginImgView:UIImageView = UIImageView()
     var useNameImgView:UIImageView = UIImageView()
@@ -58,7 +61,19 @@ class YJLoginViewController: YJBaseViewController {
     }()
     
     override func viewDidLoad() {
-        self.initUI()
+//        self.initUI()
+        
+        //使用通知方法把回调返回到需要的控制器
+        NotificationCenter.default.addObserver(self, selector: #selector(addNotic(notice:)), name: NSNotification.Name(rawValue: "WXLoginSuccessNotice"), object: nil)
+
+        self.WXLogin()
+    }
+    
+    //微信登录
+    func WXLogin(){
+        //微信授权登录
+        let wxTool = WXCommonService.sharedInstance
+        wxTool.wxLoginBtnAction()
     }
     
     //初始化UI
@@ -158,31 +173,67 @@ class YJLoginViewController: YJBaseViewController {
         }
     }
     
+    //普通登录的逻辑
     dynamic func loginClick(){
-//        
-//        YJLoginService.requestLogin(userId: self.userNameTxt.text ,passWord: self.pwdTxt.text) { (jyloginmodel, message,code) in
-//            Tool.hideLodingOnWindow()
-//            
-//            guard jyloginmodel?.id == nil || jyloginmodel?.id == "" else{
-//                //登录成功
-//                self.view.setLoginInfo(greeting: jyloginmodel,isSuccess: true,code: 200)
-//                return
-//            }
-//            //登录失败
-//            if let code = code {
-//                Tool.showHUDWithText(text: message)
-//                self.view.setLoginInfo(greeting: nil,isSuccess: false,code: code)
-//            }else{
-//                Tool.showHUDWithText(text: message)
-//            }
-//        }
+//
         
-        let rootVC = YJTabbarViewController();
-        UIApplication.shared.keyWindow?.rootViewController = rootVC
+//        let rootVC = YJTabbarViewController();
+//        UIApplication.shared.keyWindow?.rootViewController = rootVC
     }
 }
 
 extension YJLoginViewController {
+    
+    //MARK:成功后其它控制器的通知方法
+    func addNotic(notice:Notification) {
+        print(notice.userInfo!["str"] as Any)
+        print("接受到通知")
+        
+        /*返回实例:下面的参数都有删减,使用自己的参数
+         {
+         "access_token": "",
+         "expires_in": 700,
+         "refresh_token": "",
+         "openid": "",
+         "scope": "",
+         "unionid": ""
+         }
+         access_token有效期为2个小时
+         refresh_token拥有较长的有效期（30天）当refresh_token失效的后，需要用户重新授权。
+         
+         */
+        
+        YJLoginService.requestWXLoginTempInfo(code: notice.userInfo?["str"] as Any) { (isSuccess, model, error) in
+            
+            if isSuccess {
+                debugPrint(model ?? "")
+                self.requestTempModel = model
+                self.setUserInfo()
+            }
+        }
+    }
+    
+    //MARK:微信登录获取用户信息
+    func setUserInfo() {
+        
+        guard let requestModel = self.requestTempModel else {
+            return
+        }
+        
+        YJLoginService.requestWXLoginInfo(requestModel: requestModel) { (isSuccess, model, error) in
+            
+            if isSuccess {
+                guard let modelTep = model else{
+                    return
+                }
+                Account.saveUserInfo(loginModel: modelTep)
+                
+                let rootVC = YJTabbarViewController();
+                UIApplication.shared.keyWindow?.rootViewController = rootVC
+            }
+        }
+        
+    }
     
     
 }

@@ -194,7 +194,7 @@ extension ApplicationMainController:UITableViewDelegate,UITableViewDataSource{
         if section == 1 {
             return 30
         }
-        return 0
+        return 0.001
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -203,12 +203,12 @@ extension ApplicationMainController:UITableViewDelegate,UITableViewDataSource{
             label.backgroundColor = .black
             return label
         }
-        return nil
+        return UIView()
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 || section == 1 {
-            return 0
+            return 0.0001
         }else{
             if self.courseArray.count == 0 || section == 2 + self.courseArray.count {
                 return 30
@@ -220,7 +220,7 @@ extension ApplicationMainController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 || section == 1 {
-            return nil
+            return UIView()
         }else{
             if self.courseArray.count == 0 || section == 2 + self.courseArray.count {
                 let label = YJLable.getSimpleLabel(toframe: CGRect(x:0,y:0,width:KSW,height:30), textColor: .white, text: "各城市线下帮扶义工团", textAli: .center, textFont: 14)
