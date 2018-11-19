@@ -94,7 +94,7 @@ extension YJApplicationService{
     class func requestCenterCompanyListInfo(page:NSInteger,finish: @escaping (_ success: Bool,_ model: YJSelectCompanyMainModel?,_ errorMsg: String?) -> Void){
         
         var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
-        dict["openkey"] = "5be8235eb67a7_2353" as AnyObject?
+        dict["openkey"] = "5be64c88696e2_1491" as AnyObject?
         dict["page"] = page as AnyObject?
         
         let requestUrl : String = ApplicationCommonUrl.appCenterselectCompanyListInfo

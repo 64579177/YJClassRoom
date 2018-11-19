@@ -220,7 +220,10 @@ extension YJCourseApplyInfoViewController:UITableViewDelegate,UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.row == 3 {
+        if indexPath.row == 2 {
+            let pvc = YJUploadImageSingleViewController()
+            self.navigationController?.pushViewController(pvc, animated: true)
+        }else if indexPath.row == 3 {
             let pvc = YJSelectCompayListViewController()
             self.navigationController?.pushViewController(pvc, animated: true)
         }

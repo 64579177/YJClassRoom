@@ -55,12 +55,17 @@ class YJSelectCompayListViewController: YJBaseViewController {
             (isSuccess, model, errorStr) in
             Tool.hideLodingOnView(view: self.view)
             
-            guard let modelTemp = model?.data?.list else{
-                self.dataModel = nil
-                return
+            if model?.code == 1 {
+                guard let modelTemp = model?.data?.list else{
+                    self.dataModel = nil
+                    return
+                }
+                self.dataModel = modelTemp
+                self.myTableView.reloadData()
+            }else{
+                Tool.showHUDWithText(text: "业务错误")
             }
-            self.dataModel = modelTemp
-            self.myTableView.reloadData()
+            
         }
         
     }

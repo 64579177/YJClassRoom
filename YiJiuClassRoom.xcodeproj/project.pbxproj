@@ -19,6 +19,10 @@
 		716CA12021A2A30200525295 /* YJMyApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA11F21A2A30200525295 /* YJMyApplicationService.swift */; };
 		716CA12221A2A56D00525295 /* YJMyApplyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA12121A2A56D00525295 /* YJMyApplyModel.swift */; };
 		716CA12421A2A91400525295 /* YJMyApplyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA12321A2A91400525295 /* YJMyApplyListCell.swift */; };
+		716CA12921A2CF4400525295 /* KiClipperHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA12621A2CF4400525295 /* KiClipperHelper.swift */; };
+		716CA12A21A2CF4400525295 /* KiClipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA12721A2CF4400525295 /* KiClipperView.swift */; };
+		716CA12B21A2CF4400525295 /* KiImageClipperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA12821A2CF4400525295 /* KiImageClipperViewController.swift */; };
+		716CA12D21A2CF9B00525295 /* YJUploadImageSingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA12C21A2CF9B00525295 /* YJUploadImageSingleViewController.swift */; };
 		7173261B219BFFA400DE6732 /* YJApplicationCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173261A219BFFA400DE6732 /* YJApplicationCourseCell.swift */; };
 		7173261D219C077B00DE6732 /* YJLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173261C219C077B00DE6732 /* YJLabel.swift */; };
 		7173261F219C0D5500DE6732 /* YJApplicationApplyFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173261E219C0D5500DE6732 /* YJApplicationApplyFlow.swift */; };
@@ -82,6 +86,10 @@
 		716CA11F21A2A30200525295 /* YJMyApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJMyApplicationService.swift; sourceTree = "<group>"; };
 		716CA12121A2A56D00525295 /* YJMyApplyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJMyApplyModel.swift; sourceTree = "<group>"; };
 		716CA12321A2A91400525295 /* YJMyApplyListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJMyApplyListCell.swift; sourceTree = "<group>"; };
+		716CA12621A2CF4400525295 /* KiClipperHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KiClipperHelper.swift; sourceTree = "<group>"; };
+		716CA12721A2CF4400525295 /* KiClipperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KiClipperView.swift; sourceTree = "<group>"; };
+		716CA12821A2CF4400525295 /* KiImageClipperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KiImageClipperViewController.swift; sourceTree = "<group>"; };
+		716CA12C21A2CF9B00525295 /* YJUploadImageSingleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJUploadImageSingleViewController.swift; sourceTree = "<group>"; };
 		7173261A219BFFA400DE6732 /* YJApplicationCourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplicationCourseCell.swift; sourceTree = "<group>"; };
 		7173261C219C077B00DE6732 /* YJLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJLabel.swift; sourceTree = "<group>"; };
 		7173261E219C0D5500DE6732 /* YJApplicationApplyFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplicationApplyFlow.swift; sourceTree = "<group>"; };
@@ -166,6 +174,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		716CA12521A2CF4400525295 /* KiClipperHelper */ = {
+			isa = PBXGroup;
+			children = (
+				716CA12621A2CF4400525295 /* KiClipperHelper.swift */,
+				716CA12721A2CF4400525295 /* KiClipperView.swift */,
+				716CA12821A2CF4400525295 /* KiImageClipperViewController.swift */,
+			);
+			path = KiClipperHelper;
+			sourceTree = "<group>";
+		};
 		717DE3992199212900C99322 = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +237,7 @@
 				71A49DA4219ED15600CAB42A /* Tool.swift */,
 				71A49DA6219ED21500CAB42A /* SlideshowDisplayer.swift */,
 				716CA11D21A27F7600525295 /* WXCommonService.swift */,
+				716CA12C21A2CF9B00525295 /* YJUploadImageSingleViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -226,6 +245,7 @@
 		717DE3B9219931FD00C99322 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				716CA12521A2CF4400525295 /* KiClipperHelper */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -579,10 +599,12 @@
 				715F78C1219D085A00F6C822 /* YJFreeStrategyCourse.swift in Sources */,
 				71A49DD7219ED4D300CAB42A /* PrintOptions.swift in Sources */,
 				71A49DA7219ED21500CAB42A /* SlideshowDisplayer.swift in Sources */,
+				716CA12921A2CF4400525295 /* KiClipperHelper.swift in Sources */,
 				717DE3D021994A8D00C99322 /* MyApplicationMainController.swift in Sources */,
 				71A49DA5219ED15600CAB42A /* Tool.swift in Sources */,
 				719EAB95219AD0DD002C7FBE /* YJApplicationDisplayCell.swift in Sources */,
 				719EAB42219A648A002C7FBE /* YJNetWorkTool.swift in Sources */,
+				716CA12B21A2CF4400525295 /* KiImageClipperViewController.swift in Sources */,
 				717DE3A82199212900C99322 /* ViewController.swift in Sources */,
 				71A49DD0219ED4D300CAB42A /* DeserializationStatus.swift in Sources */,
 				716CA12021A2A30200525295 /* YJMyApplicationService.swift in Sources */,
@@ -620,6 +642,7 @@
 				71EC55E0219E533300350242 /* YJCourseApplyListModel.swift in Sources */,
 				71B521C621997CD5000E7792 /* YJLoginViewController.swift in Sources */,
 				719EAB6A219A6D29002C7FBE /* YJLoginModel.swift in Sources */,
+				716CA12D21A2CF9B00525295 /* YJUploadImageSingleViewController.swift in Sources */,
 				7173261D219C077B00DE6732 /* YJLabel.swift in Sources */,
 				7173261F219C0D5500DE6732 /* YJApplicationApplyFlow.swift in Sources */,
 				71A49DD5219ED4D300CAB42A /* EVReflection.swift in Sources */,
@@ -627,6 +650,7 @@
 				717DE3D221994AE600C99322 /* YJBaseViewController.swift in Sources */,
 				717DE3CE21994A3B00C99322 /* ApplicationMainController.swift in Sources */,
 				716CA11521A2498A00525295 /* YJPersonalService.swift in Sources */,
+				716CA12A21A2CF4400525295 /* KiClipperView.swift in Sources */,
 				719EAB46219A67F8002C7FBE /* Account.swift in Sources */,
 				715F78C7219D36CB00F6C822 /* YJCourseDetailSecondCell.swift in Sources */,
 				719EAB6E219A709B002C7FBE /* YJNavigationController.swift in Sources */,
