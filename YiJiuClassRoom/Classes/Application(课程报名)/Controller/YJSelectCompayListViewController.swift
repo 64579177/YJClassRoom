@@ -127,6 +127,7 @@ extension YJSelectCompayListViewController:UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
     }
     
 }

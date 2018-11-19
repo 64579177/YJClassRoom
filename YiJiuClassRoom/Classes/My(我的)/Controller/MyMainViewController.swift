@@ -26,7 +26,7 @@ class MyMainViewController: YJBaseViewController {
     
     
     //
-    var dataModel:YJSelectCompanyListModel?
+    var dataModel:YJPersonalModel =  YJPersonalModel()
     
     
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class MyMainViewController: YJBaseViewController {
         self.title = "个人资料"
         
         self.initUI()
-//        self.getListInfo()
+        self.getUserInfo()
         
     }
     
@@ -46,19 +46,19 @@ class MyMainViewController: YJBaseViewController {
         
     }
     
-    func getListInfo() -> Void {
+    func getUserInfo() -> Void {
         
         guard YJNetStatus.isValaiable else {
             return
         }
         Tool.showLoadingOnView(view: self.view)
         
-        YJApplicationService.requestCenterCompanyListInfo(page:1){
+        YJPersonalService.requestPersionalInfo{
             (isSuccess, model, errorStr) in
             Tool.hideLodingOnView(view: self.view)
             
-            guard let modelTemp = model?.data?.list else{
-                self.dataModel = nil
+            guard let modelTemp = model?.data else{
+                self.dataModel = YJPersonalModel()
                 return
             }
             self.dataModel = modelTemp
@@ -104,8 +104,9 @@ extension MyMainViewController:UITableViewDelegate,UITableViewDataSource{
         
         if indexPath.section == 0 {
             
-            let headImgView = YJImageView.getSimpleUrlImageView(toframe: CGRect.zero, img: "http://yijiucdn.baozhen999.com/uploads/26be13346d38663f81b64bd312c8f6c5.png")
-            let namelbl = YJLable.getSimpleLabelActive(textColor: Color3, text: "测试人名", textAli: .left, textFont: 14)
+            
+            let headImgView = YJImageView.getSimpleUrlImageView(toframe: CGRect.zero, img: self.dataModel.profile.real_headimg)
+            let namelbl = YJLable.getSimpleLabelActive(textColor: Color3, text: self.dataModel.profile.real_name, textAli: .left, textFont: 14)
             
             cell?.addSubview(headImgView)
             cell?.addSubview(namelbl)
@@ -124,17 +125,46 @@ extension MyMainViewController:UITableViewDelegate,UITableViewDataSource{
             if  indexPath.row == 0 {
                 cell?.imageView?.image = UIImage.init(named: "my_name")
                 cell?.textLabel?.text = "真实姓名"
+                let lbl = YJLable.getSimpleLabelActive(textColor: Color9, text: self.dataModel.profile.real_name, textAli: .left, textFont: 14)
+                cell?.addSubview(lbl)
+                lbl.snp.makeConstraints { (make) in
+                    make.right.equalTo(-15)
+                    make.centerY.equalTo(cell!)
+                    make.height.equalTo(20)
+                }
+                
             }else if  indexPath.row == 1 {
                 cell?.imageView?.image = UIImage.init(named: "my_card")
                 cell?.textLabel?.text = "身份证号"
+                let lbl = YJLable.getSimpleLabelActive(textColor: Color9, text: self.dataModel.profile.identity_card, textAli: .left, textFont: 14)
+                cell?.addSubview(lbl)
+                lbl.snp.makeConstraints { (make) in
+                    make.right.equalTo(-15)
+                    make.centerY.equalTo(cell!)
+                    make.height.equalTo(20)
+                }
             }
             else if  indexPath.row == 2 {
                 cell?.imageView?.image = UIImage.init(named: "my_tel")
                 cell?.textLabel?.text = "手机号码"
+                let lbl = YJLable.getSimpleLabelActive(textColor: Color9, text: self.dataModel.mobile, textAli: .left, textFont: 14)
+                cell?.addSubview(lbl)
+                lbl.snp.makeConstraints { (make) in
+                    make.right.equalTo(-15)
+                    make.centerY.equalTo(cell!)
+                    make.height.equalTo(20)
+                }
             }
             else if  indexPath.row == 3 {
                 cell?.imageView?.image = UIImage.init(named: "my_company")
                 cell?.textLabel?.text = "公司名称"
+                let lbl = YJLable.getSimpleLabelActive(textColor: Color9, text: self.dataModel.profile.company, textAli: .left, textFont: 14)
+                cell?.addSubview(lbl)
+                lbl.snp.makeConstraints { (make) in
+                    make.right.equalTo(-15)
+                    make.centerY.equalTo(cell!)
+                    make.height.equalTo(20)
+                }
             }
         }
         

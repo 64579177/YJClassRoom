@@ -47,6 +47,10 @@ struct ApplicationCommonUrl {
     static let appCenterselectCompanyListInfo:String = String(HostUrl.host + "center/selectCompanyList")
 }
 
+//个人资料
+struct PersonalCommonUrl {
+    static let personalUrl:String = String(HostUrl.host + "center/index")
+}
 
 //登录url
 struct LoginUrl {
