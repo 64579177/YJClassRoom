@@ -108,12 +108,10 @@ extension YJNetWorkTool {
         
     }
     
-    static func RequestWithURL<T: EVObject>(url :String,
+    static func RequestWithURL_Dic(url :String,
                                             method: HTTPMethod,
                                             parameter: [String: AnyObject]?,
-                                            cookie : HTTPCookie,
-                                            complectionHandler: @escaping (_ result: [T]?) -> (),
-                                            failure: @escaping (_ error: Error) -> ()) {
+                                            complectionHandler:@escaping (_ result: Dictionary<String, Any>?,_ response: YJNetWorkResponse) -> ()) {
         Alamofire.request(url,
                           method: method,
                           parameters: parameter,
@@ -122,8 +120,27 @@ extension YJNetWorkTool {
             .responseJSON { (response) in
                 //这里需要业务处理 最好封装个respons类
                 
-                let object:[T] = T.arrayFromJson(JSON(response.result.value as Any).rawString())
-                complectionHandler(object)
+                let responseResult:YJNetWorkResponse  = YJNetWorkResponse(response: response)
+                let jsonDic = JSON(response.result.value as Any).dictionaryObject
+                let dic = response.result.value as AnyObject
+                if YJNetStatus.isValaiable {
+                    if jsonDic != nil
+                    {
+                        print("--接口\(String(describing: responseResult.urlString))\n--状态码\(String(describing: responseResult.httpCode))\n--\(jsonDic)")
+                    }
+                }
+
+                //单点登录 操作
+                if responseResult.responseObjectCode == 400001 {
+                    
+                }else if responseResult.responseObjectCode == 400002 { //强制更新
+                    
+                    
+                }else{
+                    
+                    complectionHandler(jsonDic,responseResult)
+                }
+                
         }
         
     }

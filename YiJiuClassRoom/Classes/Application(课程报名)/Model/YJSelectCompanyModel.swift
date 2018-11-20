@@ -19,24 +19,14 @@ class YJSelectCompanyMainModel: EVObject {
 class YJSelectCompanyModel: EVObject {
     
 //    var company:YJSelectCompanyInfoModel?
-    var list:YJSelectCompanyListModel?
-}
-
-class YJSelectCompanyInfoModel: EVObject {
-
-}
-class YJSelectCompanyListModel: EVObject {
-
-    var total:NSNumber?
-    var per_page:NSNumber = 20
-    var current_page:NSNumber = 1
-    var last_page:NSNumber?
-    var data:[YJSelectCompanyListDetaiModel]?
+    var applist:[YJSelectCompanyListDetaiModel]?
+    var appkey:AnyObject?
+    var list: AnyObject?
 }
 
 class YJSelectCompanyListDetaiModel: EVObject {
     
     var id:NSNumber?
     var name:String = ""
-    var address:String = ""
+    var initials:String = ""
 }

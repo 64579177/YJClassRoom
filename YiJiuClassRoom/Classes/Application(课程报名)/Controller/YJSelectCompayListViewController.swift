@@ -24,7 +24,7 @@ class YJSelectCompayListViewController: YJBaseViewController {
     
     
     //
-    var dataModel:YJSelectCompanyListModel?
+    var dataModel:YJSelectCompanyModel?
     var selectCallBack:((YJSelectCompanyListDetaiModel) -> Void)?
     var selectModel:YJSelectCompanyListDetaiModel?
     
@@ -90,11 +90,11 @@ class YJSelectCompayListViewController: YJBaseViewController {
             Tool.hideLodingOnView(view: self.view)
             
             if model?.code == 1 {
-                guard let modelTemp = model?.data?.list else{
+                guard let modelTempArr = model?.data else{
                     self.dataModel = nil
                     return
                 }
-                self.dataModel = modelTemp
+                self.dataModel = modelTempArr
                 self.myTableView.reloadData()
             }else{
                 Tool.showHUDWithText(text: "业务错误")
@@ -109,13 +109,15 @@ class YJSelectCompayListViewController: YJBaseViewController {
 extension YJSelectCompayListViewController:UITableViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return self.dataModel?.list?.allKeys?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if let model = dataModel {
-            return (model.data?.count)!
+        if let listDic:NSDictionary = self.dataModel?.list as? NSDictionary {
+            let key:String = listDic.allKeys[section] as! String
+            let arr:NSArray = listDic.object(forKey: key) as! NSArray
+            return arr.count
         }
         return 0
     }
@@ -136,13 +138,13 @@ extension YJSelectCompayListViewController:UITableViewDelegate,UITableViewDataSo
         cell?.textLabel?.font = UIFont.systemFont(ofSize: 14)
         cell?.accessoryType = UITableViewCellAccessoryType(rawValue: Int(UIAccessibilityTraitNone))!
         
-        if let arr = self.dataModel?.data {
-        
-            if arr.count > 0 {
-                cell?.textLabel?.text = arr[indexPath.row].name
-            }
-            
-        }
+//        if let arr = self.dataModel?.data {
+//
+//            if arr.count > 0 {
+//                cell?.textLabel?.text = arr[indexPath.row].name
+//            }
+//
+//        }
 
         return cell!
     }
@@ -181,12 +183,12 @@ extension YJSelectCompayListViewController:UITableViewDelegate,UITableViewDataSo
         //设置选中的单元格样式
         cell.accessoryType=UITableViewCellAccessoryType.checkmark;
 
-        if let modelArr = self.dataModel?.data,modelArr.count > 0{
-            if self.selectCallBack != nil {
-                self.selectCallBack!(modelArr[indexPath.row])
-                self.selectModel = modelArr[indexPath.row]
-            }
-        }
+//        if let modelArr = self.dataModel?.data,modelArr.count > 0{
+//            if self.selectCallBack != nil {
+//                self.selectCallBack!(modelArr[indexPath.row])
+//                self.selectModel = modelArr[indexPath.row]
+//            }
+//        }
     }
 }
 
