@@ -45,6 +45,8 @@ struct ApplicationCommonUrl {
     static let appCenterIndexInfo:String = String(HostUrl.host + "center/index")
     //事业部列表
     static let appCenterselectCompanyListInfo:String = String(HostUrl.host + "center/selectCompanyList")
+    //事业部列表
+    static let appCenterupdateCompanyInfo:String = String(HostUrl.host + "center/edituserunit")
 }
 
 //个人资料
@@ -62,6 +64,10 @@ struct PersonalCommonUrl {
 
 //登录url
 struct LoginUrl {
+    
+    static let getOpenkey:String = String(HostUrl.host + "center/applogin")
+    
+    
     static let login :String = String(HostUrl.host + "")
     //获取图片验证码
     static let getValidatePic : String = String(HostUrl.host + "")

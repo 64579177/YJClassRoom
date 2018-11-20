@@ -155,4 +155,13 @@ extension YJLoginService {
         }
     }
     
+    class func requestOpenKey(requestModel:loginTempModel,finish: @escaping (_ success: Bool,_ model: YJLoginMainModel?,_ errorMsg: String?) -> Void){
+        
+        
+        let requestUrl : String = String(LoginUrl.getOpenkey)
+        
+        YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: ["unionid": requestModel.unionid as AnyObject]) { (_ model: YJLoginMainModel?, response: YJNetWorkResponse) in
+            finish(response.isSuccess,model,response.responseMessage)
+        }
+    }
 }

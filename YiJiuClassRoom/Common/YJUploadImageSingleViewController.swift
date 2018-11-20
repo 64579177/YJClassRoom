@@ -67,7 +67,7 @@ class YJUploadImageSingleViewController : YJBaseViewController{
         KiClipperHelper.sharedInstance.systemEditing = false
         KiClipperHelper.sharedInstance.isSystemType = false
         //裁剪尺寸：800X600
-        KiClipperHelper.sharedInstance.clippedImgSize = CGSize(width: KSW - 30, height: KSW - 30)
+        KiClipperHelper.sharedInstance.clippedImgSize = CGSize(width: 295, height: 413)
         
         //调用
         KiClipperHelper.sharedInstance.takePhoto(currentController: self)

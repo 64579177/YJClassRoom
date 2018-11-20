@@ -15,7 +15,7 @@ class YJMyApplicationService: NSObject {
     class func requestMyAppClassListInfo (page:NSInteger,finish: @escaping (_ success: Bool,_ model: YJMyApplyMainModel?,_ errorMsg: String?) -> Void){
         
         var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
-        dict["openkey"] = "5bf22e82ade00_2353" as AnyObject?
+        dict["openkey"] = Account.readUserInfo()?.openkey as AnyObject?
         dict["page"] = page as AnyObject?
         
         

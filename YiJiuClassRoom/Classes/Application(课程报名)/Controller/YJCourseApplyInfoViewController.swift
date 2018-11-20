@@ -87,6 +87,7 @@ class YJCourseApplyInfoViewController: YJBaseViewController {
     @objc func submitClick(){
         
         //提交 1.获取订单信息  2.支付
+        
     }
     
     func getListInfo() -> Void {

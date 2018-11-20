@@ -27,9 +27,9 @@ extension YJApplicationService{
         
         var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
         if type == 0 {
-            dict["openkey"] = "5be64c88696e2_1491" as AnyObject?
+            dict["openkey"] = Account.readUserInfo()?.openkey as AnyObject?
         }else{
-            dict["openkey"] = "5be64c88696e2_1491" as AnyObject?
+            dict["openkey"] = Account.readUserInfo()?.openkey as AnyObject?
             dict["type"] = type as AnyObject?
         }
         
@@ -43,7 +43,7 @@ extension YJApplicationService{
     //MARK: - 首页广告接口
     class func getADInfo (finish: @escaping (_ success: Bool,_ model: YJADResponseModel?,_ errorMsg: String?) -> Void){
         
-        let dict = ["openkey" : "5be64c88696e2_1491"]
+        let dict = ["openkey" : Account.readUserInfo()?.openkey]
         let requestUrl : String = ApplicationCommonUrl.appADUrl
         
         YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: dict as [String : AnyObject]) { (_ model: YJADResponseModel?, response: YJNetWorkResponse) in
@@ -60,7 +60,7 @@ extension YJApplicationService{
     class func requestCourseDetail(courseId:NSInteger,finish: @escaping (_ success: Bool,_ model: YJCourseDetailMainModel?,_ errorMsg: String?) -> Void){
         
         var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
-        dict["openkey"] = "5be64c88696e2_1491" as AnyObject?
+        
         dict["course_id"] = courseId as AnyObject?
     
         let requestUrl : String = ApplicationCommonUrl.appCourseDetail
@@ -74,7 +74,7 @@ extension YJApplicationService{
     class func requestCourseApplyList(courseId:NSInteger,finish: @escaping (_ success: Bool,_ model: YJCourseApplyListMainModel?,_ errorMsg: String?) -> Void){
         
         var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
-        dict["openkey"] = "5be64c88696e2_1491" as AnyObject?
+        dict["openkey"] = Account.readUserInfo()?.openkey as AnyObject
         dict["course_id"] = courseId as AnyObject?
         
         let requestUrl : String = ApplicationCommonUrl.appCourseApplyList
@@ -88,7 +88,7 @@ extension YJApplicationService{
     class func requestCenterIndexInfo(finish: @escaping (_ success: Bool,_ model: YJCenterIndexMainModel?,_ errorMsg: String?) -> Void){
         
         var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
-        dict["openkey"] = "5be64c88696e2_1491" as AnyObject?
+        dict["openkey"] = Account.readUserInfo()?.openkey as AnyObject
         
         let requestUrl : String = ApplicationCommonUrl.appCenterIndexInfo
         
@@ -100,10 +100,25 @@ extension YJApplicationService{
     class func requestCenterCompanyListInfo(page:NSInteger,finish: @escaping (_ success: Bool,_ model: YJSelectCompanyMainModel?,_ errorMsg: String?) -> Void){
         
         var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
-        dict["openkey"] = "5be64c88696e2_1491" as AnyObject?
+        dict["openkey"] = Account.readUserInfo()?.openkey as AnyObject?
         dict["page"] = page as AnyObject?
         
         let requestUrl : String = ApplicationCommonUrl.appCenterselectCompanyListInfo
+        
+        YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: dict as [String : AnyObject]) { (_ model: YJSelectCompanyMainModel?, response: YJNetWorkResponse) in
+            finish(response.isSuccess,model,response.responseMessage)
+        }
+    }
+    
+    //提交事业部信息
+    class func updateCenterCompanyInfo(uid:NSInteger,id:NSInteger,finish: @escaping (_ success: Bool,_ model: YJSelectCompanyMainModel?,_ errorMsg: String?) -> Void){
+        
+        var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
+        dict["openkey"] = Account.readUserInfo()?.openkey as AnyObject?
+        dict["uid"] = uid as AnyObject?
+        dict["id"] = id as AnyObject?
+        
+        let requestUrl : String = ApplicationCommonUrl.appCenterupdateCompanyInfo
         
         YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: dict as [String : AnyObject]) { (_ model: YJSelectCompanyMainModel?, response: YJNetWorkResponse) in
             finish(response.isSuccess,model,response.responseMessage)
@@ -120,7 +135,7 @@ extension YJApplicationService {
         let data = UIImagePNGRepresentation(image)
         
         var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
-        dict["openkey"] = "5be64c88696e2_1491" as AnyObject?
+        dict["openkey"] = Account.readUserInfo()?.openkey as AnyObject?
         dict["img"] = data as AnyObject?
         
         YJNetWorkTool.upload(uploadImage: [image]) { (_ model:YJUploadImgResultMainModel?, response: YJNetWorkResponse) in

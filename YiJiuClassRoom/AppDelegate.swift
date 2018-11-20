@@ -88,19 +88,15 @@ extension AppDelegate {
         
         window?.backgroundColor = UIColor.white
         
-//        if Account.readUserInfo() == nil || Account.readUserInfo()?.openid == nil || Account.readUserInfo()?.openid == "" {
-//            let loginNavigationController = YJNavigationController(rootViewController: YJLoginViewController())
-//            //没有用户登录
-//            window?.rootViewController = loginNavigationController
-//
-//        }else{
-//            YJRootViewController = YJTabbarViewController()
-//            window?.rootViewController = YJRootViewController
-//        }
-        YJRootViewController = YJTabbarViewController()
-        window?.rootViewController = YJRootViewController
-        window?.makeKeyAndVisible()
-        
+        if Account.readUserInfo() == nil || Account.readUserInfo()?.openid == nil || Account.readUserInfo()?.openid == "" {
+            let loginNavigationController = YJNavigationController(rootViewController: YJLoginViewController())
+            //没有用户登录
+            window?.rootViewController = loginNavigationController
+
+        }else{
+            YJRootViewController = YJTabbarViewController()
+            window?.rootViewController = YJRootViewController
+        }
         
         //        delay(2) {
         //            self.JYRootViewController.present(loginNavigationController, animated: true, completion: {

@@ -16,16 +16,21 @@ struct User {
     let age: Int
 }
 
+class YJLoginMainModel: EVObject {
+    
+    var code: Int = 0
+    var data:YJLoginModel?
+    var msg:String?
+    var time:TimeInterval?
+}
+
 public class YJLoginModel: EVObject {
     
-    var openid: String?
+    var openkey: String?
+    var openid:String?
     var nickname: String?
-    var sex: NSNumber?
-    var province: String?
-    var city: String?
-    var country: String?
     
-    var headimgurl: String?
+    var headimg: String?
     var unionid: String?
     
     // 归档

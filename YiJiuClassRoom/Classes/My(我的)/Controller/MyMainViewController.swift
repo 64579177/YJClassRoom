@@ -105,8 +105,8 @@ extension MyMainViewController:UITableViewDelegate,UITableViewDataSource{
         if indexPath.section == 0 {
             
             
-            let headImgView = YJImageView.getSimpleUrlImageView(toframe: CGRect.zero, img: self.dataModel.profile.real_headimg,placeholder: "")
-            let namelbl = YJLable.getSimpleLabelActive(textColor: Color3, text: self.dataModel.profile.real_name, textAli: .left, textFont: 14)
+            let headImgView = YJImageView.getSimpleUrlImageView(toframe: CGRect.zero, img: (Account.readUserInfo()?.headimg)!,placeholder: "")
+            let namelbl = YJLable.getSimpleLabelActive(textColor: Color3, text: (Account.readUserInfo()?.nickname)!, textAli: .left, textFont: 14)
             
             cell?.addSubview(headImgView)
             cell?.addSubview(namelbl)

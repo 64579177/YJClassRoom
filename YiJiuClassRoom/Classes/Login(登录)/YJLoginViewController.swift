@@ -216,14 +216,30 @@ extension YJLoginViewController {
     //MARK:微信登录获取用户信息
     func setUserInfo() {
         
+//        guard let requestModel = self.requestTempModel else {
+//            return
+//        }
+//
+//        YJLoginService.requestWXLoginInfo(requestModel: requestModel) { (isSuccess, model, error) in
+//
+//            if isSuccess {
+//                guard let modelTep = model else{
+//                    return
+//                }
+//                Account.saveUserInfo(loginModel: modelTep)
+//
+//                let rootVC = YJTabbarViewController();
+//                UIApplication.shared.keyWindow?.rootViewController = rootVC
+//            }
+//        }
         guard let requestModel = self.requestTempModel else {
             return
         }
         
-        YJLoginService.requestWXLoginInfo(requestModel: requestModel) { (isSuccess, model, error) in
+        YJLoginService.requestOpenKey(requestModel: requestModel) { (isSuccess, model, error) in
             
             if isSuccess {
-                guard let modelTep = model else{
+                guard let modelTep = model?.data else{
                     return
                 }
                 Account.saveUserInfo(loginModel: modelTep)
@@ -232,8 +248,9 @@ extension YJLoginViewController {
                 UIApplication.shared.keyWindow?.rootViewController = rootVC
             }
         }
-        
     }
+    
+    
     
     
 }
