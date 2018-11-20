@@ -40,7 +40,7 @@ class KiClipperHelper: NSObject,UIImagePickerControllerDelegate,UINavigationCont
     
     func cameraPemissions() -> Bool {
 //        let authStatus:AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
-            let authStatus:AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: "video")
+            let authStatus:AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
         if(authStatus == AVAuthorizationStatus.denied || authStatus == AVAuthorizationStatus.restricted) {
             return false
         }else {

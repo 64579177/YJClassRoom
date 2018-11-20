@@ -24,10 +24,10 @@ class YJImageView: UIImageView {
     }
     
     //类方法获取URl img
-    class  func getSimpleUrlImageView(toframe : CGRect,img : String) ->  UIImageView{
+    class  func getSimpleUrlImageView(toframe : CGRect,img : String ,placeholder :String) ->  UIImageView{
         
         let myimgView = UIImageView(frame: toframe)
-        myimgView.kf.setImage(with: URL(string: img))
+        myimgView.kf.setImage(with: URL(string: img), placeholder: UIImage(named: placeholder), options: nil, progressBlock: nil, completionHandler: nil)
         return myimgView
     }
     

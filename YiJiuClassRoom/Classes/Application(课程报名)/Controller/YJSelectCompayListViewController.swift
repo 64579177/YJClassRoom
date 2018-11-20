@@ -25,7 +25,7 @@ class YJSelectCompayListViewController: YJBaseViewController {
     
     //
     var dataModel:YJSelectCompanyListModel?
-    
+    var selectCallBack:((YJSelectCompanyListDetaiModel) -> Void)?
     
     override func viewDidLoad() {
         
@@ -132,6 +132,11 @@ extension YJSelectCompayListViewController:UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        if let modelArr = self.dataModel?.data,modelArr.count > 0{
+            if self.selectCallBack != nil {
+                self.selectCallBack!(modelArr[indexPath.row])
+            }
+        }
         
     }
     

@@ -222,9 +222,22 @@ extension YJCourseApplyInfoViewController:UITableViewDelegate,UITableViewDataSou
         
         if indexPath.row == 2 {
             let pvc = YJUploadImageSingleViewController()
+            pvc.imgUrl = self.dataModel?.profile.real_headimg ?? ""
+            pvc.uploadImageSuccessCallBack = {(imgArr) in
+                
+                if imgArr.count > 0 {
+                    //
+                    self.dataModel?.profile.real_headimg = imgArr[0]
+                    self.myTableView.reloadData()
+                }
+            }
             self.navigationController?.pushViewController(pvc, animated: true)
         }else if indexPath.row == 3 {
             let pvc = YJSelectCompayListViewController()
+            pvc.selectCallBack = {
+                (model) in
+                self.dataModel?.company_name = model.name
+            }
             self.navigationController?.pushViewController(pvc, animated: true)
         }
     }

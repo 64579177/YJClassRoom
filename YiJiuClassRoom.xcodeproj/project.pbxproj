@@ -23,6 +23,7 @@
 		716CA12A21A2CF4400525295 /* KiClipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA12721A2CF4400525295 /* KiClipperView.swift */; };
 		716CA12B21A2CF4400525295 /* KiImageClipperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA12821A2CF4400525295 /* KiImageClipperViewController.swift */; };
 		716CA12D21A2CF9B00525295 /* YJUploadImageSingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA12C21A2CF9B00525295 /* YJUploadImageSingleViewController.swift */; };
+		716CA12F21A39B2100525295 /* YJUploadImgResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA12E21A39B2100525295 /* YJUploadImgResultModel.swift */; };
 		7173261B219BFFA400DE6732 /* YJApplicationCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173261A219BFFA400DE6732 /* YJApplicationCourseCell.swift */; };
 		7173261D219C077B00DE6732 /* YJLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173261C219C077B00DE6732 /* YJLabel.swift */; };
 		7173261F219C0D5500DE6732 /* YJApplicationApplyFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173261E219C0D5500DE6732 /* YJApplicationApplyFlow.swift */; };
@@ -90,6 +91,7 @@
 		716CA12721A2CF4400525295 /* KiClipperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KiClipperView.swift; sourceTree = "<group>"; };
 		716CA12821A2CF4400525295 /* KiImageClipperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KiImageClipperViewController.swift; sourceTree = "<group>"; };
 		716CA12C21A2CF9B00525295 /* YJUploadImageSingleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJUploadImageSingleViewController.swift; sourceTree = "<group>"; };
+		716CA12E21A39B2100525295 /* YJUploadImgResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJUploadImgResultModel.swift; sourceTree = "<group>"; };
 		7173261A219BFFA400DE6732 /* YJApplicationCourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplicationCourseCell.swift; sourceTree = "<group>"; };
 		7173261C219C077B00DE6732 /* YJLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJLabel.swift; sourceTree = "<group>"; };
 		7173261E219C0D5500DE6732 /* YJApplicationApplyFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplicationApplyFlow.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				71EC55DF219E533300350242 /* YJCourseApplyListModel.swift */,
 				71A49D9D219E619E00CAB42A /* YJCenterIndexModel.swift */,
 				71A49DA1219E72D800CAB42A /* YJSelectCompanyModel.swift */,
+				716CA12E21A39B2100525295 /* YJUploadImgResultModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				719EAB33219A603B002C7FBE /* YJNetWorkResponse.swift in Sources */,
 				71A49D9C219E5D3700CAB42A /* YJCourseApplyInfoViewController.swift in Sources */,
 				719EAB71219A73B5002C7FBE /* YJButton.swift in Sources */,
+				716CA12F21A39B2100525295 /* YJUploadImgResultModel.swift in Sources */,
 				715F78C5219D1B4200F6C822 /* YJCourseDetailModel.swift in Sources */,
 				717DE3C0219948A800C99322 /* YJTabbarViewController.swift in Sources */,
 				719EAB7D219A9E75002C7FBE /* YJApplicationClassListModel.swift in Sources */,

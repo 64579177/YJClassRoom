@@ -11,16 +11,11 @@ import Alamofire
 import SwiftyJSON
 
 
-
-
 class YJNetWorkTool: NSObject {
     
-    
-    
-    //    static let defult = YJNetWorkTool()
-    //    private override init() {
-    //        // 单例模式，防止出现多个实例
-    //    }
+     // 单例模式，防止出现多个实例
+    static let sharedInstance = YJNetWorkTool()
+
 }
 
 
@@ -64,13 +59,11 @@ extension YJNetWorkTool {
                     
                 }
                 
-                //账号在其他设备上登录
-                if responseResult.responseObjectCode == 400001045 {
-//                    JYSingleClickLoginAlert.showAlertViewController()
-                }else if responseResult.responseObjectCode == 400009000 {
-                    //强制更新
-                    //                    YJNetWorkTool.init().requestUpdateInfo()
-//                    YJNetWorkTool.init().requestOtherUpdateInfo(response: responseResult.responseObject)
+                //单点登录 操作
+                if responseResult.responseObjectCode == 400001 {
+
+                }else if responseResult.responseObjectCode == 400002 { //强制更新
+
                     
                 }else{
                     
@@ -127,7 +120,7 @@ extension YJNetWorkTool {
                           encoding: URLEncoding.default,
                           headers: getHTTPHeaders())
             .responseJSON { (response) in
-                //这里需要业务处理 最好封装个respons类，懒得写，周一在写吧
+                //这里需要业务处理 最好封装个respons类
                 
                 let object:[T] = T.arrayFromJson(JSON(response.result.value as Any).rawString())
                 complectionHandler(object)
@@ -150,7 +143,7 @@ extension YJNetWorkTool {
 //        dic["cookie"] = UserDefaults.standard.string(forKey: "cookie")
         
 //        if Account.readUserInfo() != nil{
-//            dic["merchantcode"] = Account.readUserInfo()?.merchantCode
+//            dic["openkey"] = Account.readUserInfo()?.openkey
 //            dic["tokenid"] = Account.readUserInfo()?.tokenId
 //        }
 
@@ -160,6 +153,56 @@ extension YJNetWorkTool {
     }
     //剩下的请求自己加
 }
+
+
+
+extension YJNetWorkTool {
+
+    // 上传图片
+    static func upload<T:EVObject>(uploadImage: [UIImage], complete:@escaping (_ result: T? ,_ response: YJNetWorkResponse) -> Void) {
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            var index: Int = 0
+            for image in uploadImage {
+                let data = UIImageJPEGRepresentation(image, 0.5)
+                
+                multipartFormData.append(data!, withName: "img", fileName: "￼base_image\(index).jpg", mimeType: "image/jpeg")
+                index += 1
+            }
+        }, to: MyApplicationCommonUrl.uploadImgUrl, method: .post, headers: getHTTPHeaders(), encodingCompletion: { (encodingResult) in
+            switch encodingResult {
+            case .success(let upload, _, _): // 上传请求成功 (不一定真的上传上去了)解析返回数据
+                
+                upload.responseJSON(completionHandler: { (response:DataResponse) in
+                    
+                    let responseResult:YJNetWorkResponse  = YJNetWorkResponse(response: response)
+                    let jsonString = JSON(response.result.value as Any).rawString()
+                    let object = try? T(json:jsonString)
+                    
+                    if YJNetStatus.isValaiable {
+                        if jsonString != nil{
+                            debugPrint("--接口\(String(describing: responseResult.urlString))\n--状态码\(String(describing: responseResult.httpCode))\n--\(JSON(parseJSON: jsonString!))")
+                        }
+                    }
+                    
+                    //单点登录 要做的操作
+                    if responseResult.responseObjectCode == 40000000 {
+                    }else if responseResult.responseObjectCode == 4000001 {//强制更新要做的操作
+                    }else{
+                        complete(object,responseResult)
+                    }
+                })
+            case .failure(let encodingError): // 上传失败
+                //                failture(encodingError)
+                return
+            }
+        })
+        
+    }
+}
+
+
+
+
 
 extension YJNetWorkTool{
     
@@ -221,65 +264,6 @@ extension YJNetWorkTool{
             
         default:  return identifier
             
-        }
-        
-    }
-}
-
-extension YJNetWorkTool {
-    static func RequestWithURL(url :String, method: HTTPMethod, parameter: [String: Any]?) -> DataRequest {
-        var encoding: ParameterEncoding! = URLEncoding.default
-        if method == HTTPMethod.post || method == HTTPMethod.put || method == HTTPMethod.delete{
-            encoding = JSONEncoding.default
-        }
-        
-        let request = Alamofire.request(url,
-                                        method: method,
-                                        parameters: parameter,
-                                        encoding: encoding!,
-                                        headers: getHTTPHeaders())
-        //        request.responseJSON { (response) in
-        //            let responseResult:YJNetWorkResponse  = YJNetWorkResponse(response: response)
-        //
-        //            complectionHandler(response, responseResult)
-        //        }
-        return request
-    }
-    
-    
-    static func uploadImages(editingImageArray:NSArray,vc:UIViewController, callBack: @escaping (_ completeCount: Int, [String]) -> Void) {
-        // 如果有图片有更新, 先上传图片
-        let imageArray = editingImageArray
-        var completeCount = 0 // 上传成功
-        var uploadImageArray: [UIImage] = []
-        var storeUploadImageUrlArray: [String] = [] // 保存上传的图片的url 店铺修改的时候需要传参
-        for (_, object) in imageArray.enumerated() {
-            if object is String { // 为url 说明这张已上传的图片没有编辑
-                storeUploadImageUrlArray.append(object as! String)
-            } else if object is UIImage { // 为UIImage对象说明更换了图片需要上传
-                uploadImageArray.append(object as! UIImage)
-            }
-        }
-        guard uploadImageArray.count > 0 else {
-            callBack(completeCount, storeUploadImageUrlArray)
-            return
-        }
-        
-        for index in uploadImageArray {
-            // 图片上传服务
-//            JYStoreService.upload(uploadImage: [UIImageJPEGRepresentation(index , 0.1)!], complete: {
-//                (response: JYStoreBaseUploadImageModel) in
-//                print(response)
-//                completeCount += 1
-//                let responseUrl = response.url
-//                storeUploadImageUrlArray.append(responseUrl!)
-//                
-//                if storeUploadImageUrlArray.count == imageArray.count{
-//                    callBack(completeCount, storeUploadImageUrlArray)
-//                }
-//                Tool.hideLodingOnView(view: vc.view)
-//                
-//            })
         }
         
     }

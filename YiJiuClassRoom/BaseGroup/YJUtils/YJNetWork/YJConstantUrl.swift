@@ -50,6 +50,9 @@ struct ApplicationCommonUrl {
 //个人资料
 struct MyApplicationCommonUrl {
     static let MyApplyListUrl:String = String(HostUrl.host + "center/myApply")
+    
+    //上传图片
+     static let uploadImgUrl:String = String(HostUrl.host + "common/uploaded")
 }
 
 //个人资料

@@ -269,7 +269,7 @@ class YJCourseDetailThirdCell: UITableViewCell {
     var dataModel:YJCourseDetailDataModel = YJCourseDetailDataModel() {
         didSet{
             
-            let headImgView = YJImageView.getSimpleUrlImageView(toframe: CGRect.zero, img: (dataModel.teacher?.photo)!)
+            let headImgView = YJImageView.getSimpleUrlImageView(toframe: CGRect.zero, img: (dataModel.teacher?.photo)!,placeholder: "")
             let desclbl = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: (dataModel.teacher?.desc)!, textAli: .left, textFont: 14, numLines: 0)
             let namelbl = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: (dataModel.teacher?.name)!, textAli: .left, textFont: 14, numLines: 1)
             let courseLable = YJLable.getSimpleLabelNoFrame(textColor: .white, text: "策略课", textAli: .center, textFont: 10, numLines: 1)

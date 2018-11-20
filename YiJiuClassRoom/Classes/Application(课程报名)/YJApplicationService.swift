@@ -7,7 +7,13 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
 
+func getHTTPHeaders() -> [String : String] {
+    let header: [String : String] = YJNetWorkTool.getHTTPHeaders()
+    return header
+}
 
 class YJApplicationService: NSObject {
     
@@ -103,4 +109,61 @@ extension YJApplicationService{
             finish(response.isSuccess,model,response.responseMessage)
         }
     }
+}
+
+
+extension YJApplicationService {
+    
+    //上传图片
+    class func uploadImg(image:UIImage,finish: @escaping (_ success: Bool,_ model: YJUploadImgResultMainModel?,_ errorMsg: String?) -> Void){
+        
+        let data = UIImagePNGRepresentation(image)
+        
+        var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
+        dict["openkey"] = "5be64c88696e2_1491" as AnyObject?
+        dict["img"] = data as AnyObject?
+        
+        YJNetWorkTool.upload(uploadImage: [image]) { (_ model:YJUploadImgResultMainModel?, response: YJNetWorkResponse) in
+            finish(response.isSuccess,model,response.responseMessage)
+        }
+    }
+    
+//    // 上传图片
+//    class func upload(uploadImage: [Data], complete:@escaping (_ response: YJUploadImgResultMainModel) -> Void) {
+//        Alamofire.upload(multipartFormData: { (multipartFormData) in
+//            var index: Int = 0
+//            for data in uploadImage {
+//                multipartFormData.append(data, withName: "", fileName: "￼store_base_image\(index).jpg", mimeType: "image/jpeg")
+//                index += 1
+//            }
+//        }, to: MyApplicationCommonUrl.uploadImgUrl, method: .post, headers: getHTTPHeaders(), encodingCompletion: { (encodingResult) in
+//            switch encodingResult {
+//            case .success(let upload, _, _): // 上传请求成功 (不一定真的上传上去了)解析返回数据
+//                upload.responseJSON(completionHandler: { (response:DataResponse) in
+//                    let result: Result = response.result
+//
+//                    switch result {
+//                    case .success(let object): // 解析成功
+//                        complete(object)
+//                    case .failure(let error): // 解析失败
+//                        print(error)
+//                    }
+//                })
+//                //                upload.response(completionHandler: { (response: DataResponse<YJUploadImgResultMainModel>) in
+//                //                    let result: Result<YJUploadImgResultMainModel> = response.result
+//                //                    switch result {
+//                //                    case .success(let object): // 解析成功
+//                //                        complete(object)
+//                //                    case .failure(let error): // 解析失败
+//                //                        print(error)
+//                //                    }
+//            //                })
+//            case .failure(let encodingError): // 上传失败
+//                //                failture(encodingError)
+//                return
+//            }
+//        })
+//
+//    }
+    
 }
