@@ -116,6 +116,8 @@ extension MyMainViewController:UITableViewDelegate,UITableViewDataSource{
                 make.centerY.equalTo(cell!)
                 make.height.width.equalTo(80)
             }
+            headImgView.layer.masksToBounds = true
+            headImgView.layer.cornerRadius  = 40
             namelbl.snp.makeConstraints { (make) in
                 make.left.equalTo(headImgView.snp.right).offset(20)
                 make.top.equalTo(30)

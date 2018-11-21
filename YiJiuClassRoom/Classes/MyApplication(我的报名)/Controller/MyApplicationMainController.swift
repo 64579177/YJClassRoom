@@ -140,13 +140,14 @@ extension MyApplicationMainController:UITableViewDelegate,UITableViewDataSource{
                 }
                 cell?.textLabel?.text = "合计:¥" + "\(dataModel.pay_money)"
                 cell?.addSubview(self.groupLable)
-                self.groupLable.text = "组别:" + (dataModel.group_number == 0 ? "未分组" : "已分组")
+                self.groupLable.text = " 组别:" + (dataModel.group_number == 0 ? "未分组  " : "已分组  ")
 //                self.groupLable.cornerAll(radii: 1)
                 self.groupLable.snp.makeConstraints { (make) in
                     make.right.equalTo(-15)
                     make.centerY.equalTo(cell!)
                 }
-                
+                 self.groupLable.layer.masksToBounds = true
+                 self.groupLable.layer.cornerRadius = 3
                 return cell!
             }
         } else{

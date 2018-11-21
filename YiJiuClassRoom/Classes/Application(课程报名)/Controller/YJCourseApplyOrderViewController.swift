@@ -242,9 +242,8 @@ extension YJCourseApplyOrderViewController:UITableViewDelegate,UITableViewDataSo
                 make.bottom.equalTo(-30)
                 make.height.equalTo(50)
             }
-//             payBtn.cornerAll(radii: 5)
-//            payBtn.backgroundColor = ColorNav
-//
+            payBtn.layer.masksToBounds = true
+            payBtn.layer.cornerRadius = 5
         }
         
         
@@ -267,6 +266,5 @@ extension YJCourseApplyOrderViewController:UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
-    
     
 }
