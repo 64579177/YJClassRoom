@@ -137,7 +137,11 @@ extension YJApplyCategoryViewController:UITableViewDelegate,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let model = self.dataArray[indexPath.row]
+        
         let pvc = YJCourseApplyInfoViewController()
+        pvc.courseid = model.course_id
+        pvc.course_cate_id = model.id
         self.navigationController?.pushViewController(pvc, animated: true)
     }
     

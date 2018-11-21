@@ -56,9 +56,10 @@ class YJCourseApplyInfoViewController: YJBaseViewController {
     }()
     
     
-    //
+    var orderModel:YJCourseApplyOrderModel?
     var dataModel:YJCenterIndexModel?
-    
+    var courseid:String?
+    var course_cate_id:NSNumber?
     
     override func viewDidLoad() {
         
@@ -87,7 +88,80 @@ class YJCourseApplyInfoViewController: YJBaseViewController {
     @objc func submitClick(){
         
         //提交 1.获取订单信息  2.支付
+        guard YJNetStatus.isValaiable else {
+            return
+        }
+        Tool.showLoadingOnView(view: self.view)
         
+        var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
+        dict["openkey"] = Account.readUserInfo()?.openkey as AnyObject?
+        dict["username"] = self.dataModel?.profile.real_name as AnyObject
+        dict["mobile"] = self.dataModel?.mobile as AnyObject
+        dict["company"] = self.dataModel?.company_name as AnyObject
+        dict["recommend"] = self.dataModel?.profile.recommend_name as AnyObject
+        dict["course_id"] = self.courseid as AnyObject
+        dict["course_cate_id"] = self.course_cate_id
+        YJApplicationService.requestCourseSubmitApply(dict: dict){(isSuccess, model, errorStr) in
+            Tool.hideLodingOnView(view: self.view)
+            
+            guard isSuccess  else{
+                return
+            }
+            
+            guard let modelTemp = model?.data else{
+                self.dataModel = nil
+                return
+            }
+//            self.dataModel = modelTemp
+            //获取订单信息 进行支付
+            self.getOrderInfo()
+        }
+    }
+    
+    func getOrderInfo(){
+        
+        guard YJNetStatus.isValaiable else {
+            return
+        }
+        Tool.showLoadingOnView(view: self.view)
+        
+        YJApplicationService.createApplyOrder{(isSuccess, model, errorStr) in
+            Tool.hideLodingOnView(view: self.view)
+            
+            guard isSuccess  else{
+                return
+            }
+            
+            guard let modelTemp = model?.data else{
+                self.orderModel = nil
+                return
+            }
+            
+            if model?.code == 1 {
+              
+                self.orderModel = modelTemp
+                
+                //调起微信 支付
+                let req = PayReq()
+                //应用的AppID(固定的)
+                req.openID = WXAppID
+                //商户号(固定的)
+                req.partnerId = WXPartnerID
+                //扩展字段(固定的)
+                req.package = "Sign=WXPay"
+                //统一下单返回的预支付交易会话ID
+                req.prepayId = self.orderModel?.payorder_info?.order_id
+                //随机字符串
+                req.nonceStr = ""
+                //时间戳(10位)
+                req.timeStamp = UInt32(self.orderModel?.payorder_info?.create_time as! Int)
+                //签名
+//                let strA = "appid=\(WXAppID)&noncestr=\(noncestr)&package=Sign=WXPay&partnerid=\(WXPartnerID)&prepayid=\(self.orderModel?.payorder_info?.order_id)&timestamp=\(time)"
+//                req.sign = ("\(strA)&key=\(key)").MD5.uppercased()
+ 
+                WXApi.send(req)
+            }
+        }
     }
     
     func getListInfo() -> Void {
@@ -236,8 +310,9 @@ extension YJCourseApplyInfoViewController:UITableViewDelegate,UITableViewDataSou
         }else if indexPath.row == 3 {
             let pvc = YJSelectCompayListViewController()
             pvc.selectCallBack = {
-                (model) in
-                self.dataModel?.company_name = model.name
+                (dic:NSDictionary) in
+//                self.dataModel?.company_name = model.name
+                self.dataModel?.company_name = dic["name"] as! String
             }
             self.navigationController?.pushViewController(pvc, animated: true)
         }

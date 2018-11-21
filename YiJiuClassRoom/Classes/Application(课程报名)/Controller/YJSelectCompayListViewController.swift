@@ -13,20 +13,21 @@ class YJSelectCompayListViewController: YJBaseViewController {
     
     lazy var myTableView: UITableView = {
         
-        let myTableView = UITableView(frame: CGRect(x: 0, y: 0, width: KSW, height: KSH - 44), style: UITableViewStyle.grouped)
+        let myTableView = UITableView(frame: CGRect(x: 0, y: 0, width: KSW, height: KSH - 44), style: UITableViewStyle.plain)
         myTableView.delegate = self
         myTableView.dataSource = self
         myTableView.estimatedRowHeight = 50
         myTableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
         myTableView.backgroundColor = Colorf6
+        
         return myTableView
     }()
     
     
     //
     var dataModel:YJSelectCompanyModel?
-    var selectCallBack:((YJSelectCompanyListDetaiModel) -> Void)?
-    var selectModel:YJSelectCompanyListDetaiModel?
+    var selectCallBack:((NSDictionary) -> Void)?
+    var selectDic:NSDictionary?
     
     override func viewDidLoad() {
         
@@ -58,24 +59,31 @@ class YJSelectCompayListViewController: YJBaseViewController {
         guard YJNetStatus.isValaiable else {
             return
         }
+        
+        guard let dic = self.selectDic else {
+            return
+        }
+        
         Tool.showLoadingOnView(view: self.view)
         
-//        YJApplicationService.updateCenterCompanyInfo(uid: 111, id: self.selectModel?.id.){
-//            (isSuccess, model, errorStr) in
-//            Tool.hideLodingOnView(view: self.view)
-//
-//            if model?.code == 1 {
-//                guard let modelTemp = model?.data?.list else{
-//                    self.dataModel = nil
-//                    return
-//                }
+        YJApplicationService.updateCenterCompanyInfo(uid: Account.readUserInfo()?.id as AnyObject, id: dic["id"] as AnyObject){
+            (isSuccess, model, errorStr) in
+            Tool.hideLodingOnView(view: self.view)
+
+            if model?.code == 1 {
+                if self.selectCallBack != nil {
+                    guard let dic = self.selectDic else {
+                        return
+                    }
+                    self.selectCallBack!(dic)
+                }
 //                self.dataModel = modelTemp
 //                self.myTableView.reloadData()
-//            }else{
-//                Tool.showHUDWithText(text: "业务错误")
-//            }
-//
-//        }
+            }else{
+                Tool.showHUDWithText(text: "业务错误")
+            }
+
+        }
     }
     
     func getListInfo() -> Void {
@@ -85,7 +93,7 @@ class YJSelectCompayListViewController: YJBaseViewController {
         }
         Tool.showLoadingOnView(view: self.view)
         
-        YJApplicationService.requestCenterCompanyListInfo(page:1){
+        YJApplicationService.requestCenterCompanyListInfo(){
             (isSuccess, model, errorStr) in
             Tool.hideLodingOnView(view: self.view)
             
@@ -136,25 +144,35 @@ extension YJSelectCompayListViewController:UITableViewDelegate,UITableViewDataSo
         }
         cell?.textLabel?.textColor = Color3
         cell?.textLabel?.font = UIFont.systemFont(ofSize: 14)
-        cell?.accessoryType = UITableViewCellAccessoryType(rawValue: Int(UIAccessibilityTraitNone))!
         
-//        if let arr = self.dataModel?.data {
-//
-//            if arr.count > 0 {
-//                cell?.textLabel?.text = arr[indexPath.row].name
-//            }
-//
-//        }
+        if let listDic:NSDictionary = self.dataModel?.list as? NSDictionary {
+            let key:String = listDic.allKeys[indexPath.section] as! String
+            let arr:NSArray = listDic.object(forKey: key) as! NSArray
+            let dic = arr[indexPath.row] as? NSDictionary
+            cell?.textLabel?.text = dic?["name"] as? String
+        }
 
         return cell!
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return 0.0001
+        return 20
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if let listDic:NSDictionary = self.dataModel?.list as? NSDictionary {
+            let key:String = listDic.allKeys[section] as! String
+            
+            let backView = UIView(frame: CGRect(x:0,y:0,width:KSW - 15,height:20))
+             backView.backgroundColor = Colorf6
+            let lbl = YJLable.getSimpleLabel(toframe: CGRect(x:20,y:0,width:KSW - 15,height:20), textColor: .red, text: key, textAli: .left, textFont: 14)
+            backView.addSubview(lbl)
+           
+            return backView
+        }
+        
         return UIView()
     }
     
@@ -183,12 +201,12 @@ extension YJSelectCompayListViewController:UITableViewDelegate,UITableViewDataSo
         //设置选中的单元格样式
         cell.accessoryType=UITableViewCellAccessoryType.checkmark;
 
-//        if let modelArr = self.dataModel?.data,modelArr.count > 0{
-//            if self.selectCallBack != nil {
-//                self.selectCallBack!(modelArr[indexPath.row])
-//                self.selectModel = modelArr[indexPath.row]
-//            }
-//        }
+        if let listDic:NSDictionary = self.dataModel?.list as? NSDictionary {
+            let key:String = listDic.allKeys[indexPath.section] as! String
+            let arr:NSArray = listDic.object(forKey: key) as! NSArray
+            let dic = arr[indexPath.row] as? NSDictionary
+            self.selectDic = dic
+        }
     }
 }
 

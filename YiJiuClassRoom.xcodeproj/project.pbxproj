@@ -24,6 +24,7 @@
 		716CA12B21A2CF4400525295 /* KiImageClipperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA12821A2CF4400525295 /* KiImageClipperViewController.swift */; };
 		716CA12D21A2CF9B00525295 /* YJUploadImageSingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA12C21A2CF9B00525295 /* YJUploadImageSingleViewController.swift */; };
 		716CA12F21A39B2100525295 /* YJUploadImgResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA12E21A39B2100525295 /* YJUploadImgResultModel.swift */; };
+		716CA13121A502D500525295 /* YJCourseApplyOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA13021A502D500525295 /* YJCourseApplyOrderModel.swift */; };
 		7173261B219BFFA400DE6732 /* YJApplicationCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173261A219BFFA400DE6732 /* YJApplicationCourseCell.swift */; };
 		7173261D219C077B00DE6732 /* YJLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173261C219C077B00DE6732 /* YJLabel.swift */; };
 		7173261F219C0D5500DE6732 /* YJApplicationApplyFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173261E219C0D5500DE6732 /* YJApplicationApplyFlow.swift */; };
@@ -92,6 +93,7 @@
 		716CA12821A2CF4400525295 /* KiImageClipperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KiImageClipperViewController.swift; sourceTree = "<group>"; };
 		716CA12C21A2CF9B00525295 /* YJUploadImageSingleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJUploadImageSingleViewController.swift; sourceTree = "<group>"; };
 		716CA12E21A39B2100525295 /* YJUploadImgResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJUploadImgResultModel.swift; sourceTree = "<group>"; };
+		716CA13021A502D500525295 /* YJCourseApplyOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCourseApplyOrderModel.swift; sourceTree = "<group>"; };
 		7173261A219BFFA400DE6732 /* YJApplicationCourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplicationCourseCell.swift; sourceTree = "<group>"; };
 		7173261C219C077B00DE6732 /* YJLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJLabel.swift; sourceTree = "<group>"; };
 		7173261E219C0D5500DE6732 /* YJApplicationApplyFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplicationApplyFlow.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				71A49D9D219E619E00CAB42A /* YJCenterIndexModel.swift */,
 				71A49DA1219E72D800CAB42A /* YJSelectCompanyModel.swift */,
 				716CA12E21A39B2100525295 /* YJUploadImgResultModel.swift */,
+				716CA13021A502D500525295 /* YJCourseApplyOrderModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -478,7 +481,7 @@
 				717DE39E2199212900C99322 /* Sources */,
 				717DE39F2199212900C99322 /* Frameworks */,
 				717DE3A02199212900C99322 /* Resources */,
-				FE9CB715D46B128A043B861A /* [CP] Embed Pods Frameworks */,
+				7ADF61DF2C4D00B070C8334E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -538,25 +541,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B50E89AC63E38A19B000CCB9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-YiJiuClassRoom-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FE9CB715D46B128A043B861A /* [CP] Embed Pods Frameworks */ = {
+		7ADF61DF2C4D00B070C8334E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -590,6 +575,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YiJiuClassRoom/Pods-YiJiuClassRoom-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B50E89AC63E38A19B000CCB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YiJiuClassRoom-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -646,6 +649,7 @@
 				71EC55E0219E533300350242 /* YJCourseApplyListModel.swift in Sources */,
 				71B521C621997CD5000E7792 /* YJLoginViewController.swift in Sources */,
 				719EAB6A219A6D29002C7FBE /* YJLoginModel.swift in Sources */,
+				716CA13121A502D500525295 /* YJCourseApplyOrderModel.swift in Sources */,
 				716CA12D21A2CF9B00525295 /* YJUploadImageSingleViewController.swift in Sources */,
 				7173261D219C077B00DE6732 /* YJLabel.swift in Sources */,
 				7173261F219C0D5500DE6732 /* YJApplicationApplyFlow.swift in Sources */,

@@ -18,9 +18,9 @@ class YJSelectCompanyMainModel: EVObject {
 
 class YJSelectCompanyModel: EVObject {
     
-//    var company:YJSelectCompanyInfoModel?
-    var applist:[YJSelectCompanyListDetaiModel]?
-    var appkey:AnyObject?
+////    var company:YJSelectCompanyInfoModel?
+//    var applist:[YJSelectCompanyListDetaiModel]?
+//    var appkey:AnyObject?
     var list: AnyObject?
 }
 

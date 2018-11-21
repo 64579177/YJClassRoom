@@ -98,7 +98,7 @@ extension YJApplicationService{
         }
     }
 //    //事业部信息
-    class func requestCenterCompanyListInfo(page:NSInteger,finish: @escaping (_ success: Bool,_ model: YJSelectCompanyMainModel?,_ errorMsg: String?) -> Void){
+    class func requestCenterCompanyListInfo(finish: @escaping (_ success: Bool,_ model: YJSelectCompanyMainModel?,_ errorMsg: String?) -> Void){
 
         var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
         dict["openkey"] = Account.readUserInfo()?.openkey as AnyObject?
@@ -112,16 +112,38 @@ extension YJApplicationService{
     
     
     //提交事业部信息
-    class func updateCenterCompanyInfo(uid:NSInteger,id:NSInteger,finish: @escaping (_ success: Bool,_ model: YJSelectCompanyMainModel?,_ errorMsg: String?) -> Void){
+    class func updateCenterCompanyInfo(uid:AnyObject,id:AnyObject,finish: @escaping (_ success: Bool,_ model: YJSelectCompanyMainModel?,_ errorMsg: String?) -> Void){
         
         var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
         dict["openkey"] = Account.readUserInfo()?.openkey as AnyObject?
-        dict["uid"] = uid as AnyObject?
-        dict["id"] = id as AnyObject?
+        dict["uid"] = uid
+        dict["id"] = id
         
         let requestUrl : String = ApplicationCommonUrl.appCenterupdateCompanyInfo
         
         YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: dict as [String : AnyObject]) { (_ model: YJSelectCompanyMainModel?, response: YJNetWorkResponse) in
+            finish(response.isSuccess,model,response.responseMessage)
+        }
+    }
+    
+    //提交申请订单
+    class func requestCourseSubmitApply(dict:[String : AnyObject],finish: @escaping (_ success: Bool,_ model: YJSelectCompanyMainModel?,_ errorMsg: String?) -> Void){
+        
+        let requestUrl : String = ApplicationCommonUrl.appCourseSubmitApply
+        
+        YJNetWorkTool.RequestWithURL(url: requestUrl, method: .post, parameter: dict) { (_ model: YJSelectCompanyMainModel?, response: YJNetWorkResponse) in
+            finish(response.isSuccess,model,response.responseMessage)
+        }
+    }
+    
+    //创建订单
+ 
+    class func createApplyOrder(finish: @escaping (_ success: Bool,_ model: YJCourseApplyOrderMainModel?,_ errorMsg: String?) -> Void){
+        
+        let requestUrl : String = ApplicationCommonUrl.appCourseCreateApplyOrder
+        var dict = [String : AnyObject]()
+        dict["openkey"] = Account.readUserInfo()?.openkey as AnyObject?
+        YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: dict) { (_ model: YJCourseApplyOrderMainModel?, response: YJNetWorkResponse) in
             finish(response.isSuccess,model,response.responseMessage)
         }
     }
