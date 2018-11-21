@@ -211,8 +211,8 @@
 		717DE3A42199212900C99322 /* YiJiuClassRoom */ = {
 			isa = PBXGroup;
 			children = (
-				717DE3BC2199484600C99322 /* BaseGroup */,
 				717DE3B7219931A400C99322 /* Classes */,
+				717DE3BC2199484600C99322 /* BaseGroup */,
 				717DE3B8219931B500C99322 /* Common */,
 				717DE3B9219931FD00C99322 /* Libs */,
 				717DE3A52199212900C99322 /* AppDelegate.swift */,
