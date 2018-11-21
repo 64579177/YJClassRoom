@@ -56,7 +56,7 @@ class YJCourseApplyInfoViewController: YJBaseViewController {
     }()
     
     
-    var orderModel:YJCourseApplyOrderModel?
+
     var dataModel:YJCenterIndexModel?
     var courseid:String?
     var course_cate_id:NSNumber?
@@ -110,56 +110,12 @@ class YJCourseApplyInfoViewController: YJBaseViewController {
             }
             if model?.code == 1 {
                 self.apply_id = model?.data.apply_id
-                //获取订单信息 进行支付
-                self.getOrderInfo()
+                //跳转订单信息页面
+                let pvc = YJCourseApplyOrderViewController()
+                pvc.applyId = self.apply_id ?? ""
+                self.navigationController?.pushViewController(pvc, animated: true)
             }else{
                 Tool.showHUDWithText(text: "请先去微信小程序完善信息!")
-            }
-        }
-    }
-    
-    func getOrderInfo(){
-        
-        guard YJNetStatus.isValaiable else {
-            return
-        }
-        Tool.showLoadingOnView(view: self.view)
-        
-        YJApplicationService.createApplyOrder{(isSuccess, model, errorStr) in
-            Tool.hideLodingOnView(view: self.view)
-            
-            guard isSuccess  else{
-                return
-            }
-            
-            guard let modelTemp = model?.data else{
-                self.orderModel = nil
-                return
-            }
-            
-            if model?.code == 1 {
-              
-                self.orderModel = modelTemp
-                
-                //调起微信 支付
-                let req = PayReq()
-                //应用的AppID(固定的)
-                req.openID = WXAppID
-                //商户号(固定的)
-                req.partnerId = WXPartnerID
-                //扩展字段(固定的)
-                req.package = "Sign=WXPay"
-                //统一下单返回的预支付交易会话ID
-                req.prepayId = self.orderModel?.payorder_info?.order_id
-                //随机字符串
-                req.nonceStr = ""
-                //时间戳(10位)
-                req.timeStamp = UInt32(self.orderModel?.payorder_info?.create_time as! Int)
-                //签名
-//                let strA = "appid=\(WXAppID)&noncestr=\(noncestr)&package=Sign=WXPay&partnerid=\(WXPartnerID)&prepayid=\(self.orderModel?.payorder_info?.order_id)&timestamp=\(time)"
-//                req.sign = ("\(strA)&key=\(key)").MD5.uppercased()
- 
-                WXApi.send(req)
             }
         }
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1913385658DB7C90098FFE43 /* Pods_YiJiuClassRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B677A02858C80FB81B240F /* Pods_YiJiuClassRoom.framework */; };
+		712F03BE21A53B7400154A51 /* YJCourseApplyOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712F03BD21A53B7400154A51 /* YJCourseApplyOrderViewController.swift */; };
 		715F78C1219D085A00F6C822 /* YJFreeStrategyCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F78C0219D085A00F6C822 /* YJFreeStrategyCourse.swift */; };
 		715F78C3219D139300F6C822 /* YJCourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F78C2219D139300F6C822 /* YJCourseDetailViewController.swift */; };
 		715F78C5219D1B4200F6C822 /* YJCourseDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F78C4219D1B4200F6C822 /* YJCourseDetailModel.swift */; };
@@ -76,6 +77,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		712F03BD21A53B7400154A51 /* YJCourseApplyOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCourseApplyOrderViewController.swift; sourceTree = "<group>"; };
 		715F78C0219D085A00F6C822 /* YJFreeStrategyCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJFreeStrategyCourse.swift; sourceTree = "<group>"; };
 		715F78C2219D139300F6C822 /* YJCourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCourseDetailViewController.swift; sourceTree = "<group>"; };
 		715F78C4219D1B4200F6C822 /* YJCourseDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCourseDetailModel.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				715F78CA219D7F3A00F6C822 /* YJApplyCategoryViewController.swift */,
 				71A49D9B219E5D3700CAB42A /* YJCourseApplyInfoViewController.swift */,
 				71A49D9F219E724800CAB42A /* YJSelectCompayListViewController.swift */,
+				712F03BD21A53B7400154A51 /* YJCourseApplyOrderViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				71EC55E0219E533300350242 /* YJCourseApplyListModel.swift in Sources */,
 				71B521C621997CD5000E7792 /* YJLoginViewController.swift in Sources */,
 				719EAB6A219A6D29002C7FBE /* YJLoginModel.swift in Sources */,
+				712F03BE21A53B7400154A51 /* YJCourseApplyOrderViewController.swift in Sources */,
 				716CA13121A502D500525295 /* YJCourseApplyOrderModel.swift in Sources */,
 				716CA12D21A2CF9B00525295 /* YJUploadImageSingleViewController.swift in Sources */,
 				7173261D219C077B00DE6732 /* YJLabel.swift in Sources */,
