@@ -60,6 +60,7 @@ class YJCourseApplyInfoViewController: YJBaseViewController {
     var dataModel:YJCenterIndexModel?
     var courseid:String?
     var course_cate_id:NSNumber?
+    var apply_id:String?
     
     override func viewDidLoad() {
         
@@ -107,14 +108,13 @@ class YJCourseApplyInfoViewController: YJBaseViewController {
             guard isSuccess  else{
                 return
             }
-            
-            guard let modelTemp = model?.data else{
-                self.dataModel = nil
-                return
+            if model?.code == 1 {
+                self.apply_id = model?.data.apply_id
+                //获取订单信息 进行支付
+                self.getOrderInfo()
+            }else{
+                Tool.showHUDWithText(text: "请先去微信小程序完善信息!")
             }
-//            self.dataModel = modelTemp
-            //获取订单信息 进行支付
-            self.getOrderInfo()
         }
     }
     

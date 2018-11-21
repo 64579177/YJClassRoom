@@ -9,7 +9,7 @@
 import Foundation
 class YJCourseApplyListMainModel: EVObject {
     var code: Int = 0
-    var message:String?
+    var msg:String?
     var time:TimeInterval?
     var data:[YJCourseApplyListModel]?
 }
@@ -24,4 +24,15 @@ class YJCourseApplyListModel: EVObject {
     var identity:String?
     var course_id:String?
     var sign_in_num:NSNumber?
+}
+
+class YJSubmitApplyMainModel: EVObject {
+    var code: Int = 0
+    var msg:String?
+    var time:TimeInterval?
+    var data:YJSubmitApplyModel = YJSubmitApplyModel()
+}
+
+class YJSubmitApplyModel: EVObject {
+    var apply_id:String = ""
 }

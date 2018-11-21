@@ -127,11 +127,11 @@ extension YJApplicationService{
     }
     
     //提交申请订单
-    class func requestCourseSubmitApply(dict:[String : AnyObject],finish: @escaping (_ success: Bool,_ model: YJSelectCompanyMainModel?,_ errorMsg: String?) -> Void){
+    class func requestCourseSubmitApply(dict:[String : AnyObject],finish: @escaping (_ success: Bool,_ model: YJSubmitApplyMainModel?,_ errorMsg: String?) -> Void){
         
         let requestUrl : String = ApplicationCommonUrl.appCourseSubmitApply
         
-        YJNetWorkTool.RequestWithURL(url: requestUrl, method: .post, parameter: dict) { (_ model: YJSelectCompanyMainModel?, response: YJNetWorkResponse) in
+        YJNetWorkTool.RequestWithURL(url: requestUrl, method: .post, parameter: dict) { (_ model: YJSubmitApplyMainModel?, response: YJNetWorkResponse) in
             finish(response.isSuccess,model,response.responseMessage)
         }
     }

@@ -142,6 +142,13 @@ class YJCourseDetailViewController: YJBaseViewController {
         }else if sender.tag == 10002{
             //申请义工
         }else if sender.tag == 10003 {
+            
+            if self.myDetailModel?.userinfo?.real_name == "" || self.myDetailModel?.userinfo?.mobile == "" || self.myDetailModel?.userinfo?.real_headimg == "" || self.myDetailModel?.userinfo?.company == ""
+            {
+                Tool.showHUDWithText(text: "请先去小程序完善信息")
+                return
+            }
+            
             //去报名类别页面
             let pvc = YJApplyCategoryViewController()
             pvc.courseId = self.courseId
