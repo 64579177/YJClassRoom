@@ -9,7 +9,7 @@
 import Foundation
 
 class YJCourseDetailMainModel: EVObject {
-    var code: Int = 0
+    var code: NSNumber = 0
     var msg:String?
     var time:TimeInterval?
     var data:YJCourseDetailDataModel?
@@ -23,11 +23,11 @@ class YJCourseDetailDataModel: EVObject {
     var detail_url : String  = ""
     var sponsor :YJCourseDetailSponsorModel?
     var apply_status: NSNumber?
-    var apply_id: Int?
-    var is_praise: Int?
-    var order_id: Int?
+    var apply_id: String?
+    var is_praise: NSNumber?
+    var order_id: NSNumber?
     var teacher:YJCourseDetailTeacherModel?
-    var ranking: Int?
+    var ranking: NSNumber?
     var userinfo:YJCourseDetailUserinfoModel?
     var course_cate:[YJCourseDetailCateModel]?
 }
@@ -88,12 +88,12 @@ class YJCourseDetailUserinfoModel: EVObject {
 }
 
 class YJCourseDetailCateModel: EVObject {
-    var id: Int?
+    var id: NSNumber?
     var title: String?
     var price: NSNumber?
     var quota: NSNumber = 0
-    var job_title: Int?
+    var job_title: NSNumber?
     var identity: String?
-    var course_id: Int?
+    var course_id: NSNumber?
     var sign_in_num: NSNumber = 0
 }

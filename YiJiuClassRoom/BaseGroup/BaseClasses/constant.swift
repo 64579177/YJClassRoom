@@ -59,4 +59,9 @@ struct StyleToast {
     static let kToastTextSize: UIFont = UIFont.systemFont(ofSize: 17)
 }
 
+struct StyleButton{
+    
+    static let btnGreenColor: UIColor = UIColor.colorWithHex(hex: 0x295D1F)
+    
+}
 

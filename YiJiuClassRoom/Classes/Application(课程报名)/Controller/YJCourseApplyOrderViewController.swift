@@ -12,7 +12,7 @@ import UIKit
 class YJCourseApplyOrderViewController: YJBaseViewController {
     
     
-    var applyId :String = ""
+    
     var orderApplyModel:YJCourseApplyOrderModel = YJCourseApplyOrderModel()
     var orderPayModel:YJCoursePayModel?
     
@@ -24,12 +24,15 @@ class YJCourseApplyOrderViewController: YJBaseViewController {
         myTableView.estimatedRowHeight = 50
         myTableView.rowHeight = UITableViewAutomaticDimension
         myTableView.separatorStyle = UITableViewCellSeparatorStyle.none
-//        myTableView.backgroundColor = Colorf6
+        myTableView.isScrollEnabled = false
         return myTableView
     }()
     
-    
+    var applyId : String?
     override func viewDidLoad() {
+        
+
+        super.viewDidLoad()
         
         self.title = "订单信息"
         
@@ -51,7 +54,7 @@ class YJCourseApplyOrderViewController: YJBaseViewController {
         }
         Tool.showLoadingOnView(view: self.view)
         
-        YJApplicationService.requestApplyOrderInfo(applyId:applyId){(isSuccess, model, errorStr) in
+        YJApplicationService.requestApplyOrderInfo(applyId:self.applyId ?? ""){(isSuccess, model, errorStr) in
             Tool.hideLodingOnView(view: self.view)
             
             guard isSuccess  else{
@@ -66,7 +69,7 @@ class YJCourseApplyOrderViewController: YJBaseViewController {
             if model?.code == 1 {
                 self.orderApplyModel = modelTemp
                 
-                self.myTableView.reloadData()
+                self.initUI()
             }else{
                 Tool.showHUDWithText(text: model?.msg)
             }
@@ -119,18 +122,23 @@ class YJCourseApplyOrderViewController: YJBaseViewController {
             }
         }
     }
+    
+    @objc func payBtnClick(){
+        
+        //支付
+    }
 }
 
 
 extension YJCourseApplyOrderViewController:UITableViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if section == 0 {
+        if section == 0 || section == 2 {
             return 1
         }else{
             return 3
@@ -155,14 +163,18 @@ extension YJCourseApplyOrderViewController:UITableViewDelegate,UITableViewDataSo
             
             lblTitle.snp.makeConstraints { (make) in
                 make.centerX.equalTo(cell!)
-                make.top.equalTo(40)
+                make.height.equalTo(20)
+                make.top.equalTo(20)
             }
             
             moneyTitle.snp.makeConstraints { (make) in
                 make.top.equalTo(lblTitle.snp.bottom).offset(20)
-                make.bottom.equalTo(30)
+                make.bottom.equalTo(-20)
+                make.height.equalTo(30)
+                make.centerX.equalTo(cell!)
             }
-        }else{
+            
+        }else if indexPath.section == 1{
             
             if indexPath.row == 0 {
                 let lblTitle = YJLable.getSimpleLabelActive(textColor: Color9, text: "收款商户", textAli: .left, textFont: 14)
@@ -211,10 +223,28 @@ extension YJCourseApplyOrderViewController:UITableViewDelegate,UITableViewDataSo
                 moneyTitle.snp.makeConstraints { (make) in
                     make.right.equalTo(-15)
                     make.height.equalTo(30)
-                    make.top.bottom.equalTo(0)
+                    make.top.equalTo(0)
+                    make.bottom.equalTo(10)
                 }
             }
             
+        }else{
+            
+            let payBtn = UIButton.createBtn(title: "立即支付", bgColor: ColorNav, font: 14, ali: .center, textColor: .white)
+            payBtn.addTarget(self, action: #selector(payBtnClick), for: .touchUpInside)
+            
+            cell?.addSubview(payBtn)
+           
+            payBtn.snp.makeConstraints { (make) in
+                make.left.equalTo(20)
+                make.right.equalTo(-20)
+                make.top.equalTo(30)
+                make.bottom.equalTo(-30)
+                make.height.equalTo(50)
+            }
+//             payBtn.cornerAll(radii: 5)
+//            payBtn.backgroundColor = ColorNav
+//
         }
         
         

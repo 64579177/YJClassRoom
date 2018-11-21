@@ -80,7 +80,7 @@ class YJCourseDetailViewController: YJBaseViewController {
         btn3.addTarget(self, action: #selector(btnClick(_:)), for: .touchUpInside)
         if self.myDetailModel?.apply_status == 0 {
             btn3.setTitle("立即报名", for: .normal)
-            btn3.backgroundColor = .green
+            btn3.backgroundColor = StyleButton.btnGreenColor
             btn3.isEnabled = true
         }else{
             btn3.backgroundColor = .gray
@@ -89,6 +89,8 @@ class YJCourseDetailViewController: YJBaseViewController {
                 btn3.setTitle("报名成功", for: .normal)
             }else if self.myDetailModel?.apply_status == 2{
                 btn3.setTitle("等待支付", for: .normal)
+                btn3.backgroundColor = StyleButton.btnGreenColor
+                btn3.isEnabled = true
             }else if self.myDetailModel?.apply_status == 3{
                 btn3.setTitle("报名结束", for: .normal)
             }else if self.myDetailModel?.apply_status == 4{
@@ -144,16 +146,26 @@ class YJCourseDetailViewController: YJBaseViewController {
             self.applyVolunteer()
         }else if sender.tag == 10003 {
             
-            if self.myDetailModel?.userinfo?.real_name == "" || self.myDetailModel?.userinfo?.mobile == "" || self.myDetailModel?.userinfo?.real_headimg == "" || self.myDetailModel?.userinfo?.company == ""
-            {
-                Tool.showHUDWithText(text: "请先去小程序完善信息")
-                return
+            if self.myDetailModel?.apply_status == 0 {
+                if self.myDetailModel?.userinfo?.real_name == "" || self.myDetailModel?.userinfo?.mobile == "" || self.myDetailModel?.userinfo?.real_headimg == "" || self.myDetailModel?.userinfo?.company == ""
+                {
+                    Tool.showHUDWithText(text: "请先去小程序完善信息")
+                    return
+                }
+                
+                //去报名类别页面
+                let pvc = YJApplyCategoryViewController()
+                pvc.courseId = self.courseId
+                self.navigationController?.pushViewController(pvc, animated: true)
+            }else if self.myDetailModel?.apply_status == 2 {
+                
+                //去支付页面
+                let pvc = YJCourseApplyOrderViewController()
+                pvc.applyId = self.myDetailModel?.apply_id
+                self.navigationController?.pushViewController(pvc, animated: true)
             }
             
-            //去报名类别页面
-            let pvc = YJApplyCategoryViewController()
-            pvc.courseId = self.courseId
-            self.navigationController?.pushViewController(pvc, animated: true)
+            
         }
     }
     
