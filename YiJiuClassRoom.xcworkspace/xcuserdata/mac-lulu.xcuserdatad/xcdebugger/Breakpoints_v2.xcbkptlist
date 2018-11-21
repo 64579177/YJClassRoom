@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YiJiuClassRoom/Classes/Application(&#x8bfe;&#x7a0b;&#x62a5;&#x540d;)/YJApplicationService.swift"
-            timestampString = "564474922.931991"
+            timestampString = "564476654.455731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "requestCourseSubmitApply(dict:finish:)"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "updateCenterCompanyInfo(uid:id:finish:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

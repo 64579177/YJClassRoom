@@ -27,6 +27,7 @@ class ApplicationMainController: YJBaseViewController {
     
     //广告返回数据
     var adArray:[YJADDataModel] = []
+    var year:String = ""
     var courseArray:[YJApplicationClassCourseListModel] = []
     let disGroup = DispatchGroup()
     
@@ -105,13 +106,19 @@ class ApplicationMainController: YJBaseViewController {
                 return
             }
             
-            guard let lists = model?.data.course,lists.count > 0 else{
-                self.courseArray = []
+            if model?.code == 1 {
+                guard let lists = model?.data.course,lists.count > 0 else{
+                    self.courseArray = []
+                    self.disGroup.leave()
+                    return
+                }
+                self.year = model?.data.year ?? ""
+                self.courseArray = lists
                 self.disGroup.leave()
-                return
+            }else{
+                Tool.showHUDWithText(text: model?.msg)
+                self.disGroup.leave()
             }
-            self.courseArray = lists
-            self.disGroup.leave()
         }
         
     }
@@ -192,16 +199,26 @@ extension ApplicationMainController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if section == 1 {
-            return 30
+            if (self.courseArray.count > 0){
+                return 30
+            }else{
+                return 0.001
+            }
+            
         }
         return 0.001
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if section == 1 {
-            let label = YJLable.getSimpleLabel(toframe: CGRect(x:0,y:0,width:KSW,height:30), textColor: .white, text: "2018年壹玖课堂课堂表", textAli: .center, textFont: 14)
-            label.backgroundColor = .black
-            return label
+            if (self.courseArray.count > 0){
+                let label = YJLable.getSimpleLabel(toframe: CGRect(x:0,y:0,width:KSW,height:30), textColor: .white, text: self.year + "年壹玖课堂课堂表", textAli: .center, textFont: 14)
+                label.backgroundColor = .black
+                return label
+            }else{
+                return UIView()
+            }
+            
         }
         return UIView()
     }

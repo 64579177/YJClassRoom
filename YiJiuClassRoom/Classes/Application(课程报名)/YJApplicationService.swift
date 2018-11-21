@@ -71,6 +71,21 @@ extension YJApplicationService{
         }
     }
     
+    //申请义工
+    class func applyVolunteer(courseId:NSInteger,finish: @escaping (_ success: Bool,_ model: YJCourseDetailMainModel?,_ errorMsg: String?) -> Void){
+        
+        var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
+        
+        dict["openkey"] = Account.readUserInfo()?.openkey as AnyObject?
+        dict["course_id"] = courseId as AnyObject?
+        
+        let requestUrl : String = ApplicationCommonUrl.appApplyVolunteer
+        
+        YJNetWorkTool.RequestWithURL(url: requestUrl, method: .post, parameter: dict as [String : AnyObject]) { (_ model: YJCourseDetailMainModel?, response: YJNetWorkResponse) in
+            finish(response.isSuccess,model,response.responseMessage)
+        }
+    }
+    
     //报名类别列表接口
     class func requestCourseApplyList(courseId:NSInteger,finish: @escaping (_ success: Bool,_ model: YJCourseApplyListMainModel?,_ errorMsg: String?) -> Void){
         

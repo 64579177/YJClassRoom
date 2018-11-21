@@ -10,7 +10,7 @@ import Foundation
 
 class YJCourseDetailMainModel: EVObject {
     var code: Int = 0
-    var message:String?
+    var msg:String?
     var time:TimeInterval?
     var data:YJCourseDetailDataModel?
 }

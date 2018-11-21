@@ -141,6 +141,7 @@ class YJCourseDetailViewController: YJBaseViewController {
             self.navigationController?.popToRootViewController(animated: true)
         }else if sender.tag == 10002{
             //申请义工
+            self.applyVolunteer()
         }else if sender.tag == 10003 {
             
             if self.myDetailModel?.userinfo?.real_name == "" || self.myDetailModel?.userinfo?.mobile == "" || self.myDetailModel?.userinfo?.real_headimg == "" || self.myDetailModel?.userinfo?.company == ""
@@ -169,16 +170,44 @@ class YJCourseDetailViewController: YJBaseViewController {
             guard isSuccess  else{
                 return
             }
-            
-            guard let data = model?.data else{
-                return
+            if model?.code == 1 {
+                guard let data = model?.data else{
+                    return
+                }
+                self.myDetailModel = data
+                self.myTableView.reloadData()
+                //添加底部栏
+                self.addBottomView()
+            }else{
+                Tool.showHUDWithText(text: model?.msg)
             }
-            self.myDetailModel = data
-            self.myTableView.reloadData()
-            //添加底部栏
-            self.addBottomView()
+            
         }
     }
+    
+    func applyVolunteer() ->Void{
+        
+        guard YJNetStatus.isValaiable else {
+            return
+        }
+        
+        Tool.showLoadingOnView(view: self.view)
+        YJApplicationService.applyVolunteer(courseId: courseId) { (isSuccess, model, errorStr) in
+            Tool.hideLodingOnView(view: self.view)
+            guard isSuccess  else{
+                return
+            }
+            
+            if model?.code == 1 {
+                
+                Tool.showHUDWithText(text: model?.msg)
+                
+            }else{
+                Tool.showHUDWithText(text: model?.msg)
+            }
+        }
+    }
+    
 }
 
 

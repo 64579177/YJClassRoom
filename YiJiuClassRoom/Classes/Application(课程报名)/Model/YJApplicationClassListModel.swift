@@ -9,7 +9,7 @@
 import Foundation
 
 class YJApplicationClassListModel: EVObject {
-    var code:String?
+    var code:NSNumber?
     var msg:String?
     var time:TimeInterval?
     var data:YJApplicationClassMainModel = YJApplicationClassMainModel()
