@@ -106,7 +106,6 @@ class YJCourseDetailSecondCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.backgroundColor = Colorf6
         configUI()
     }
     
@@ -150,7 +149,7 @@ class YJCourseDetailSecondCell: UITableViewCell {
         
         self.titleLable.snp.makeConstraints { (make) in
             make.left.equalTo(15)
-            make.top.right.equalTo(0)
+            make.top.right.equalTo(10)
             make.height.equalTo(15)
         }
         line1.snp.makeConstraints { (make) in
@@ -266,122 +265,189 @@ class YJCourseDetailSecondCell: UITableViewCell {
 
 class YJCourseDetailThirdCell: UITableViewCell {
     
+    lazy var headImgView: UIImageView = {
+        let headImgView = UIImageView()
+        return headImgView
+    }()
+    
+    lazy var desclbl: UILabel = {
+        let desclbl = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: "", textAli: .left, textFont: 14, numLines: 0)
+        
+        return desclbl
+    }()
+    
+    lazy var namelbl: UILabel = {
+        let namelbl = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: "", textAli: .left, textFont: 14, numLines: 1)
+        
+        return namelbl
+    }()
+    
+    lazy var courseLable: UILabel = {
+        let courseLable = YJLable.getSimpleLabelNoFrame(textColor: .white, text: "策略课", textAli: .center, textFont: 10, numLines: 1)
+         courseLable.backgroundColor = ColorNav
+        return courseLable
+    }()
+    
     var dataModel:YJCourseDetailDataModel = YJCourseDetailDataModel() {
         didSet{
             
-            let headImgView = YJImageView.getSimpleUrlImageView(toframe: CGRect.zero, img: (dataModel.teacher?.photo)!,placeholder: "")
-            let desclbl = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: (dataModel.teacher?.desc)!, textAli: .left, textFont: 14, numLines: 0)
-            let namelbl = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: (dataModel.teacher?.name)!, textAli: .left, textFont: 14, numLines: 1)
-            let courseLable = YJLable.getSimpleLabelNoFrame(textColor: .white, text: "策略课", textAli: .center, textFont: 10, numLines: 1)
-            courseLable.backgroundColor = ColorNav
-            
-            self.addSubview(headImgView)
-            self.addSubview(desclbl)
-            self.addSubview(namelbl)
-            self.addSubview(courseLable)
-            
-            headImgView.snp.makeConstraints { (make) in
-                make.top.equalTo(5)
-                make.left.equalTo(15)
-                make.width.height.equalTo(80)
-            }
-            
-            desclbl.snp.makeConstraints { (make) in
-                make.left.equalTo(headImgView.snp.right).offset(30)
-                make.top.equalTo(headImgView)
-                make.bottom.equalTo(headImgView)
-                make.right.equalTo(-15)
-            }
-            namelbl.snp.makeConstraints { (make) in
-                make.left.equalTo(15)
-                make.top.equalTo(headImgView.snp.bottom).offset(5)
-                make.bottom.equalTo(-10)
-            }
-            courseLable.snp.makeConstraints { (make) in
-                make.left.equalTo(namelbl.snp.right).offset(10)
-                make.top.equalTo(headImgView.snp.bottom).offset(5)
-                make.bottom.equalTo(-10)
-            }
+            self.headImgView.kf.setImage(with: URL(string: (dataModel.teacher?.photo)!), placeholder: UIImage(named: ""), options: nil, progressBlock: nil, completionHandler: nil)
+            self.desclbl.text = (dataModel.teacher?.desc)!
+            self.namelbl.text = (dataModel.teacher?.name)!
         }
     }
     
+    override func layoutSubviews() {
+        
+        self.addSubview(headImgView)
+        self.addSubview(desclbl)
+        self.addSubview(namelbl)
+        self.addSubview(courseLable)
+        
+        headImgView.snp.makeConstraints { (make) in
+            make.top.equalTo(5)
+            make.left.equalTo(15)
+            make.width.height.equalTo(80)
+        }
+        
+        desclbl.snp.makeConstraints { (make) in
+            make.left.equalTo(headImgView.snp.right).offset(30)
+            make.top.equalTo(headImgView)
+            make.bottom.equalTo(headImgView)
+            make.right.equalTo(-15)
+        }
+        namelbl.snp.makeConstraints { (make) in
+            make.left.equalTo(15)
+            make.top.equalTo(headImgView.snp.bottom).offset(5)
+            make.bottom.equalTo(-10)
+        }
+        courseLable.snp.makeConstraints { (make) in
+            make.left.equalTo(namelbl.snp.right).offset(10)
+            make.top.equalTo(headImgView.snp.bottom).offset(5)
+            make.bottom.equalTo(-10)
+        }
+    }
 }
 
 class YJCourseDetailFourCell: UITableViewCell {
     
+    lazy var wealthImgView: UIImageView = {
+        let wealthImgView = YJImageView.getSimpleImageView(toframe: CGRect.zero, img: "my_wealth")
+        return wealthImgView
+    }()
+    
+    lazy var desclbl: UILabel = {
+        let desclbl = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: "相关报名费用", textAli: .left, textFont: 14, numLines: 0)
+        
+        return desclbl
+    }()
+    
+    lazy var line: UIView = {
+        let line = JYView.getlineView()
+        
+        return line
+    }()
+    
+    lazy var titlelbl: UILabel = {
+        let titlelbl = YJLable.getSimpleLabelActive(textColor: Color3, text: "", textAli: .left, textFont: 14)
+        return titlelbl
+    }()
+    
+    lazy var pricelbl: UILabel = {
+         let pricelbl = YJLable.getSimpleLabelActive(textColor: Color3, text: "", textAli: .center, textFont: 14)
+        return pricelbl
+    }()
+    
+    lazy var numlbl: UILabel = {
+        let numlbl = YJLable.getSimpleLabelActive(textColor: Color9, text: "", textAli: .center, textFont: 14)
+        return numlbl
+    }()
+    
+    lazy var line1: UIView = {
+        let line1 = JYView.getlineView()
+        return line1
+    }()
+    
+    lazy var peopleImgView: UIImageView = {
+       let peopleImgView = YJImageView.getSimpleImageView(toframe: CGRect.zero, img: "my_people")
+        return peopleImgView
+    }()
+    
+    lazy var signNumlbl: UILabel = {
+        let signNumlbl = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: "", textAli: .left, textFont: 14, numLines: 0)
+        return signNumlbl
+    }()
+    
     var dataModel:YJCourseDetailCateModel = YJCourseDetailCateModel() {
         didSet{
             
-            let wealthImgView = YJImageView.getSimpleImageView(toframe: CGRect.zero, img: "my_wealth")
-            let desclbl = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: "相关报名费用", textAli: .left, textFont: 14, numLines: 0)
-            let line = JYView.getlineView()
-            let titlelbl = YJLable.getSimpleLabelActive(textColor: Color3, text: dataModel.title!, textAli: .left, textFont: 14)
-            let pricelbl = YJLable.getSimpleLabelActive(textColor: Color3, text: "\(dataModel.price ?? 0)", textAli: .center, textFont: 14)
-            let numlbl = YJLable.getSimpleLabelActive(textColor: Color9, text: "名额限制:" + "\(dataModel.quota)", textAli: .center, textFont: 14)
-            let line1 = JYView.getlineView()
-            let peopleImgView = YJImageView.getSimpleImageView(toframe: CGRect.zero, img: "my_people")
-            let signNumlbl = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: "已报名人员" + "\(dataModel.sign_in_num)", textAli: .left, textFont: 14, numLines: 0)
+            self.titlelbl.text = dataModel.title ?? ""
+            self.pricelbl.text = "\(dataModel.price ?? 0)"
+            self.numlbl.text   = "名额限制:" + "\(dataModel.quota)"
+            self.signNumlbl.text = "已报名人员" + "\(dataModel.sign_in_num)"
             
-            self.addSubview(wealthImgView)
-            self.addSubview(desclbl)
-            self.addSubview(line)
-            self.addSubview(titlelbl)
-            self.addSubview(pricelbl)
-            self.addSubview(numlbl)
-            
-            self.addSubview(line1)
-            self.addSubview(peopleImgView)
-            self.addSubview(signNumlbl)
-            
-            wealthImgView.snp.makeConstraints { (make) in
-                make.top.equalTo(5)
-                make.left.equalTo(15)
-                make.width.height.equalTo(20)
-            }
-            
-            desclbl.snp.makeConstraints { (make) in
-                make.left.equalTo(wealthImgView.snp.right).offset(15)
-                make.top.equalTo(10)
-                make.height.equalTo(15)
-            }
-            line.snp.makeConstraints { (make) in
-                make.left.right.equalTo(0)
-                make.top.equalTo(desclbl.snp.bottom).offset(10)
-                make.height.equalTo(0.5)
-            }
-            titlelbl.snp.makeConstraints { (make) in
-                make.left.equalTo(15)
-                make.top.equalTo(line.snp.bottom).offset(10)
-//                make.height.equalTo(-10)
-            }
-            pricelbl.snp.makeConstraints { (make) in
-                make.right.equalTo(-15)
-                make.top.equalTo(line.snp.bottom).offset(10)
-                //                make.height.equalTo(-10)
-            }
-            numlbl.snp.makeConstraints { (make) in
-                make.left.equalTo(15)
-                make.top.equalTo(titlelbl.snp.bottom).offset(10)
-            }
-            line1.snp.makeConstraints { (make) in
-                make.left.right.equalTo(0)
-                make.top.equalTo(numlbl.snp.bottom).offset(10)
-                make.height.equalTo(0.5)
-            }
-            
-            peopleImgView.snp.makeConstraints { (make) in
-                make.top.equalTo(line1.snp.bottom).offset(10)
-                make.left.equalTo(15)
-                make.width.height.equalTo(20)
-            }
-            
-            signNumlbl.snp.makeConstraints { (make) in
-                make.left.equalTo(peopleImgView.snp.right).offset(15)
-                make.top.equalTo(line1.snp.bottom).offset(15)
-//                make.height.equalTo(15)
-                make.bottom.equalTo(-10)
-            }
         }
     }
-    
+    override func layoutSubviews() {
+        
+        self.addSubview(wealthImgView)
+        self.addSubview(desclbl)
+        self.addSubview(line)
+        self.addSubview(titlelbl)
+        self.addSubview(pricelbl)
+        self.addSubview(numlbl)
+        
+        self.addSubview(line1)
+        self.addSubview(peopleImgView)
+        self.addSubview(signNumlbl)
+        
+        wealthImgView.snp.makeConstraints { (make) in
+            make.top.equalTo(5)
+            make.left.equalTo(15)
+            make.width.height.equalTo(20)
+        }
+        
+        desclbl.snp.makeConstraints { (make) in
+            make.left.equalTo(wealthImgView.snp.right).offset(15)
+            make.top.equalTo(10)
+            make.height.equalTo(15)
+        }
+        line.snp.makeConstraints { (make) in
+            make.left.right.equalTo(0)
+            make.top.equalTo(desclbl.snp.bottom).offset(10)
+            make.height.equalTo(0.5)
+        }
+        titlelbl.snp.makeConstraints { (make) in
+            make.left.equalTo(15)
+            make.top.equalTo(line.snp.bottom).offset(10)
+            //                make.height.equalTo(-10)
+        }
+        pricelbl.snp.makeConstraints { (make) in
+            make.right.equalTo(-15)
+            make.top.equalTo(line.snp.bottom).offset(10)
+            //                make.height.equalTo(-10)
+        }
+        numlbl.snp.makeConstraints { (make) in
+            make.left.equalTo(15)
+            make.top.equalTo(titlelbl.snp.bottom).offset(10)
+        }
+        line1.snp.makeConstraints { (make) in
+            make.left.right.equalTo(0)
+            make.top.equalTo(numlbl.snp.bottom).offset(10)
+            make.height.equalTo(0.5)
+        }
+        
+        peopleImgView.snp.makeConstraints { (make) in
+            make.top.equalTo(line1.snp.bottom).offset(10)
+            make.left.equalTo(15)
+            make.width.height.equalTo(20)
+        }
+        
+        signNumlbl.snp.makeConstraints { (make) in
+            make.left.equalTo(peopleImgView.snp.right).offset(15)
+            make.top.equalTo(line1.snp.bottom).offset(15)
+            //                make.height.equalTo(15)
+            make.bottom.equalTo(-10)
+        }
+    }
 }

@@ -8,22 +8,48 @@
 
 import UIKit
 import Kingfisher
+import WebKit
+
 
 class YJCourseDetailViewController: YJBaseViewController {
     
     var courseId : NSInteger = 0
+    var height:CGFloat = 0
     
-    lazy var myTableView: UITableView = {
+    lazy var changeWebView:WKWebView = {
+        /// 自定义配置
+        let config = WKWebViewConfiguration()
+        //        webConfiguration.userContentController = WKUserContentController()
+        config.preferences.javaScriptEnabled = true
+        config.selectionGranularity = WKSelectionGranularity.character
+        config.preferences.javaScriptCanOpenWindowsAutomatically = false
+        let webView = WKWebView( frame:CGRect(x:0,y:0,width:KSW,height:0),configuration:config)
+
+        /// 设置代理
+        webView.navigationDelegate = self
+        webView.scrollView.isScrollEnabled = false
+        webView.scrollView.bounces = false
+        webView.scrollView.showsVerticalScrollIndicator = false
+        webView.scrollView.showsHorizontalScrollIndicator = false
+        webView.scrollView.sizeToFit()
         
-        let myTableView = UITableView(frame: CGRect(x: 0, y: 0, width: KSW, height: KSH - 44), style: UITableViewStyle.grouped)
+        return webView
+    }()
+    
+    lazy var myTableView: YJTableView = {
+        
+        let myTableView = YJTableView(frame: CGRect(x: 0, y: 0, width: KSW, height: KSH - 44), style: UITableViewStyle.grouped)
         myTableView.delegate = self
         myTableView.dataSource = self
         myTableView.estimatedRowHeight = 50
         myTableView.rowHeight = UITableViewAutomaticDimension
         myTableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        myTableView.showsVerticalScrollIndicator = false
+        myTableView.showsHorizontalScrollIndicator = false
         return myTableView
     }()
     
+    weak var textView: UITextView!
     
     
     var myDetailModel:YJCourseDetailDataModel?
@@ -39,7 +65,7 @@ class YJCourseDetailViewController: YJBaseViewController {
     func initUI(){
         self.view.addSubview(self.myTableView)
         self.myTableView.snp.makeConstraints { (make) in
-            make.top.left.bottom.right.equalTo(self.view)
+            make.top.left.right.equalTo(self.view)
             make.bottom.equalTo(-50)
         }
     }
@@ -187,7 +213,9 @@ class YJCourseDetailViewController: YJBaseViewController {
                     return
                 }
                 self.myDetailModel = data
-                self.myTableView.reloadData()
+                let url = NSURL(string: "http://yijiucdn.baozhen999.com/html/180.html")
+                let requst = NSURLRequest(url: url! as URL)
+                self.changeWebView.load(requst as URLRequest)
                 //添加底部栏
                 self.addBottomView()
             }else{
@@ -226,7 +254,7 @@ class YJCourseDetailViewController: YJBaseViewController {
 extension YJCourseDetailViewController:UITableViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -252,7 +280,7 @@ extension YJCourseDetailViewController:UITableViewDelegate,UITableViewDataSource
                 cell?.selectionStyle = .none
             }
 //            cell?.addSubview(JYJImageView.getSimpleUrlImageView(toframe: CGRect(x:0,y:0,width:KSW,height:KSW), img: (self.myDetailModel.info?.cover)!))
-            let imgView = YJImageView.getSimpleUrlImageView(toframe: CGRect.zero, img: "http://yijiucdn.baozhen999.com/uploads/26be13346d38663f81b64bd312c8f6c5.png",placeholder: "")
+            let imgView = YJImageView.getSimpleUrlImageView(toframe: CGRect.zero, img: self.myDetailModel?.info?.cover ?? "",placeholder: "")
             cell?.addSubview(imgView)
             imgView.snp.makeConstraints { (make) in
                 make.top.bottom.left.right.equalTo(cell!)
@@ -291,6 +319,7 @@ extension YJCourseDetailViewController:UITableViewDelegate,UITableViewDataSource
             
             let cellIdentifierString = "YJCourseDetailFourCell"
             var cell: YJCourseDetailFourCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifierString) as? YJCourseDetailFourCell
+    
             if cell == nil {
                 cell = YJCourseDetailFourCell(style: .default, reuseIdentifier: cellIdentifierString)
                 cell?.selectionStyle = .none
@@ -303,15 +332,44 @@ extension YJCourseDetailViewController:UITableViewDelegate,UITableViewDataSource
             return cell!
         }else {
             
+//            let cellIdentifierString = "YJCourseDetailWebCell"
+//            var cell: YJCourseDetailWebCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifierString) as? YJCourseDetailWebCell
+//            if cell == nil {
+//                cell = YJCourseDetailWebCell(style: .default, reuseIdentifier: cellIdentifierString)
+//                cell?.selectionStyle = .none
+//            }
+//            cell?.addSubview(self.changeWebView)
             let cellIdentifierString = "default"
             var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifierString)
             if cell == nil {
                 cell = UITableViewCell(style: .default, reuseIdentifier: cellIdentifierString)
                 cell?.selectionStyle = .none
             }
-           return cell!
+            cell?.addSubview(self.changeWebView)
+            return cell!
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return KSW
+        }else if indexPath.section == 1 {
+            return 230
+        }else if indexPath.section == 2 {
+            return 120
+        }else if indexPath.section == 3 {
+            return 140
+        }else{
+            print(self.changeWebView.frame.size.height)
+            return self.changeWebView.frame.size.height
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            return
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -340,5 +398,52 @@ extension YJCourseDetailViewController:UITableViewDelegate,UITableViewDataSource
         return UIView()
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.isKind(of: self.myTableView.classForCoder) {
+            
+            self.changeWebView.setNeedsLayout()
+        }
+    }
 }
+
+
+extension YJCourseDetailViewController:WKNavigationDelegate{
+    
+    // 页面开始加载时调用
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!){
+        
+    }
+    // 当内容开始返回时调用
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!){
+        
+    }
+    // 页面加载完成之后调用
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!){
+        
+        var webViewHeight:CGFloat = 0.000
+        self.height = webView.frame.size.height
+        webView.evaluateJavaScript("document.body.scrollHeight") {
+            [unowned self] (result, error) in
+            
+            ////获取页面高度，并重置webview的frame
+            if let h = result as? CGFloat
+            {
+                webViewHeight = h
+            }
+            print("webheight: \(webViewHeight)")
+            DispatchQueue.main.async { [unowned self] in
+                if webViewHeight != self.height {
+                    webView.frame = CGRect(x:0, y:0, width:KSW, height:webViewHeight)
+                    self.myTableView.reloadData()
+                }
+            }
+        }
+    }
+    // 页面加载失败时调用
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error){
+        
+        
+    }
+}
+
 

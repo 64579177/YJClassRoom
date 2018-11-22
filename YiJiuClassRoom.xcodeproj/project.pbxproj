@@ -14,6 +14,7 @@
 		715F78C5219D1B4200F6C822 /* YJCourseDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F78C4219D1B4200F6C822 /* YJCourseDetailModel.swift */; };
 		715F78C7219D36CB00F6C822 /* YJCourseDetailSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F78C6219D36CB00F6C822 /* YJCourseDetailSecondCell.swift */; };
 		715F78CB219D7F3A00F6C822 /* YJApplyCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F78CA219D7F3A00F6C822 /* YJApplyCategoryViewController.swift */; };
+		7165A8C421A6A61C0091D042 /* YJTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165A8C321A6A61C0091D042 /* YJTableView.swift */; };
 		716CA11521A2498A00525295 /* YJPersonalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA11421A2498A00525295 /* YJPersonalService.swift */; };
 		716CA11721A24A1400525295 /* YJPersonalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA11621A24A1400525295 /* YJPersonalModel.swift */; };
 		716CA11E21A27F7600525295 /* WXCommonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CA11D21A27F7600525295 /* WXCommonService.swift */; };
@@ -83,6 +84,7 @@
 		715F78C4219D1B4200F6C822 /* YJCourseDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCourseDetailModel.swift; sourceTree = "<group>"; };
 		715F78C6219D36CB00F6C822 /* YJCourseDetailSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCourseDetailSecondCell.swift; sourceTree = "<group>"; };
 		715F78CA219D7F3A00F6C822 /* YJApplyCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJApplyCategoryViewController.swift; sourceTree = "<group>"; };
+		7165A8C321A6A61C0091D042 /* YJTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJTableView.swift; sourceTree = "<group>"; };
 		716CA11421A2498A00525295 /* YJPersonalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJPersonalService.swift; sourceTree = "<group>"; };
 		716CA11621A24A1400525295 /* YJPersonalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJPersonalModel.swift; sourceTree = "<group>"; };
 		716CA11C21A264C000525295 /* YJClassRoom_Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJClassRoom_Bridge.h; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				717DE3D121994AE600C99322 /* YJBaseViewController.swift */,
 				71B521C221994DC2000E7792 /* constant.swift */,
 				719EAB6D219A709B002C7FBE /* YJNavigationController.swift */,
+				7165A8C321A6A61C0091D042 /* YJTableView.swift */,
 			);
 			path = BaseClasses;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				719EAB6C219A6DC6002C7FBE /* YJLoginService.swift in Sources */,
 				716CA12421A2A91400525295 /* YJMyApplyListCell.swift in Sources */,
 				717DE3D621994BDA00C99322 /* MyMainViewController.swift in Sources */,
+				7165A8C421A6A61C0091D042 /* YJTableView.swift in Sources */,
 				71B521C321994DC2000E7792 /* constant.swift in Sources */,
 				71732621219C230800DE6732 /* YJImageView.swift in Sources */,
 				715F78C3219D139300F6C822 /* YJCourseDetailViewController.swift in Sources */,
