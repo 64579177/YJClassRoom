@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 class MyApplicationMainController: YJBaseViewController {
     
     lazy var payStatusLable: UILabel = {
@@ -75,6 +76,14 @@ class MyApplicationMainController: YJBaseViewController {
         }
         
     }
+}
+
+extension MyApplicationMainController {
+    
+//    func addRefreshView(){
+//        
+//        myTableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshData))
+//    }
 }
 
 extension MyApplicationMainController:UITableViewDelegate,UITableViewDataSource{
