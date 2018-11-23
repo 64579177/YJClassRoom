@@ -332,13 +332,6 @@ extension YJCourseDetailViewController:UITableViewDelegate,UITableViewDataSource
             return cell!
         }else {
             
-//            let cellIdentifierString = "YJCourseDetailWebCell"
-//            var cell: YJCourseDetailWebCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifierString) as? YJCourseDetailWebCell
-//            if cell == nil {
-//                cell = YJCourseDetailWebCell(style: .default, reuseIdentifier: cellIdentifierString)
-//                cell?.selectionStyle = .none
-//            }
-//            cell?.addSubview(self.changeWebView)
             let cellIdentifierString = "default"
             var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifierString)
             if cell == nil {
