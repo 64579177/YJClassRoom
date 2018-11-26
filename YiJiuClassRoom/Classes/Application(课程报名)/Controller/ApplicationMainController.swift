@@ -32,9 +32,17 @@ class ApplicationMainController: YJBaseViewController {
     let disGroup = DispatchGroup()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         self.initUI()
         self.requestData()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+//        self.tabBarController?.tabBar.isHidden = true
         
     }
     
@@ -268,13 +276,14 @@ extension ApplicationMainController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if self.courseArray.count > 0 && indexPath.section != 2 + self.courseArray.count{
+        if self.courseArray.count > 0 && indexPath.section == 1 + self.courseArray.count{
             
             let pvc = YJCourseDetailViewController()
             if let listSc = self.courseArray[indexPath.section - 2].list{
                 pvc.courseId = (listSc[indexPath.row].id?.intValue)!
             }
-            self.navigationController?.pushViewController(pvc, animated: true)
+            pvc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(pvc, animated: false)
             
         }
     }

@@ -12,7 +12,7 @@ import Foundation
 class YJBaseViewController: UIViewController {
     
     override func viewDidLoad() {
-        self.view.backgroundColor = ColorBackView
+        self.view.backgroundColor = UIColor.white
         
     }
     

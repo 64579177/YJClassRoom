@@ -32,6 +32,8 @@ class YJApplyCategoryViewController: YJBaseViewController {
     
     override func viewDidLoad() {
         
+        super.viewDidLoad()
+        
         self.title = "报名类别"
 
         self.getListInfo()

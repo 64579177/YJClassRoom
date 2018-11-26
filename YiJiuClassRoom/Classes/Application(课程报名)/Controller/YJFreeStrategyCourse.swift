@@ -33,6 +33,8 @@ class YJFreeStrategyCourseController: YJBaseViewController {
     
     override func viewDidLoad() {
         
+        super.viewDidLoad()
+        
         self.title = typeInt == 1 ? "免费策略课" : typeInt == 2 ? "免费模式课" : "免费系统课"
         self.initUI()
         self.requestData()

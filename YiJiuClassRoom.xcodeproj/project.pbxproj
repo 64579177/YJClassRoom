@@ -32,7 +32,6 @@
 		7173261F219C0D5500DE6732 /* YJApplicationApplyFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7173261E219C0D5500DE6732 /* YJApplicationApplyFlow.swift */; };
 		71732621219C230800DE6732 /* YJImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71732620219C230800DE6732 /* YJImageView.swift */; };
 		717DE3A62199212900C99322 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE3A52199212900C99322 /* AppDelegate.swift */; };
-		717DE3A82199212900C99322 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717DE3A72199212900C99322 /* ViewController.swift */; };
 		717DE3AB2199212A00C99322 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717DE3A92199212A00C99322 /* Main.storyboard */; };
 		717DE3AD2199213000C99322 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 717DE3AC2199213000C99322 /* Assets.xcassets */; };
 		717DE3B02199213000C99322 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717DE3AE2199213000C99322 /* LaunchScreen.storyboard */; };
@@ -104,7 +103,6 @@
 		71732620219C230800DE6732 /* YJImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJImageView.swift; sourceTree = "<group>"; };
 		717DE3A22199212900C99322 /* YiJiuClassRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YiJiuClassRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		717DE3A52199212900C99322 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		717DE3A72199212900C99322 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		717DE3AA2199212A00C99322 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		717DE3AC2199213000C99322 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		717DE3AF2199213000C99322 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -218,7 +216,6 @@
 				717DE3B8219931B500C99322 /* Common */,
 				717DE3B9219931FD00C99322 /* Libs */,
 				717DE3A52199212900C99322 /* AppDelegate.swift */,
-				717DE3A72199212900C99322 /* ViewController.swift */,
 				717DE3A92199212A00C99322 /* Main.storyboard */,
 				717DE3AC2199213000C99322 /* Assets.xcassets */,
 				717DE3AE2199213000C99322 /* LaunchScreen.storyboard */,
@@ -617,7 +614,6 @@
 				719EAB95219AD0DD002C7FBE /* YJApplicationDisplayCell.swift in Sources */,
 				719EAB42219A648A002C7FBE /* YJNetWorkTool.swift in Sources */,
 				716CA12B21A2CF4400525295 /* KiImageClipperViewController.swift in Sources */,
-				717DE3A82199212900C99322 /* ViewController.swift in Sources */,
 				71A49DD0219ED4D300CAB42A /* DeserializationStatus.swift in Sources */,
 				716CA12021A2A30200525295 /* YJMyApplicationService.swift in Sources */,
 				71A49DD4219ED4D300CAB42A /* EVReflectable.swift in Sources */,

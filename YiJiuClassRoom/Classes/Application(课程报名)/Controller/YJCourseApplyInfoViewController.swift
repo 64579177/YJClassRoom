@@ -63,6 +63,7 @@ class YJCourseApplyInfoViewController: YJBaseViewController {
     var apply_id:String?
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         self.title = "报名信息"
         

@@ -49,6 +49,17 @@ class YJCourseDetailViewController: YJBaseViewController {
         return myTableView
     }()
     
+    lazy var buttonApply:UIButton = {
+        
+        let buttonApplay = UIButton()
+        buttonApplay.tag = 10003
+        buttonApplay.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        buttonApplay.setTitleColor(.white, for: .normal)
+        buttonApplay.addTarget(self, action: #selector(btnClick(_:)), for: .touchUpInside)
+        
+        return buttonApplay
+    }()
+    
     weak var textView: UITextView!
     
     
@@ -68,6 +79,8 @@ class YJCourseDetailViewController: YJBaseViewController {
             make.top.left.right.equalTo(self.view)
             make.bottom.equalTo(-50)
         }
+        
+        self.addBottomView()
     }
     
     func addBottomView(){
@@ -98,42 +111,11 @@ class YJCourseDetailViewController: YJBaseViewController {
             make.width.height.equalTo(50)
         }
         
-        let btn3 = UIButton()
-        
-        btn3.tag = 10003
-        btn3.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        btn3.setTitleColor(.white, for: .normal)
-        btn3.addTarget(self, action: #selector(btnClick(_:)), for: .touchUpInside)
-        if self.myDetailModel?.apply_status == 0 {
-            btn3.setTitle("立即报名", for: .normal)
-            btn3.backgroundColor = StyleButton.btnGreenColor
-            btn3.isEnabled = true
-        }else{
-            btn3.backgroundColor = .gray
-            btn3.isEnabled = false
-            if self.myDetailModel?.apply_status == 1 {
-                btn3.setTitle("报名成功", for: .normal)
-            }else if self.myDetailModel?.apply_status == 2{
-                btn3.setTitle("等待支付", for: .normal)
-                btn3.backgroundColor = StyleButton.btnGreenColor
-                btn3.isEnabled = true
-            }else if self.myDetailModel?.apply_status == 3{
-                btn3.setTitle("报名结束", for: .normal)
-            }else if self.myDetailModel?.apply_status == 4{
-                btn3.setTitle("待审核", for: .normal)
-            }else if self.myDetailModel?.apply_status == 5{
-                btn3.setTitle("审核通过", for: .normal)
-            }else if self.myDetailModel?.apply_status == -1{
-                btn3.setTitle("报名禁止", for: .normal)
-            }
-        }
-
-
         let line = JYView.getlineView()
         self.view.addSubview(line)
         self.view.addSubview(view1)
         self.view.addSubview(view2)
-        self.view.addSubview(btn3)
+        self.view.addSubview(self.buttonApply)
         
         line.snp.makeConstraints { (make) in
             make.left.right.equalTo(0)
@@ -154,7 +136,7 @@ class YJCourseDetailViewController: YJBaseViewController {
             
             
         }
-        btn3.snp.makeConstraints { (make) in
+        buttonApply.snp.makeConstraints { (make) in
             make.bottom.equalTo(0)
             make.width.equalTo(KSW/3)
             make.height.equalTo(50)
@@ -216,8 +198,30 @@ class YJCourseDetailViewController: YJBaseViewController {
                 let url = NSURL(string: "http://yijiucdn.baozhen999.com/html/180.html")
                 let requst = NSURLRequest(url: url! as URL)
                 self.changeWebView.load(requst as URLRequest)
-                //添加底部栏
-                self.addBottomView()
+                //底部栏状态
+                if self.myDetailModel?.apply_status == 0 {
+                    self.buttonApply.setTitle("立即报名", for: .normal)
+                    self.buttonApply.backgroundColor = StyleButton.btnGreenColor
+                    self.buttonApply.isEnabled = true
+                }else{
+                    self.buttonApply.backgroundColor = .gray
+                    self.buttonApply.isEnabled = false
+                    if self.myDetailModel?.apply_status == 1 {
+                        self.buttonApply.setTitle("报名成功", for: .normal)
+                    }else if self.myDetailModel?.apply_status == 2{
+                        self.buttonApply.setTitle("等待支付", for: .normal)
+                        self.buttonApply.backgroundColor = StyleButton.btnGreenColor
+                        self.buttonApply.isEnabled = true
+                    }else if self.myDetailModel?.apply_status == 3{
+                        self.buttonApply.setTitle("报名结束", for: .normal)
+                    }else if self.myDetailModel?.apply_status == 4{
+                        self.buttonApply.setTitle("待审核", for: .normal)
+                    }else if self.myDetailModel?.apply_status == 5{
+                        self.buttonApply.setTitle("审核通过", for: .normal)
+                    }else if self.myDetailModel?.apply_status == -1{
+                        self.buttonApply.setTitle("报名禁止", for: .normal)
+                    }
+                }
             }else{
                 Tool.showHUDWithText(text: model?.msg)
             }

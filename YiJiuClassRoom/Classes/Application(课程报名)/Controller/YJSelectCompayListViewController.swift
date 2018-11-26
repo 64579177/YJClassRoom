@@ -41,6 +41,7 @@ class YJSelectCompayListViewController: YJBaseViewController {
     var selectDic:NSDictionary?
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         self.title = "选择事业部"
         

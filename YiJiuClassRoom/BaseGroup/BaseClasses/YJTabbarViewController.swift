@@ -78,7 +78,7 @@ class YJTabbarViewController: UITabBarController {
         
         //tabBar 底部工具栏背景颜色 (以下两个都行)
         self.tabBar.barTintColor = UIColor.white
-        self.tabBar.backgroundColor = UIColor.white
+//        self.tabBar.backgroundColor = UIColor.white
         //设置 tabBar 工具栏字体颜色 (未选中  和  选中)
         UITabBarItem.appearance().setTitleTextAttributes(NSDictionary(object:ColorTabUnSelected, forKey:NSForegroundColorAttributeName as NSCopying) as? [String : AnyObject], for:UIControlState.normal);
         UITabBarItem.appearance().setTitleTextAttributes(NSDictionary(object:ColorTabSelected, forKey:NSForegroundColorAttributeName as NSCopying) as? [String : AnyObject], for:UIControlState.selected);
