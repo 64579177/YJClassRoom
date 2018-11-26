@@ -113,10 +113,13 @@ extension YJApplicationService{
         }
     }
 //    //事业部信息
-    class func requestCenterCompanyListInfo(finish: @escaping (_ success: Bool,_ model: YJSelectCompanyMainModel?,_ errorMsg: String?) -> Void){
+    class func requestCenterCompanyListInfo(keyword:String,finish: @escaping (_ success: Bool,_ model: YJSelectCompanyMainModel?,_ errorMsg: String?) -> Void){
 
         var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
         dict["openkey"] = Account.readUserInfo()?.openkey as AnyObject?
+        if keyword != ""{
+            dict["keyword"] = keyword as AnyObject?
+        }
 
         let requestUrl : String = ApplicationCommonUrl.appCenterselectCompanyListInfo
 

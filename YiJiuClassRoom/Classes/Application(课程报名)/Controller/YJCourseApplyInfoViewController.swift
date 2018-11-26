@@ -49,7 +49,7 @@ class YJCourseApplyInfoViewController: YJBaseViewController {
         myTableView.delegate = self
         myTableView.dataSource = self
         myTableView.estimatedRowHeight = 50
-        myTableView.separatorStyle = UITableViewCellSeparatorStyle.singleLineEtched
+        myTableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
         myTableView.backgroundColor = Colorf6
         myTableView.isScrollEnabled = false
         return myTableView
@@ -78,7 +78,7 @@ class YJCourseApplyInfoViewController: YJBaseViewController {
         }
         
         let submitBtn = UIButton.createBtn(title: "提交", bgColor: ColorNav, font: 14.0, ali: .center, textColor: .white)
-        submitBtn.frame = CGRect(x:15,y:330,width:KSW-30,height:30)
+        submitBtn.frame = CGRect(x:15,y:330,width:KSW-30,height:50)
         submitBtn.cornerAll(radii: 5)
         submitBtn.addTarget(self, action: #selector(submitClick), for: .touchUpInside)
         

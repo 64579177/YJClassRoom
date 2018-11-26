@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        
+        //MARK: 配置键盘
+        configKeyBoard()
         //MARK: 检测网络
         startMonitoringNetwork()
         //MARK: -注册微信
@@ -61,6 +62,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.reach!.startNotifier()
     }
 
+    func configKeyBoard(){
+        IQKeyboardManager.sharedManager().enable = true
+        //内联编辑(Inline Editing), 这就需要隐藏键盘上的工具条(默认打开)
+        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true //键盘以外收起键盘
+    }
 }
 
 
@@ -108,11 +115,6 @@ extension AppDelegate {
         //        }
         
         
-    }
-    func configKeyBoard(){
-        IQKeyboardManager.sharedManager().enable = true
-        IQKeyboardManager.sharedManager().enableAutoToolbar = false
-        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
     }
 }
 

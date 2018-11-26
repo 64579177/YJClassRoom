@@ -189,10 +189,22 @@ extension MyMainViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 1 {
+            return 60
+        }
         return 0.001
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 1 {
+            let view = UIView.init(frame: CGRect(x:0,y:0,width:KSW,height:60))
+//            let btn = UIButton.createBtn(title: "切换账号", bgColor: ColorNav, font: 14, ali: .center, textColor: .white)
+            let btn = UIButton.createBtn(frame: CGRect(x:20,y:10,width:KSW-40,height:40), title: "切换账号", bgColor: ColorNav, font: 14, ali: .center, textColor: .white, byRoundingCorners: UIRectCorner.allCorners, radii: 5)
+            btn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
+            view.addSubview(btn)
+            
+            return view
+        }
         return UIView()
     }
     
@@ -200,4 +212,11 @@ extension MyMainViewController:UITableViewDelegate,UITableViewDataSource{
         
     }
     
+    @objc  func btnClick(){
+        
+        //重新调起微信登录
+        let loginNavigationController = YJNavigationController(rootViewController: YJLoginViewController())
+        //没有用户登录
+        UIApplication.shared.keyWindow?.rootViewController = loginNavigationController
+    }
 }

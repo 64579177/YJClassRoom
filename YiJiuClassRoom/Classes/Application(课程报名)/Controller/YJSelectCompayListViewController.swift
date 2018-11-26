@@ -8,12 +8,13 @@
 
 import UIKit
 import Kingfisher
+import IQKeyboardManagerSwift
 
 class YJSelectCompayListViewController: YJBaseViewController {
     
     lazy var myTableView: UITableView = {
         
-        let myTableView = UITableView(frame: CGRect(x: 0, y: 0, width: KSW, height: KSH - 44), style: UITableViewStyle.plain)
+        let myTableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
         myTableView.delegate = self
         myTableView.dataSource = self
         myTableView.estimatedRowHeight = 50
@@ -23,6 +24,16 @@ class YJSelectCompayListViewController: YJBaseViewController {
         return myTableView
     }()
     
+    lazy var searchBar:UISearchBar = {
+        
+        let searchBar = UISearchBar.init(frame: CGRect(x:0,y:0,width:KSW,height:40));
+        searchBar.placeholder = "搜索"
+        searchBar.barStyle = .default
+        searchBar.enablesReturnKeyAutomatically = true
+        searchBar.delegate = self
+        
+        return searchBar
+    }()
     
     //
     var dataModel:YJSelectCompanyModel?
@@ -31,17 +42,20 @@ class YJSelectCompayListViewController: YJBaseViewController {
     
     override func viewDidLoad() {
         
-        self.title = "报名信息"
+        self.title = "选择事业部"
         
         self.initUI()
-        self.getListInfo()
+        self.getListInfo(keyword: "")
         
     }
     
     func initUI(){
+        self.view.addSubview(self.searchBar)
         self.view.addSubview(self.myTableView)
         self.myTableView.snp.makeConstraints { (make) in
-            make.top.left.bottom.right.equalTo(self.view)
+            make.top.equalTo(self.searchBar.snp.bottom)
+            make.left.bottom.right.equalTo(self.view)
+            make.bottom.equalTo(-50)
         }
         
         let submitBtn = UIButton.createBtn(title: "提交", bgColor: ColorNav, font: 14, ali: .center, textColor: .white)
@@ -49,7 +63,7 @@ class YJSelectCompayListViewController: YJBaseViewController {
         self.view.addSubview(submitBtn)
         submitBtn.snp.makeConstraints { (make) in
             make.left.right.bottom.equalTo(0)
-            make.height.equalTo(44)
+            make.height.equalTo(50)
         }
     }
     
@@ -86,14 +100,14 @@ class YJSelectCompayListViewController: YJBaseViewController {
         }
     }
     
-    func getListInfo() -> Void {
+    func getListInfo(keyword:String) -> Void {
         
         guard YJNetStatus.isValaiable else {
             return
         }
         Tool.showLoadingOnView(view: self.view)
         
-        YJApplicationService.requestCenterCompanyListInfo(){
+        YJApplicationService.requestCenterCompanyListInfo(keyword: keyword){
             (isSuccess, model, errorStr) in
             Tool.hideLodingOnView(view: self.view)
             
@@ -209,4 +223,41 @@ extension YJSelectCompayListViewController:UITableViewDelegate,UITableViewDataSo
         }
     }
 }
+
+// MARK: 搜索代理UISearchBarDelegate方法
+extension YJSelectCompayListViewController: UISearchBarDelegate {
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        print("将要开始编辑")
+        return true
+    }
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        print("已经开始编辑")
+    }
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        print("将要结束编辑")
+        return true
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print("已经结束编辑")
+        
+       
+
+    }
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        print("文本改变的时候触发 text: \(text)")
+        return true
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        UIApplication.shared.keyWindow?.endEditing(true)
+        //搜索
+        if let keyword = searchBar.text {
+            
+            self.getListInfo(keyword: keyword)
+        }
+    }
+}
+
 
