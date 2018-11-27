@@ -272,9 +272,9 @@ extension YJLoginViewController {
                     let rootVC = YJTabbarViewController();
                     UIApplication.shared.keyWindow?.rootViewController = rootVC
                 }else{
-                    Tool.showHUDWithText(text: "请先去小程序端完成注册")
+                    Tool.showHUDWithText(text: model?.msg)
                     return
-                } 
+                }
             }
         }
     }
