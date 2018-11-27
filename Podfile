@@ -1,3 +1,4 @@
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 target 'YiJiuClassRoom' do
@@ -16,5 +17,5 @@ target 'YiJiuClassRoom' do
     pod 'MBProgressHUD'
     pod 'IQKeyboardManagerSwift', '5.0.0'
     pod 'Kingfisher', '~> 4.1.1'
-
+    pod 'MagiRefresh'
 end
