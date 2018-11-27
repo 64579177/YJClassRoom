@@ -9,7 +9,7 @@
 import UIKit
 import Reachability
 import IQKeyboardManagerSwift
-
+import MagiRefresh
 
 
 @UIApplicationMain
@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         WXApi.registerApp(WXAppID)
         //MARK:配置根视图
         configRootViewController()
+        //MARK:上啦下拉刷新配置
+        configTableLoad()
         return true
         
     }
@@ -67,6 +69,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //内联编辑(Inline Editing), 这就需要隐藏键盘上的工具条(默认打开)
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true //键盘以外收起键盘
+    }
+    
+    func configTableLoad(){
+        MagiRefreshDefaults.shared.headerDefaultStyle = .replicatorCircle
+        MagiRefreshDefaults.shared.themeColor = ColorNav
     }
 }
 

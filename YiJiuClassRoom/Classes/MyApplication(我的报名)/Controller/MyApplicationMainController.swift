@@ -37,13 +37,15 @@ class MyApplicationMainController: YJBaseViewController {
     }()
     
     var applyArray:[YJMyApplyDataModel] = []
+    var isNoMoreData:Bool = true
+    var page = 1
     
     override func viewDidLoad() {
         
         self.title = "我的报名"
         self.initUI()
         self.getListInfo()
-        
+        self.addRefreshView()
     }
     
     func initUI(){
@@ -51,7 +53,45 @@ class MyApplicationMainController: YJBaseViewController {
         self.myTableView.snp.makeConstraints { (make) in
             make.top.left.bottom.right.equalTo(self.view)
         }
+        
     }
+    
+    func reloadTableView(){
+        
+        self.myTableView.magiRefresh.header?.endRefreshing()
+        if isNoMoreData {
+            self.myTableView.magiRefresh.footer?.endRefreshingAndNoLongerRefreshingWithAlertText("没有更多数据了")
+        }else{
+            Delay(1, completion: {
+                DispatchQueue.main.async {
+                    self.myTableView.magiRefresh.footer?.endRefreshingWithAlertText(
+                        "加载成功",
+                        completion: {
+                            self.myTableView.reloadData()
+                    })
+                }
+            })
+        }
+        
+    }
+    
+    func addRefreshView() -> Void {
+        
+        self.myTableView.magiRefresh.bindStyleForHeaderRefresh {
+            
+            self.page = 1
+            self.getListInfo()
+        }
+        
+        self.myTableView.magiRefresh.bindStyleForFooterRefresh {
+            
+            self.page = self.page +  1
+            self.getListInfo()
+            
+        }
+        
+    }
+    
     
     func getListInfo() -> Void {
         Tool.showLoadingOnView(view: self.view)
@@ -59,7 +99,7 @@ class MyApplicationMainController: YJBaseViewController {
             return
         }
         
-        YJMyApplicationService.requestMyAppClassListInfo(page: 1) { (isSuccess, model, errorStr) in
+        YJMyApplicationService.requestMyAppClassListInfo(page: self.page) { (isSuccess, model, errorStr) in
             
             Tool.hideLodingOnView(view: self.view)
             
@@ -67,12 +107,24 @@ class MyApplicationMainController: YJBaseViewController {
                 return
             }
             
-            guard let lists = model?.data?.data,lists.count > 0 else{
+            guard let lists = model?.data?.data else{
                 self.applyArray = []
                 return
             }
-            self.applyArray = lists
-            self.myTableView.reloadData()
+            if self.page == 1 {
+                self.applyArray = lists
+                self.isNoMoreData = false
+            }else{
+                if lists.count > 0 {
+                    self.applyArray += lists
+                    self.isNoMoreData = false
+                }else{
+                    self.isNoMoreData = true
+                }
+               
+            }
+            
+            self.reloadTableView()
         }
         
     }

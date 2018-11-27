@@ -60,6 +60,12 @@ class YJLoginViewController: YJBaseViewController {
         return pwdTxt
     }()
     
+    lazy var refreshBtn:UIButton = {
+        let refreshBtn  = UIButton.createBtn(title: "重试刷新", bgColor: ColorNav, font: 16, ali: .center, textColor: .white)
+        refreshBtn.addTarget(self, action: #selector(refreshBtnClick), for: .touchUpInside)
+        return refreshBtn
+    }()
+    
     override func viewDidLoad() {
 //        self.initUI()
         
@@ -180,6 +186,12 @@ class YJLoginViewController: YJBaseViewController {
 //        let rootVC = YJTabbarViewController();
 //        UIApplication.shared.keyWindow?.rootViewController = rootVC
     }
+    
+    @objc func refreshBtnClick(){
+        
+        //重新授权登录
+        self.WXLogin()
+    }
 }
 
 extension YJLoginViewController {
@@ -202,13 +214,24 @@ extension YJLoginViewController {
          refresh_token拥有较长的有效期（30天）当refresh_token失效的后，需要用户重新授权。
          
          */
-        
+        Tool.showLoadingOnView(view: self.view)
         YJLoginService.requestWXLoginTempInfo(code: notice.userInfo?["str"] as Any) { (isSuccess, model, error) in
-            
+            Tool.hideLodingOnView(view: self.view)
             if isSuccess {
                 debugPrint(model ?? "")
                 self.requestTempModel = model
                 self.setUserInfo()
+            }else{
+                
+                self.view.addSubview(self.refreshBtn)
+                self.refreshBtn.snp.makeConstraints({ (make) in
+                    make.center.equalTo(self.view)
+                    make.height.equalTo(50)
+                    make.width.equalTo(KSW - 30)
+                })
+                self.refreshBtn.layer.masksToBounds = true
+                self.refreshBtn.layer.cornerRadius = 10
+                Tool.showHUDWithText(text: "网络错误，请到设置-无线局域网/蜂窝移动网络-使用WLAN与蜂窝移动网的应用-壹玖课堂中打开")
             }
         }
     }
@@ -239,13 +262,19 @@ extension YJLoginViewController {
         YJLoginService.requestOpenKey(requestModel: requestModel) { (isSuccess, model, error) in
             
             if isSuccess {
-                guard let modelTep = model?.data else{
-                    return
-                }
-                Account.saveUserInfo(loginModel: modelTep)
                 
-                let rootVC = YJTabbarViewController();
-                UIApplication.shared.keyWindow?.rootViewController = rootVC
+                if model?.code == 1 {
+                    guard let modelTep1 = model?.data  else{
+                        return
+                    }
+                    Account.saveUserInfo(loginModel: modelTep1)
+                    
+                    let rootVC = YJTabbarViewController();
+                    UIApplication.shared.keyWindow?.rootViewController = rootVC
+                }else{
+                    Tool.showHUDWithText(text: "请先去小程序端完成注册")
+                    return
+                } 
             }
         }
     }

@@ -9,6 +9,13 @@
 import UIKit
 import Foundation
 
+func Delay(_ seconds: Double, completion:@escaping ()->()) {
+    let popTime = DispatchTime.now() + Double(Int64( Double(NSEC_PER_SEC) * seconds )) / Double(NSEC_PER_SEC)
+    DispatchQueue.main.asyncAfter(deadline: popTime) {
+        completion()
+    }
+}
+
 class YJBaseViewController: UIViewController {
     
     override func viewDidLoad() {

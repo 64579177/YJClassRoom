@@ -27,7 +27,7 @@ class YJLoginMainModel: EVObject {
 public class YJLoginModel: EVObject {
     
     var id:NSNumber? //用户id
-    var openkey: String?
+    var openkey: String = ""
     var openid:String?
     var nickname: String?
     
