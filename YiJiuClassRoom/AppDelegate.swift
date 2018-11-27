@@ -82,13 +82,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate{
     @objc func reachabilityChanged(notification: NSNotification) {
         if self.reach!.isReachableViaWiFi() || self.reach!.isReachableViaWWAN() {
-            //            if JYSocketManager.sharedSocketManager.connectStatus == -1{
-            //                JYSocketManager.sharedSocketManager.connectSocketWithDelegate(delegate: self)
-            //            }
+            
         }else{
-            //            if JYSocketManager.sharedSocketManager.connectStatus != -1{
-            //                JYSocketManager.sharedSocketManager.disconnectSocket()
-            //            }
+
         }
     }
 }
@@ -111,17 +107,6 @@ extension AppDelegate {
             YJRootViewController = YJTabbarViewController()
             window?.rootViewController = YJRootViewController
         }
-        
-        //        delay(2) {
-        //            self.JYRootViewController.present(loginNavigationController, animated: true, completion: {
-        //            })
-        //        }
-        //        delay(3) {
-        //            self.JYRootViewController.dismiss(animated: true, completion: {
-        //            })
-        //        }
-        
-        
     }
 }
 
