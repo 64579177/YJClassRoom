@@ -276,7 +276,7 @@ extension ApplicationMainController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if self.courseArray.count > 0 && indexPath.section == 1 + self.courseArray.count{
+        if self.courseArray.count > 0 && (indexPath.section > 1 && indexPath.section < 2 + self.courseArray.count){
             
             let pvc = YJCourseDetailViewController()
             if let listSc = self.courseArray[indexPath.section - 2].list{

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1913385658DB7C90098FFE43 /* Pods_YiJiuClassRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B677A02858C80FB81B240F /* Pods_YiJiuClassRoom.framework */; };
+		451E10CD21AFB8CC002305A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 451E10CC21AFB8CC002305A4 /* Images.xcassets */; };
 		712F03BE21A53B7400154A51 /* YJCourseApplyOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712F03BD21A53B7400154A51 /* YJCourseApplyOrderViewController.swift */; };
 		715F78C1219D085A00F6C822 /* YJFreeStrategyCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F78C0219D085A00F6C822 /* YJFreeStrategyCourse.swift */; };
 		715F78C3219D139300F6C822 /* YJCourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F78C2219D139300F6C822 /* YJCourseDetailViewController.swift */; };
@@ -77,6 +78,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		451E10CC21AFB8CC002305A4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		712F03BD21A53B7400154A51 /* YJCourseApplyOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCourseApplyOrderViewController.swift; sourceTree = "<group>"; };
 		715F78C0219D085A00F6C822 /* YJFreeStrategyCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJFreeStrategyCourse.swift; sourceTree = "<group>"; };
 		715F78C2219D139300F6C822 /* YJCourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCourseDetailViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				717DE3AE2199213000C99322 /* LaunchScreen.storyboard */,
 				717DE3B12199213000C99322 /* Info.plist */,
 				716CA11C21A264C000525295 /* YJClassRoom_Bridge.h */,
+				451E10CC21AFB8CC002305A4 /* Images.xcassets */,
 			);
 			path = YiJiuClassRoom;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				717DE3B02199213000C99322 /* LaunchScreen.storyboard in Resources */,
 				717DE3AD2199213000C99322 /* Assets.xcassets in Resources */,
 				71A49DCE219ED4D300CAB42A /* README.md in Resources */,
+				451E10CD21AFB8CC002305A4 /* Images.xcassets in Resources */,
 				71A49DCD219ED4D300CAB42A /* LICENSE in Resources */,
 				717DE3AB2199212A00C99322 /* Main.storyboard in Resources */,
 			);
@@ -816,15 +820,16 @@
 			baseConfigurationReference = C33003BC982B47E8D0F183E9 /* Pods-YiJiuClassRoom.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DM9782BRLR;
+				DEVELOPMENT_TEAM = 7642S2SB39;
 				INFOPLIST_FILE = YiJiuClassRoom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yijiu.YiJiuClassRoom;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yijiu.YiJiuClass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = YiJiuClassRoom/YJClassRoom_Bridge.h;
 				SWIFT_VERSION = 3.0;
@@ -837,15 +842,16 @@
 			baseConfigurationReference = 9920BBBC1EF83ED0F20D3EC5 /* Pods-YiJiuClassRoom.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DM9782BRLR;
+				DEVELOPMENT_TEAM = 7642S2SB39;
 				INFOPLIST_FILE = YiJiuClassRoom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yijiu.YiJiuClassRoom;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yijiu.YiJiuClass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = YiJiuClassRoom/YJClassRoom_Bridge.h;
 				SWIFT_VERSION = 3.0;
