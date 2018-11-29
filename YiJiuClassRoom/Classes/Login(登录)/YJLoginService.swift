@@ -13,6 +13,15 @@ typealias FinishedArray = (_ success : Bool,_ response : [Any]? ,_ message : Str
 
 class YJLoginService: NSObject {
     
+    //校验是否用微信登录 /api/center/iswxlogin
+    class func requestIsWXLogin(finish: @escaping (_ success: Bool,_ model: YJLoginMainModel?,_ errorMsg: String?) -> Void){
+        
+        let requestUrl : String = String(LoginUrl.isWXLogin)
+        
+        YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: nil) { (_ model: YJLoginMainModel?, response: YJNetWorkResponse) in
+            finish(response.isSuccess,model,response.responseMessage)
+        }
+    }
 }
 
 extension YJLoginService {

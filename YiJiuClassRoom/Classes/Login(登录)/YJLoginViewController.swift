@@ -72,15 +72,42 @@ class YJLoginViewController: YJBaseViewController {
         //使用通知方法把回调返回到需要的控制器
         NotificationCenter.default.addObserver(self, selector: #selector(addNotic(notice:)), name: NSNotification.Name(rawValue: "WXLoginSuccessNotice"), object: nil)
 
-        self.WXLogin()
+        
+        self.isCanWXLogin()
+       
+    }
+    
+    //请求接口判断是否u需要
+    func isCanWXLogin(){
+        
+        YJLoginService.requestIsWXLogin() { (isSuccess, model, error) in
+            
+            if isSuccess {
+                
+                guard let modelTep1 = model?.data  else{
+                    return
+                }
+                if modelTep1.wxlogin {
+                    //微信登录 走授权
+                    self.WXLogin()
+                }else{
+                    Account.saveUserInfo(loginModel: modelTep1)
+                    
+                    let rootVC = YJTabbarViewController();
+                    UIApplication.shared.keyWindow?.rootViewController = rootVC
+                }
+                
+            }
+        }
     }
     
     //微信登录
     func WXLogin(){
         //微信授权登录
         let wxTool = WXCommonService.sharedInstance
-        wxTool.wxLoginBtnAction()
+        wxTool.wxLoginBtnAction(vc:self)
     }
+    
     
     //初始化UI
     func initUI(){

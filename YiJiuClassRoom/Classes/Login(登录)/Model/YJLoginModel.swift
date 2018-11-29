@@ -34,6 +34,7 @@ public class YJLoginModel: EVObject {
     var headimg: String?
     var unionid: String?
     
+    var wxlogin:Bool = true
     // 归档
     override public func encode(with aCoder: NSCoder) {
         var count: UInt32 = 0

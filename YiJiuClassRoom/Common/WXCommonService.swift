@@ -8,21 +8,23 @@
 
 import Foundation
 
-class WXCommonService: NSObject {
+class WXCommonService: NSObject,WXApiDelegate {
     
     static let sharedInstance = WXCommonService()
     //调起微信
-    func  wxLoginBtnAction() {
+    func  wxLoginBtnAction(vc:UIViewController) {
         let urlStr = "weixin://"
+        let req = SendAuthReq()
         if UIApplication.shared.canOpenURL(URL.init(string: urlStr)!) {
-            let req = SendAuthReq()
+            
             //应用授权作用域，如获取用户个人信息则填写snsapi_userinfo
             req.scope = "snsapi_userinfo"
 //            req.state = "com.yijiu.YiJiuClassRoom"
             WXApi.send(req)
         }else{
             if #available(iOS 10.0, *) {
-                UIApplication.shared.open(URL.init(string: "http://weixin.qq.com/r/qUQVDfDEVK0rrbRu9xG7")!, options: [:], completionHandler: nil)
+//                UIApplication.shared.open(URL.init(string: "http://weixin.qq.com/r/qUQVDfDEVK0rrbRu9xG7")!, options: [:], completionHandler: nil)
+                WXApi.sendAuthReq(req, viewController: vc, delegate: self)
             } else {
                 // Fallback on earlier versions
                 UIApplication.shared.openURL(URL.init(string: "http://weixin.qq.com/r/qUQVDfDEVK0rrbRu9xG7")!)

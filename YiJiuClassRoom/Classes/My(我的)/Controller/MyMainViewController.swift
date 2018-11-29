@@ -214,6 +214,7 @@ extension MyMainViewController:UITableViewDelegate,UITableViewDataSource{
     
     @objc  func btnClick(){
         
+        
         //重新调起微信登录
         let loginNavigationController = YJNavigationController(rootViewController: YJLoginViewController())
         //没有用户登录

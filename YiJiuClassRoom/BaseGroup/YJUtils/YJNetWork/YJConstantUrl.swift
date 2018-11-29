@@ -73,6 +73,7 @@ struct PersonalCommonUrl {
 //登录url
 struct LoginUrl {
     
+    static let isWXLogin:String = String(HostUrl.host + "center/iswxlogin")
     static let getOpenkey:String = String(HostUrl.host + "center/applogin")
     
     
