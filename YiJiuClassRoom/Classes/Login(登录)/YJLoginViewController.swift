@@ -11,7 +11,7 @@ import UIKit
 import SnapKit
 import Alamofire
 
-class YJLoginViewController: YJBaseViewController {
+class YJLoginViewController: YJBaseViewController,WXApiDelegate {
     
     var requestTempModel:loginTempModel?
     
@@ -73,8 +73,15 @@ class YJLoginViewController: YJBaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(addNotic(notice:)), name: NSNotification.Name(rawValue: "WXLoginSuccessNotice"), object: nil)
 
         
-        self.isCanWXLogin()
+        
        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.isCanWXLogin()
+        
     }
     
     //请求接口判断是否u需要
@@ -105,7 +112,7 @@ class YJLoginViewController: YJBaseViewController {
     func WXLogin(){
         //微信授权登录
         let wxTool = WXCommonService.sharedInstance
-        wxTool.wxLoginBtnAction(vc:self)
+        wxTool.wxLoginBtnAction(vc:self,delegate: self)
     }
     
     

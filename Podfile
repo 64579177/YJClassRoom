@@ -18,4 +18,7 @@ target 'YiJiuClassRoom' do
     pod 'IQKeyboardManagerSwift', '5.0.0'
     pod 'Kingfisher', '~> 4.1.1'
     pod 'MagiRefresh'
+    
+    
+    pod 'AliPay'
 end

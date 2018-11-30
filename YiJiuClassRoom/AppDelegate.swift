@@ -34,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configRootViewController()
         //MARK:上啦下拉刷新配置
         configTableLoad()
+        //MARK:初始化支付管理类
+        AliSdkManager.sharedManager()
         return true
         
     }
@@ -130,12 +132,24 @@ extension AppDelegate:WXApiDelegate {
         //        }
         //        return result
         
+        
+        
         WXApi.handleOpen(url, delegate: self)
         return true
     }
     
     //  微信跳转回调
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        if url.host == "safepay" {
+            AlipaySDK.defaultService().processOrder(withPaymentResult: url , standbyCallback: {
+                (resultDic) -> Void in
+                //调起支付结果处理
+                AliSdkManager.aliSdkManager.showResult(result: resultDic! as NSDictionary)
+
+            })
+            return true
+        }
         WXApi.handleOpen(url, delegate: self)
         return true
     }

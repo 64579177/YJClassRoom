@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1913385658DB7C90098FFE43 /* Pods_YiJiuClassRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B677A02858C80FB81B240F /* Pods_YiJiuClassRoom.framework */; };
 		451E10CD21AFB8CC002305A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 451E10CC21AFB8CC002305A4 /* Images.xcassets */; };
+		45AE621921B0E23E00BD3177 /* AliSdkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE621821B0E23E00BD3177 /* AliSdkManager.swift */; };
+		45AE621B21B0E27B00BD3177 /* AliPayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE621A21B0E27B00BD3177 /* AliPayUtils.swift */; };
 		712F03BE21A53B7400154A51 /* YJCourseApplyOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712F03BD21A53B7400154A51 /* YJCourseApplyOrderViewController.swift */; };
 		715F78C1219D085A00F6C822 /* YJFreeStrategyCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F78C0219D085A00F6C822 /* YJFreeStrategyCourse.swift */; };
 		715F78C3219D139300F6C822 /* YJCourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F78C2219D139300F6C822 /* YJCourseDetailViewController.swift */; };
@@ -79,6 +81,8 @@
 
 /* Begin PBXFileReference section */
 		451E10CC21AFB8CC002305A4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		45AE621821B0E23E00BD3177 /* AliSdkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliSdkManager.swift; sourceTree = "<group>"; };
+		45AE621A21B0E27B00BD3177 /* AliPayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliPayUtils.swift; sourceTree = "<group>"; };
 		712F03BD21A53B7400154A51 /* YJCourseApplyOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCourseApplyOrderViewController.swift; sourceTree = "<group>"; };
 		715F78C0219D085A00F6C822 /* YJFreeStrategyCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJFreeStrategyCourse.swift; sourceTree = "<group>"; };
 		715F78C2219D139300F6C822 /* YJCourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCourseDetailViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +250,8 @@
 				71A49DA6219ED21500CAB42A /* SlideshowDisplayer.swift */,
 				716CA11D21A27F7600525295 /* WXCommonService.swift */,
 				716CA12C21A2CF9B00525295 /* YJUploadImageSingleViewController.swift */,
+				45AE621821B0E23E00BD3177 /* AliSdkManager.swift */,
+				45AE621A21B0E27B00BD3177 /* AliPayUtils.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -488,6 +494,7 @@
 				717DE39F2199212900C99322 /* Frameworks */,
 				717DE3A02199212900C99322 /* Resources */,
 				5C290DC61864F1E4871A2FF3 /* [CP] Embed Pods Frameworks */,
+				4E812890D895F5BE705C2E24 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -548,6 +555,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4E812890D895F5BE705C2E24 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-YiJiuClassRoom/Pods-YiJiuClassRoom-resources.sh",
+				"${PODS_ROOT}/AliPay/AlipaySDK.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YiJiuClassRoom/Pods-YiJiuClassRoom-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5C290DC61864F1E4871A2FF3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -622,6 +651,7 @@
 				717DE3D021994A8D00C99322 /* MyApplicationMainController.swift in Sources */,
 				71A49DA5219ED15600CAB42A /* Tool.swift in Sources */,
 				719EAB95219AD0DD002C7FBE /* YJApplicationDisplayCell.swift in Sources */,
+				45AE621B21B0E27B00BD3177 /* AliPayUtils.swift in Sources */,
 				719EAB42219A648A002C7FBE /* YJNetWorkTool.swift in Sources */,
 				716CA12B21A2CF4400525295 /* KiImageClipperViewController.swift in Sources */,
 				71A49DD0219ED4D300CAB42A /* DeserializationStatus.swift in Sources */,
@@ -640,6 +670,7 @@
 				71A49DCF219ED4D300CAB42A /* ConversionOptions.swift in Sources */,
 				719EAB33219A603B002C7FBE /* YJNetWorkResponse.swift in Sources */,
 				71A49D9C219E5D3700CAB42A /* YJCourseApplyInfoViewController.swift in Sources */,
+				45AE621921B0E23E00BD3177 /* AliSdkManager.swift in Sources */,
 				719EAB71219A73B5002C7FBE /* YJButton.swift in Sources */,
 				716CA12F21A39B2100525295 /* YJUploadImgResultModel.swift in Sources */,
 				715F78C5219D1B4200F6C822 /* YJCourseDetailModel.swift in Sources */,
@@ -824,6 +855,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7642S2SB39;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = YiJiuClassRoom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -847,6 +879,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7642S2SB39;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = YiJiuClassRoom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (

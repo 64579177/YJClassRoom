@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - Alamofire (4.8.0)
+  - AliPay (2.1.2)
   - IQKeyboardManagerSwift (5.0.0)
   - Kingfisher (4.1.1)
   - MagiRefresh (0.0.8)
@@ -31,6 +32,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - Alamofire (~> 4.4)
+  - AliPay
   - IQKeyboardManagerSwift (= 5.0.0)
   - Kingfisher (~> 4.1.1)
   - MagiRefresh
@@ -46,6 +48,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - Alamofire
+    - AliPay
     - IQKeyboardManagerSwift
     - Kingfisher
     - MagiRefresh
@@ -60,6 +63,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  AliPay: 2bd35a4e486d2a8c035043023cd846e886bb21d1
   IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
   Kingfisher: 6793a473357b5dbee42b0068ef203fe8325f259e
   MagiRefresh: 27ead7383d7a82516dbd727003f104073311e894
@@ -71,6 +75,6 @@ SPEC CHECKSUMS:
   UIColor-Hex: fa81910f914482931c150fd73a09e77ff9226ec8
   WechatOpenSDK: 3117412f8aafde4758cac1e8d20b93c67cafcfef
 
-PODFILE CHECKSUM: 3053fe68aadd9fda3f2725c0a6c87935cf8d9640
+PODFILE CHECKSUM: deab94201b3ae0da5f3e235a1903891ed9e918d5
 
 COCOAPODS: 1.5.3

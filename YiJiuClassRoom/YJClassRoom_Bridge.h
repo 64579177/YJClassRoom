@@ -13,4 +13,6 @@
 #import "WXApiObject.h"
 #import <CommonCrypto/CommonCrypto.h>
 
+#import <AlipaySDK/AlipaySDK.h>
+
 #endif /* YJClassRoom_Bridge_h */

@@ -30,6 +30,12 @@
 				<string>wx0f4e840cebc05236</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>alipay</string>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
