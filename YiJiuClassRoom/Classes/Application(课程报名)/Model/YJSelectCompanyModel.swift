@@ -30,3 +30,10 @@ class YJSelectCompanyListDetaiModel: EVObject {
     var name:String = ""
     var initials:String = ""
 }
+
+
+
+class YJUpdateCompanyMainModel: EVObject {
+    var ec: NSNumber = 0
+    var em:String?
+}

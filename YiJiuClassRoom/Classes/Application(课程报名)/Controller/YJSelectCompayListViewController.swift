@@ -86,16 +86,23 @@ class YJSelectCompayListViewController: YJBaseViewController {
             (isSuccess, model, errorStr) in
             Tool.hideLodingOnView(view: self.view)
 
-            if model?.code == 1 {
-                if self.selectCallBack != nil {
-                    guard let dic = self.selectDic else {
-                        return
-                    }
-                    self.selectCallBack!(dic)
+            if isSuccess {
+                Tool.showHUDWithText(text: model?.em)
+                if model?.ec == 200 {
+                    
+                    self.navigationController?.popViewController(animated: true)
+//                    if self.selectCallBack != nil {
+//                        guard let dic = self.selectDic else {
+//                            return
+//                        }
+////                        self.selectCallBack!(dic)
+//                        
+//                    }
                 }
             }else{
-                Tool.showHUDWithText(text: "业务错误")
+                Tool.showHUDWithText(text: errorStr)
             }
+            
 
         }
     }

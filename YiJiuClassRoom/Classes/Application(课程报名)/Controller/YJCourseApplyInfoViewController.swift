@@ -68,8 +68,14 @@ class YJCourseApplyInfoViewController: YJBaseViewController {
         self.title = "报名信息"
         
         self.initUI()
-        self.getListInfo()
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.getListInfo()
     }
     
     func initUI(){
@@ -267,11 +273,13 @@ extension YJCourseApplyInfoViewController:UITableViewDelegate,UITableViewDataSou
         }else if indexPath.row == 3 {
             let pvc = YJSelectCompayListViewController()
             pvc.selectKey = self.dataModel?.profile.company_id ?? 0
-            pvc.selectCallBack = {
-                (dic:NSDictionary) in
-//                self.dataModel?.company_name = model.name
-                self.dataModel?.company_name = dic["name"] as! String
-            }
+//            pvc.selectCallBack = {
+//                (dic:NSDictionary) in
+////                self.dataModel?.company_name = model.name
+//                self.dataModel?.company_name = dic["name"] as! String
+//                
+////                self.myTableView.reloadData()
+//            }
             self.navigationController?.pushViewController(pvc, animated: true)
         }
     }

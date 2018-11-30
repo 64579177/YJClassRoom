@@ -130,7 +130,7 @@ extension YJApplicationService{
     
     
     //提交事业部信息
-    class func updateCenterCompanyInfo(uid:AnyObject,id:AnyObject,finish: @escaping (_ success: Bool,_ model: YJSelectCompanyMainModel?,_ errorMsg: String?) -> Void){
+    class func updateCenterCompanyInfo(uid:AnyObject,id:AnyObject,finish: @escaping (_ success: Bool,_ model: YJUpdateCompanyMainModel?,_ errorMsg: String?) -> Void){
         
         var dict = [String : AnyObject]() //["openkey" : "5be64c88696e2_1491"]
         dict["openkey"] = Account.readUserInfo()?.openkey as AnyObject?
@@ -139,7 +139,7 @@ extension YJApplicationService{
         
         let requestUrl : String = ApplicationCommonUrl.appCenterupdateCompanyInfo
         
-        YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: dict as [String : AnyObject]) { (_ model: YJSelectCompanyMainModel?, response: YJNetWorkResponse) in
+        YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: dict as [String : AnyObject]) { (_ model: YJUpdateCompanyMainModel?, response: YJNetWorkResponse) in
             finish(response.isSuccess,model,response.responseMessage)
         }
     }
