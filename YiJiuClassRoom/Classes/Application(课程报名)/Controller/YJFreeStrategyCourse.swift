@@ -209,6 +209,7 @@ extension YJFreeStrategyCourseController:UITableViewDelegate,UITableViewDataSour
             if let listSc = self.courseArray[indexPath.section - 1].list{
                 pvc.courseId = (listSc[indexPath.row].id?.intValue)!
             }
+            pvc.courseType = typeInt == 1 ? "策略课" : typeInt == 2 ? "模式课" : "系统课"
             self.navigationController?.pushViewController(pvc, animated: true)
         }
     }

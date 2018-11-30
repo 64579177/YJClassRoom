@@ -282,6 +282,7 @@ extension ApplicationMainController:UITableViewDelegate,UITableViewDataSource{
             if let listSc = self.courseArray[indexPath.section - 2].list{
                 pvc.courseId = (listSc[indexPath.row].id?.intValue)!
             }
+            pvc.courseType = "策略课"
             pvc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(pvc, animated: false)
             

@@ -27,11 +27,6 @@ class YJApplicationCourseCell:UITableViewCell{
 //        cornerView.cornerAll(radii: 2)
         return cornerView
     }()
-//    lazy var splitImageView: UIImageView = {
-//        let splitImageView = UIImageView()
-//        splitImageView.image = UIImage(named: "splitCell")
-//        return splitImageView
-//    }()
     
     lazy var backImageView: UIImageView = {
         let backImageView = UIImageView()
@@ -45,7 +40,7 @@ class YJApplicationCourseCell:UITableViewCell{
     }()
     
     lazy var titleLable: UILabel = {
-        let titleLable = YJLable.getSimpleLabelNoFrame(textColor: .red, text: "", textAli: .left, textFont: 10, numLines: 1)
+        let titleLable = YJLable.getSimpleLabelActive(textColor: .red, text: "", textAli: .left, textFont: 10)
         return titleLable
     }()
     
@@ -96,7 +91,6 @@ class YJApplicationCourseCell:UITableViewCell{
     
     func configUI(){
         
-//        self.addSubview(self.splitImageView)
         self.addSubview(self.line)
         self.addSubview(self.cornerView)
         self.addSubview(self.backImageView)
@@ -106,12 +100,6 @@ class YJApplicationCourseCell:UITableViewCell{
         self.backImageView.addSubview(self.teacherLable)
         self.backImageView.addSubview(self.courseLable)
         self.backImageView.addSubview(self.descLable)
-        
-//        self.splitImageView.snp.makeConstraints { (make) in
-//            make.left.equalTo(5)
-//            make.top.bottom.equalTo(0)
-//            make.width.equalTo(10)
-//        }
         
         self.line.snp.makeConstraints { (make) in
             make.left.equalTo(15)
@@ -140,9 +128,9 @@ class YJApplicationCourseCell:UITableViewCell{
             make.width.height.equalTo(80)
         }
         self.titleLable.snp.makeConstraints { (make) in
-            make.top.equalTo(5)
+            make.top.equalTo(15)
             make.left.equalTo(self.headImageView.snp.right).offset(10)
-            make.right.equalTo(self.backImageView).offset(15)
+//            make.right.equalTo(self.backImageView).offset(15)
         }
         self.cityLable.snp.makeConstraints { (make) in
             make.centerY.equalTo(self.titleLable)

@@ -61,12 +61,12 @@ class YJApplicationApplyFlow:UITableViewCell{
         
         cityLable = YJLable.getSimpleLabelActive(textColor: Color9, text: "全球18家城市创新院分布:北京、上海、广州、重庆、杭州、苏州、南京、厦门、成都、深圳、天津、合肥、昆明、大连、长沙、武汉、西安、硅谷、汇聚创新型精英,构建城市学习中心。", textAli: .left, textFont: 14)
         cityLable?.numberOfLines = 0
-        courseLable = YJLable.getSimpleLabelNoFrame(textColor: Colorf, text: "报课流程", textAli: .center, textFont: 14, numLines: 1)
+        courseLable = YJLable.getSimpleLabelNoFrame(textColor: Colorf, text: "报课流程", textAli: .center, textFont: 14,numLines: 1)
         courseLable?.backgroundColor = ColorNav
 //        courseLable?.cornerAll(radii: 5)
         courseFirstLable = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: "第一步: 报名并完成付费", textAli: .left , textFont: 14, numLines: 1)
         courseSecondLable = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: "第二步: 城市事业部部长为您线下辅导", textAli: .left, textFont: 14, numLines: 1)
-        coursePayLable = YJLable.getSimpleLabelNoFrame(textColor: Colorf, text: "支付流程", textAli: .center, textFont: 14, numLines: 1)
+        coursePayLable = YJLable.getSimpleLabelNoFrame(textColor: Colorf, text: "支付流程", textAli: .center, textFont: 14,numLines: 1)
         coursePayLable?.backgroundColor = ColorNav
 //        coursePayLable?.cornerAll(radii: 5)
         coursePayFirstLable = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: "课程: 全年免费策略、免费模式、免费系统大课", textAli: .left, textFont: 14, numLines: 1)
@@ -96,7 +96,10 @@ class YJApplicationApplyFlow:UITableViewCell{
             make.centerX.equalTo(self)
             make.top.equalTo((self.cityLable?.snp.bottom)!).offset(20)
             make.height.equalTo(20)
+            make.width.equalTo(100)
         }
+        self.courseLable?.layer.masksToBounds = true
+        self.courseLable?.layer.cornerRadius = 5
         self.courseFirstLable?.snp.makeConstraints { (make) in
             make.left.equalTo(20)
             make.right.equalTo(-20)
@@ -113,7 +116,10 @@ class YJApplicationApplyFlow:UITableViewCell{
             make.centerX.equalTo(self)
             make.top.equalTo((self.courseSecondLable?.snp.bottom)!).offset(10)
             make.height.equalTo(20)
+            make.width.equalTo(100)
         }
+        self.coursePayLable?.layer.masksToBounds = true
+        self.coursePayLable?.layer.cornerRadius = 5
         self.coursePayFirstLable?.snp.makeConstraints { (make) in
             make.left.equalTo(20)
             make.right.equalTo(-20)

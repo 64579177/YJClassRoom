@@ -41,22 +41,22 @@ class YJCourseDetailSecondCell: UITableViewCell {
     }()
     
     lazy var titleLable: UILabel = {
-        let titleLable = YJLable.getSimpleLabelNoFrame(textColor: .red, text: "依旧测试策略课", textAli: .left, textFont: 14, numLines: 1)
+        let titleLable = YJLable.getSimpleLabelNoFrame(textColor: .red, text: "", textAli: .left, textFont: 14, numLines: 1)
         return titleLable
     }()
     
     lazy var timeLable: UILabel = {
-        let timeLable = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: "2018-12-14~2018-12-16", textAli: .left, textFont: 14, numLines: 1)
+        let timeLable = YJLable.getSimpleLabelNoFrame(textColor: Color3, text: "", textAli: .left, textFont: 14, numLines: 1)
         return timeLable
     }()
     
     lazy var baomingNumLable: UILabel = {
-        let baomingNumLable = YJLable.getSimpleLabelNoFrame(textColor: ColorNav, text: "已报名0人", textAli: .left, textFont: 12, numLines: 1)
+        let baomingNumLable = YJLable.getSimpleLabelNoFrame(textColor: ColorNav, text: "", textAli: .left, textFont: 12, numLines: 1)
         return baomingNumLable
     }()
     
     lazy var locationLable: UILabel = {
-        let locationLable =  YJLable.getSimpleLabelNoFrame(textColor: Color3, text: "测试", textAli: .left, textFont: 14, numLines: 1)
+        let locationLable =  YJLable.getSimpleLabelNoFrame(textColor: Color3, text: "", textAli: .left, textFont: 14, numLines: 1)
         return locationLable
     }()
     
@@ -103,6 +103,7 @@ class YJCourseDetailSecondCell: UITableViewCell {
             self.endDetailLable.text = dataModel.info?.apply_end_time
         }
     }
+    
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -294,6 +295,13 @@ class YJCourseDetailThirdCell: UITableViewCell {
             self.headImgView.kf.setImage(with: URL(string: (dataModel.teacher?.photo)!), placeholder: UIImage(named: ""), options: nil, progressBlock: nil, completionHandler: nil)
             self.desclbl.text = (dataModel.teacher?.desc)!
             self.namelbl.text = (dataModel.teacher?.name)!
+        }
+    }
+    
+    var courseStyle:String = ""{
+        
+        didSet{
+            self.courseLable.text = courseStyle
         }
     }
     

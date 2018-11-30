@@ -15,6 +15,7 @@ class YJCourseDetailViewController: YJBaseViewController {
     
     var courseId : NSInteger = 0
     var height:CGFloat = 0
+    var courseType : String = ""
     
     lazy var changeWebView:WKWebView = {
         /// 自定义配置
@@ -317,6 +318,8 @@ extension YJCourseDetailViewController:UITableViewDelegate,UITableViewDataSource
             if let model = self.myDetailModel{
                 cell?.dataModel = model
             }
+            
+            cell?.courseStyle = self.courseType as String
             
             return cell!
         }else if indexPath.section == 3{
