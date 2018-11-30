@@ -266,6 +266,7 @@ extension YJCourseApplyInfoViewController:UITableViewDelegate,UITableViewDataSou
             self.navigationController?.pushViewController(pvc, animated: true)
         }else if indexPath.row == 3 {
             let pvc = YJSelectCompayListViewController()
+            pvc.selectKey = self.dataModel?.profile.company_id ?? 0
             pvc.selectCallBack = {
                 (dic:NSDictionary) in
 //                self.dataModel?.company_name = model.name

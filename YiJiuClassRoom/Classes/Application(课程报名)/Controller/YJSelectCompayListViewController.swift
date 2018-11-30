@@ -39,6 +39,7 @@ class YJSelectCompayListViewController: YJBaseViewController {
     var dataModel:YJSelectCompanyModel?
     var selectCallBack:((NSDictionary) -> Void)?
     var selectDic:NSDictionary?
+    var selectKey:NSNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,8 +93,6 @@ class YJSelectCompayListViewController: YJBaseViewController {
                     }
                     self.selectCallBack!(dic)
                 }
-//                self.dataModel = modelTemp
-//                self.myTableView.reloadData()
             }else{
                 Tool.showHUDWithText(text: "业务错误")
             }
@@ -157,6 +156,7 @@ extension YJSelectCompayListViewController:UITableViewDelegate,UITableViewDataSo
             cell = UITableViewCell(style: .default, reuseIdentifier: cellIdentifierString)
             cell?.selectionStyle = .none
         }
+        cell?.accessoryType = UITableViewCellAccessoryType.none
         cell?.textLabel?.textColor = Color3
         cell?.textLabel?.font = UIFont.systemFont(ofSize: 14)
         
@@ -165,6 +165,11 @@ extension YJSelectCompayListViewController:UITableViewDelegate,UITableViewDataSo
             let arr:NSArray = listDic.object(forKey: key) as! NSArray
             let dic = arr[indexPath.row] as? NSDictionary
             cell?.textLabel?.text = dic?["name"] as? String
+            
+            let strId = dic?["id"] as! NSNumber
+            if self.selectKey == strId {
+                cell?.accessoryType = UITableViewCellAccessoryType.checkmark
+            }
         }
 
         return cell!
@@ -221,6 +226,7 @@ extension YJSelectCompayListViewController:UITableViewDelegate,UITableViewDataSo
             let arr:NSArray = listDic.object(forKey: key) as! NSArray
             let dic = arr[indexPath.row] as? NSDictionary
             self.selectDic = dic
+            self.selectKey = dic?["id"] as! NSNumber
         }
     }
 }

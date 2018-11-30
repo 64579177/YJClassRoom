@@ -235,7 +235,7 @@ extension YJCourseApplyOrderViewController:UITableViewDelegate,UITableViewDataSo
             }else if indexPath.row == 1 {
                 
                 cell?.textLabel?.textColor = Color3
-                cell?.imageView?.image = UIImage.init(named: "my_name")
+                cell?.imageView?.image = UIImage.init(named: "icon_wei")
                 cell?.textLabel?.text = "微信支付"
                 
                 cell?.addSubview(self.wxPayImgView)
@@ -247,7 +247,7 @@ extension YJCourseApplyOrderViewController:UITableViewDelegate,UITableViewDataSo
             }else{
                 
                 cell?.textLabel?.textColor = Color3
-                cell?.imageView?.image = UIImage.init(named: "my_name")
+                cell?.imageView?.image = UIImage.init(named: "icon_zfb")
                 cell?.textLabel?.text = "支付宝支付"
                 
                 cell?.addSubview(self.aliPayImgView)
