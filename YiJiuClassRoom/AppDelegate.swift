@@ -11,7 +11,9 @@ import Reachability
 import IQKeyboardManagerSwift
 import MagiRefresh
 
-
+let WXAppID:String = "wx0f4e840cebc05236"
+let WXAppSecret:String  = "0a17521124eb9522a0269f6349a353a8"
+let WXPartnerID:String = ""
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
