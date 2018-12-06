@@ -117,7 +117,7 @@ extension AppDelegate {
 }
 
 
-//MARK:-微信
+//MARK:-支付
 extension AppDelegate:WXApiDelegate {
     
     func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
@@ -140,7 +140,7 @@ extension AppDelegate:WXApiDelegate {
         return true
     }
     
-    //  微信跳转回调
+    //  支付跳转回调
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         
         if url.host == "safepay" {

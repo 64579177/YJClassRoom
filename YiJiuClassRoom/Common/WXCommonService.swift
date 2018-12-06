@@ -23,13 +23,14 @@ class WXCommonService: NSObject {
 //            req.state = "com.yijiu.YiJiuClassRoom"
             WXApi.send(req)
         }else{
-            if #available(iOS 10.0, *) {
-//                UIApplication.shared.open(URL.init(string: "http://weixin.qq.com/r/qUQVDfDEVK0rrbRu9xG7")!, options: [:], completionHandler: nil)
-                WXApi.sendAuthReq(req, viewController: vc, delegate: delegate as? WXApiDelegate)
-            } else {
-                // Fallback on earlier versions
-                UIApplication.shared.openURL(URL.init(string: "http://weixin.qq.com/r/qUQVDfDEVK0rrbRu9xG7")!)
-            }
+            Tool.showHUDWithText(text: "未安装微信，无法使用微信登陆")
+//            if #available(iOS 10.0, *) {
+////                UIApplication.shared.open(URL.init(string: "http://weixin.qq.com/r/qUQVDfDEVK0rrbRu9xG7")!, options: [:], completionHandler: nil)
+//                WXApi.sendAuthReq(req, viewController: vc, delegate: delegate as? WXApiDelegate)
+//            } else {
+//                // Fallback on earlier versions
+//                UIApplication.shared.openURL(URL.init(string: "http://weixin.qq.com/r/qUQVDfDEVK0rrbRu9xG7")!)
+//            }
         }
     }
 }

@@ -20,7 +20,7 @@ public class AliPayUtils: NSObject {
         
         
         // 应用注册scheme,在AlixPayDemo-Info.plist定义URL types
-        let appScheme:String = "AliPayDemo"
+        let appScheme:String = "com.yijiu.class.bxs"
         
         AlipaySDK.defaultService().payOrder(decodedString, fromScheme: appScheme, callback: { (resp) in
             print(resp)

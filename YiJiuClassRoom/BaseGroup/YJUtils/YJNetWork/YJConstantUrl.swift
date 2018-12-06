@@ -53,8 +53,10 @@ struct ApplicationCommonUrl {
     static let appCourseSubmitApply:String = String(HostUrl.host + "course/submitapply")
     //获取订单信息
     static let appCourseCreateApplyOrder:String = String(HostUrl.host + "course/createApplyOrder")
-    //获取支付信息
+    //获取微信支付信息
     static let appCoursePayApply:String = String(HostUrl.host + "course/payApply")
+    //获取支付宝支付信息
+    static let appCourseAlLIPayApply:String = String(HostUrl.host + "alipay/alipay")
 }
 
 //个人资料

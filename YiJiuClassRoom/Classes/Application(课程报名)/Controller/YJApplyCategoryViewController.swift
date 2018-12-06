@@ -12,6 +12,7 @@ import Kingfisher
 class YJApplyCategoryViewController: YJBaseViewController {
     
     var courseId : NSInteger = 0
+    var type : NSNumber = 0
     
     lazy var myTableView: UITableView = {
         
@@ -144,6 +145,7 @@ extension YJApplyCategoryViewController:UITableViewDelegate,UITableViewDataSourc
         let pvc = YJCourseApplyInfoViewController()
         pvc.courseid = model.course_id
         pvc.course_cate_id = model.id
+        pvc.type = self.type
         self.navigationController?.pushViewController(pvc, animated: true)
     }
     

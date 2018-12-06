@@ -166,7 +166,7 @@ extension YJApplicationService{
         }
     }
     
-    //获取支付信息
+    //获取微信支付信息
  
     class func requsetApplyOrderPayInfo(orderNum:String,finish: @escaping (_ success: Bool,_ model: YJCoursePayMainModel?,_ errorMsg: String?) -> Void){
         
@@ -175,6 +175,18 @@ extension YJApplicationService{
         dict["openkey"] = Account.readUserInfo()?.openkey as AnyObject?
         dict["orderNum"] = orderNum as AnyObject?
         YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: dict) { (_ model: YJCoursePayMainModel?, response: YJNetWorkResponse) in
+            finish(response.isSuccess,model,response.responseMessage)
+        }
+    }
+    
+    //获取支付宝支付信息
+    class func requsetALIPayOrderPayInfo(orderNum:String,finish: @escaping (_ success: Bool,_ model: YJCourseALIPayMainModel?,_ errorMsg: String?) -> Void){
+        
+        let requestUrl : String = ApplicationCommonUrl.appCourseAlLIPayApply
+        var dict = [String : AnyObject]()
+//        dict["openkey"] = Account.readUserInfo()?.openkey as AnyObject?
+        dict["orderNum"] = orderNum as AnyObject?
+        YJNetWorkTool.RequestWithURL(url: requestUrl, method: .get, parameter: dict) { (_ model: YJCourseALIPayMainModel?, response: YJNetWorkResponse) in
             finish(response.isSuccess,model,response.responseMessage)
         }
     }

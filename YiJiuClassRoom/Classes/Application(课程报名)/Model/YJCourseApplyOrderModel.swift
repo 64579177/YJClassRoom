@@ -60,3 +60,14 @@ class YJCoursePayUnifiedorderModel: EVObject {
     var timeStamp:NSNumber = 0 //时间戳
     var paySign:String = "" //签名
 }
+
+
+//阿里支付订单类
+class YJCourseALIPayMainModel: EVObject {
+    
+    
+    var code: Int = 0
+    var msg:String?
+    var time:TimeInterval?
+    var data:String?
+}

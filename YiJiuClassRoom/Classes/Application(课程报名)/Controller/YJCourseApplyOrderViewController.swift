@@ -164,12 +164,52 @@ class YJCourseApplyOrderViewController: YJBaseViewController {
             self.getWXOrderPayInfo()
         }else if self.payStyle == .ALIPay{
             //支付宝支付
-            Tool.showHUDWithText(text: "支付宝支付")
+//            Tool.showHUDWithText(text: "支付宝支付")
+            self.getALIPayInfo()
         }
+    }
+    
+    func getALIPayInfo(){
+        
+        guard YJNetStatus.isValaiable else {
+            return
+        }
+        Tool.showLoadingOnView(view: self.view)
+        
+        YJApplicationService.requsetALIPayOrderPayInfo(orderNum:self.orderApplyModel.payorder_info.ordernum){(isSuccess, model, errorStr) in
+            Tool.hideLodingOnView(view: self.view)
+            
+            guard isSuccess  else{
+                return
+            }
+            
+            if model?.code == 200 {
+                guard let signString = model?.data else{
+                    return
+                }
+                
+                let alipayUtils = AliPayUtils.init(context: self)
+                AliSdkManager.aliSdkManager.orderPayController = self
+                alipayUtils.pay(sign: signString)
+                
+            }else{
+                Tool.showHUDWithText(text: model?.msg)
+            }
+        }
+        
+       
     }
     
     func paySuccess(paymentType:PaymentType,paymentResult:PaymentResult){
         
+        if paymentResult == PaymentResult.SUCCESS {
+            self.navigationController?.viewControllers.forEach({ (vc) in
+                if vc.isKind(of: YJCourseDetailViewController.self){
+                    self.navigationController?.popToViewController(vc, animated: true)
+                }
+            })
+            
+        }
         
     }
 }

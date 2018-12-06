@@ -244,10 +244,10 @@ class YJCourseDetailSecondCell: UITableViewCell {
             make.height.equalTo(0.5)
         }
         self.endTimeImageView.snp.makeConstraints { (make) in
-            make.top.equalTo(line5).offset(10)
+            make.top.equalTo(line5).offset(12)
             make.left.equalTo(15)
             make.width.height.equalTo(15)
-            make.bottom.equalTo(self).offset(-10)
+            make.bottom.equalTo(self).offset(-12)
         }
         self.endLable.snp.makeConstraints { (make) in
             make.left.equalTo(self.endTimeImageView.snp.right).offset(10)

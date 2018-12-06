@@ -71,6 +71,12 @@ class YJCourseDetailViewController: YJBaseViewController {
         self.title = "课程详情"
         
         self.initUI()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         self.getDetailnfo()
     }
     
@@ -165,6 +171,7 @@ class YJCourseDetailViewController: YJBaseViewController {
                 //去报名类别页面
                 let pvc = YJApplyCategoryViewController()
                 pvc.courseId = self.courseId
+                pvc.type = self.myDetailModel?.info?.type ?? 0
                 self.navigationController?.pushViewController(pvc, animated: true)
             }else if self.myDetailModel?.apply_status == 2 {
                 

@@ -62,6 +62,8 @@ class YJCourseApplyInfoViewController: YJBaseViewController {
     var course_cate_id:NSNumber?
     var apply_id:String?
     
+    var type : NSNumber = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,12 +86,7 @@ class YJCourseApplyInfoViewController: YJBaseViewController {
             make.top.left.bottom.right.equalTo(self.view)
         }
         
-        let submitBtn = UIButton.createBtn(title: "提交", bgColor: ColorNav, font: 14.0, ali: .center, textColor: .white)
-        submitBtn.frame = CGRect(x:15,y:330,width:KSW-30,height:50)
-        submitBtn.cornerAll(radii: 5)
-        submitBtn.addTarget(self, action: #selector(submitClick), for: .touchUpInside)
         
-        self.view.addSubview(submitBtn)
         
     }
     
@@ -122,7 +119,7 @@ class YJCourseApplyInfoViewController: YJBaseViewController {
                 pvc.applyId = self.apply_id ?? ""
                 self.navigationController?.pushViewController(pvc, animated: true)
             }else{
-                Tool.showHUDWithText(text: "请先去微信小程序完善信息!")
+                Tool.showHUDWithText(text: model?.msg)
             }
         }
     }
@@ -160,6 +157,9 @@ extension YJCourseApplyInfoViewController:UITableViewDelegate,UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.type == 7 {
+            return 5
+        }
         return 6
     }
     
@@ -207,24 +207,50 @@ extension YJCourseApplyInfoViewController:UITableViewDelegate,UITableViewDataSou
             }
             cell?.accessoryType = UITableViewCellAccessoryType(rawValue: Int(UIAccessibilityTraitButton))!
         }else if indexPath.row == 3 {
-            cell?.textLabel?.text = "选择事业部"
-            self.shiyebulbl.text = self.dataModel?.company_name
-            cell?.addSubview(self.shiyebulbl)
-            self.shiyebulbl.snp.makeConstraints { (make) in
-                make.right.equalTo(-35)
-                make.height.equalTo(20)
-                make.centerY.equalTo(cell!)
+            
+            if self.type == 7 {
+                cell?.textLabel?.text = "公司名称"
+                self.companylbl.text = self.dataModel?.profile.company
+                cell?.addSubview(self.companylbl)
+                self.companylbl.snp.makeConstraints { (make) in
+                    make.left.equalTo(100)
+                    make.height.equalTo(20)
+                    make.centerY.equalTo(cell!)
+                }
+            }else{
+                cell?.textLabel?.text = "选择事业部"
+                self.shiyebulbl.text = self.dataModel?.company_name
+                cell?.addSubview(self.shiyebulbl)
+                self.shiyebulbl.snp.makeConstraints { (make) in
+                    make.right.equalTo(-35)
+                    make.height.equalTo(20)
+                    make.centerY.equalTo(cell!)
+                }
+                cell?.accessoryType = UITableViewCellAccessoryType(rawValue: Int(UIAccessibilityTraitButton))!
             }
-            cell?.accessoryType = UITableViewCellAccessoryType(rawValue: Int(UIAccessibilityTraitButton))!
         }else if indexPath.row == 4 {
-            cell?.textLabel?.text = "公司名称"
-            self.companylbl.text = self.dataModel?.profile.company
-            cell?.addSubview(self.companylbl)
-            self.companylbl.snp.makeConstraints { (make) in
-                make.left.equalTo(100)
-                make.height.equalTo(20)
-                make.centerY.equalTo(cell!)
+            if self.type  == 7 {
+                cell?.textLabel?.text = "推荐人名"
+                cell?.addSubview(self.textField)
+                self.textField.text = self.dataModel?.profile.recommend_name
+                self.textField.snp.makeConstraints { (make) in
+                    make.left.equalTo(100)
+                    make.right.equalTo(-45)
+                    make.height.equalTo(20)
+                    make.centerY.equalTo(cell!)
+                }
+            }else{
+                cell?.textLabel?.text = "公司名称"
+                self.companylbl.text = self.dataModel?.profile.company
+                cell?.addSubview(self.companylbl)
+                self.companylbl.snp.makeConstraints { (make) in
+                    make.left.equalTo(100)
+                    make.height.equalTo(20)
+                    make.centerY.equalTo(cell!)
+                }
             }
+            
+            
         }else if indexPath.row == 5 {
             cell?.textLabel?.text = "推荐人名"
             cell?.addSubview(self.textField)
@@ -249,11 +275,20 @@ extension YJCourseApplyInfoViewController:UITableViewDelegate,UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.001
+        return 80
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView()
+        
+        let view = UIView()
+        
+        let submitBtn = UIButton.createBtn(title: "提交", bgColor: ColorNav, font: 14.0, ali: .center, textColor: .white)
+        submitBtn.frame = CGRect(x:15,y:15,width:KSW-30,height:50)
+        submitBtn.cornerAll(radii: 5)
+        submitBtn.addTarget(self, action: #selector(submitClick), for: .touchUpInside)
+        
+        view.addSubview(submitBtn)
+        return view
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

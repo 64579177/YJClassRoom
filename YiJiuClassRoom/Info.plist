@@ -35,12 +35,17 @@
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
 			<string>alipay</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.yijiu.class.bxs</string>
+			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>alipay</string>
 		<string>weixin</string>
 		<string>wechat</string>
 	</array>

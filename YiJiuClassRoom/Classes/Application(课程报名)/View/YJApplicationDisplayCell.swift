@@ -113,7 +113,7 @@ class YJApplicationSecondCell:UITableViewCell{
         
         let view2 = UIView(frame: CGRect.zero)//(x:KSW/3,y:0,width:KSW/3,height:70)
         let btn2 = UIButton()
-        btn2.set(normalImage: UIImage(named:"free_2"), selectedImage: UIImage(named:"free_2"), title: "免费模式课", titlePosition: .bottom, additionalSpacing: 10)
+        btn2.set(normalImage: UIImage(named:"free_2"), selectedImage: UIImage(named:"free_2"), title: "模式系统课", titlePosition: .bottom, additionalSpacing: 10)
         btn2.tag = 10002
         btn2.titleLabel?.font = UIFont.systemFont(ofSize: 10)
         btn2.setTitleColor(Color3, for: .normal)
@@ -126,7 +126,7 @@ class YJApplicationSecondCell:UITableViewCell{
         
         let view3 = UIView(frame: CGRect.zero)//(x:KSW*2/3,y:0,width:KSW/3,height:70)
         let btn3 = UIButton()
-        btn3.set(normalImage: UIImage(named:"free_3"), selectedImage: UIImage(named:"free_3"), title: "免费系统课", titlePosition: .bottom, additionalSpacing: 10)
+        btn3.set(normalImage: UIImage(named:"free_3"), selectedImage: UIImage(named:"free_3"), title: "运营及其他", titlePosition: .bottom, additionalSpacing: 10)
         btn3.tag = 10003
         btn3.titleLabel?.font = UIFont.systemFont(ofSize: 10)
         btn3.setTitleColor(Color3, for: .normal)
