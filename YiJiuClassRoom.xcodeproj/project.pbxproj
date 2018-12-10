@@ -10,6 +10,7 @@
 		1913385658DB7C90098FFE43 /* Pods_YiJiuClassRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B677A02858C80FB81B240F /* Pods_YiJiuClassRoom.framework */; };
 		451E10CD21AFB8CC002305A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 451E10CC21AFB8CC002305A4 /* Images.xcassets */; };
 		452086A321B65FA2004743C1 /* YJBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452086A221B65FA1004743C1 /* YJBaseTableViewCell.swift */; };
+		452086A521B8C672004743C1 /* YJWetChatShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452086A421B8C672004743C1 /* YJWetChatShareView.swift */; };
 		45AE621921B0E23E00BD3177 /* AliSdkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE621821B0E23E00BD3177 /* AliSdkManager.swift */; };
 		45AE621B21B0E27B00BD3177 /* AliPayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE621A21B0E27B00BD3177 /* AliPayUtils.swift */; };
 		712F03BE21A53B7400154A51 /* YJCourseApplyOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712F03BD21A53B7400154A51 /* YJCourseApplyOrderViewController.swift */; };
@@ -83,6 +84,7 @@
 /* Begin PBXFileReference section */
 		451E10CC21AFB8CC002305A4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		452086A221B65FA1004743C1 /* YJBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJBaseTableViewCell.swift; sourceTree = "<group>"; };
+		452086A421B8C672004743C1 /* YJWetChatShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJWetChatShareView.swift; sourceTree = "<group>"; };
 		45AE621821B0E23E00BD3177 /* AliSdkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliSdkManager.swift; sourceTree = "<group>"; };
 		45AE621A21B0E27B00BD3177 /* AliPayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliPayUtils.swift; sourceTree = "<group>"; };
 		712F03BD21A53B7400154A51 /* YJCourseApplyOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCourseApplyOrderViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				716CA12C21A2CF9B00525295 /* YJUploadImageSingleViewController.swift */,
 				45AE621821B0E23E00BD3177 /* AliSdkManager.swift */,
 				45AE621A21B0E27B00BD3177 /* AliPayUtils.swift */,
+				452086A421B8C672004743C1 /* YJWetChatShareView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				452086A521B8C672004743C1 /* YJWetChatShareView.swift in Sources */,
 				715F78C1219D085A00F6C822 /* YJFreeStrategyCourse.swift in Sources */,
 				71A49DD7219ED4D300CAB42A /* PrintOptions.swift in Sources */,
 				71A49DA7219ED21500CAB42A /* SlideshowDisplayer.swift in Sources */,

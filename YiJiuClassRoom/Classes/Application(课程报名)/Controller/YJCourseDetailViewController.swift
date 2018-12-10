@@ -81,6 +81,12 @@ class YJCourseDetailViewController: YJBaseViewController {
     }
     
     func initUI(){
+        
+        let item=UIBarButtonItem(title: "分享", style: UIBarButtonItemStyle.plain, target: self, action: #selector(shareClick))
+        
+        self.navigationItem.rightBarButtonItem=item
+        self.navigationItem.rightBarButtonItem?.tintColor = .white
+        
         self.view.addSubview(self.myTableView)
         self.myTableView.snp.makeConstraints { (make) in
             make.top.left.right.equalTo(self.view)
@@ -258,6 +264,22 @@ class YJCourseDetailViewController: YJBaseViewController {
                 Tool.showHUDWithText(text: model?.msg)
             }
         }
+    }
+    
+    //分享弹窗
+    @objc func shareClick(){
+        
+        let pvc = YJWetChatShareView()
+        //        self.definesPresentationContext = YES;
+        pvc.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        pvc.shareTitleStr = self.myDetailModel?.info?.title ?? ""
+        pvc.shareImgStr = self.myDetailModel?.info?.shareimg ?? ""
+        //        pvc.modalPresentationStyle = UIModalPresentationStyle.currentContext
+        
+        self.navigationController?.present(pvc, animated: true, completion: {
+            
+            //完成以后的操作
+        })
     }
     
 }
